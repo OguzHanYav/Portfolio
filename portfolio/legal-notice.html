@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body class="legal-page">
+<body class="legal-page" data-page="legal" data-title-en="Legal Notice | Claudia Fohrer"
+    data-title-de="Impressum | Claudia Fohrer">
     <div class="site-frame legal-frame">
         <header class="mobile-header legal-mobile-header">
             <a href="./index.html" class="brand-logo brand-logo-mobile" aria-label="Claudia Fohrer developer">
@@ -32,13 +33,13 @@
 
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="./index.html#why-me" class="mobile-link">Why me</a>
-                <a href="./index.html#skills" class="mobile-link">Skills</a>
-                <a href="./index.html#projects" class="mobile-link">Projects</a>
-                <a href="./index.html#contact" class="mobile-link">Contact</a>
+                <a href="./index.html#why-me" class="mobile-link" data-i18n="nav.whyMe">Why me</a>
+                <a href="./index.html#skills" class="mobile-link" data-i18n="nav.skills">Skills</a>
+                <a href="./index.html#projects" class="mobile-link" data-i18n="nav.projects">Projects</a>
+                <a href="./index.html#contact" class="mobile-link" data-i18n="nav.contact">Contact</a>
                 <div class="mobile-lang">
-                    <button type="button" class="lang-btn active">DE</button>
-                    <button type="button" class="lang-btn">EN</button>
+                    <button type="button" class="lang-btn" data-lang="de">DE</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
                 </div>
             </nav>
         </div>
@@ -46,7 +47,7 @@
         <header class="nav-strip legal-nav">
             <div class="section-shell nav-strip-inner">
                 <a href="./index.html" class="brand-logo" aria-label="Claudia Fohrer developer">
-                    <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" aria-hidden="true" />
+                    <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
                     <span class="brand-copy">
                         <span class="brand-name">C.Fohrer</span>
                         <span class="brand-role">developer</span>
@@ -54,41 +55,41 @@
                 </a>
 
                 <nav class="desktop-nav">
-                    <a href="./index.html#why-me">Why me</a>
-                    <a href="./index.html#skills">Skills</a>
-                    <a href="./index.html#projects">Projects</a>
-                    <a href="./index.html#contact">Contact</a>
+                    <a href="./index.html#why-me" data-i18n="nav.whyMe">Why me</a>
+                    <a href="./index.html#skills" data-i18n="nav.skills">Skills</a>
+                    <a href="./index.html#projects" data-i18n="nav.projects">Projects</a>
+                    <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
                 </nav>
 
                 <div class="lang-switch">
-                    <button type="button" class="lang-btn active">DE</button>
-                    <button type="button" class="lang-btn">EN</button>
+                    <button type="button" class="lang-btn" data-lang="de">DE</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
                 </div>
             </div>
         </header>
 
         <main class="legal-main">
             <div class="legal-content">
-                <a href="./index.html" class="legal-back">←</a>
-                <h1 class="section-title legal-title">Legal Notice</h1>
+                <a href="./index.html" class="legal-back" aria-label="Back to portfolio" data-i18n-aria-label="legal.backToPortfolio">←</a>
+                <h1 class="section-title legal-title" data-i18n="legal.title">Legal Notice</h1>
 
                 <section class="legal-block">
-                    <h2>Imprint</h2>
+                    <h2 data-i18n="legal.imprintTitle">Imprint</h2>
                     <ul>
-                        <li>[Student Name List]</li>
-                        <li>[Address of the JOIN operator - eg one of the students]</li>
-                        <li>[Postcode and city]</li>
+                        <li data-i18n="legal.imprintItem1">[Student Name List]</li>
+                        <li data-i18n="legal.imprintItem2">[Address of the JOIN operator - eg one of the students]</li>
+                        <li data-i18n="legal.imprintItem3">[Postcode and city]</li>
                     </ul>
                 </section>
 
                 <section class="legal-block">
-                    <h2>Exploring the Board</h2>
-                    <p>Email: [Email]</p>
+                    <h2 data-i18n="legal.boardTitle">Exploring the Board</h2>
+                    <p data-i18n="legal.boardEmail">Email: [Email]</p>
                 </section>
 
                 <section class="legal-block">
-                    <h2>Acceptance of terms</h2>
-                    <p>
+                    <h2 data-i18n="legal.acceptanceTitle">Acceptance of terms</h2>
+                    <p data-i18n="legal.acceptanceText">
                         By accessing and using this Portfolio [Product], you acknowledge and agree
                         to the following terms and conditions, and any policies, guidelines, or
                         amendments thereto that may be presented to you from time to time. We, the
@@ -97,22 +98,22 @@
                 </section>
 
                 <section class="legal-block">
-                    <h2>Scope and ownership of the product</h2>
-                    <p>
+                    <h2 data-i18n="legal.scopeTitle">Scope and ownership of the product</h2>
+                    <p data-i18n="legal.scopeText1">
                         Portfolio has been developed as part of a student group project in a web development bootcamp
                         at the Developer Akademie GmbH. It has an educational purpose and is not intended
                         for extensive personal or business usage. As such, we cannot guarantee consistent availability,
                         reliability, accuracy, or any other aspect of quality regarding this Product.
                     </p>
-                    <p>
+                    <p data-i18n="legal.scopeText2">
                         The design of Portfolio is used by the Developer Akademie GmbH. Unauthorised reproduction,
                         modification, distribution, or replication of the design is strictly prohibited.
                     </p>
                 </section>
 
                 <section class="legal-block">
-                    <h2>Proprietary rights</h2>
-                    <p>
+                    <h2 data-i18n="legal.rightsTitle">Proprietary rights</h2>
+                    <p data-i18n="legal.rightsText">
                         Aside from the design owned by the Developer Akademie GmbH, we, the listed students,
                         retain all proprietary rights in Portfolio, including any associated copyrighted material,
                         trademarks, and other proprietary information.
@@ -120,8 +121,8 @@
                 </section>
 
                 <section class="legal-block">
-                    <h2>Use of the product</h2>
-                    <p>
+                    <h2 data-i18n="legal.useTitle">Use of the product</h2>
+                    <p data-i18n="legal.useText">
                         Portfolio is intended to be used for lawful purposes only, in accordance with all applicable laws
                         and regulations. Any use of Portfolio for illegal activities, or to harass, harm, threaten,
                         or intimidate another person, is strictly prohibited. You are solely responsible for your
@@ -130,8 +131,8 @@
                 </section>
 
                 <section class="legal-block">
-                    <h2>Disclaimer of warranties and limitation of liability</h2>
-                    <p>
+                    <h2 data-i18n="legal.disclaimerTitle">Disclaimer of warranties and limitation of liability</h2>
+                    <p data-i18n="legal.disclaimerText">
                         Portfolio is provided "as is" without warranty of any kind, whether express or implied,
                         including but not limited to the implied warranties of merchantability, fitness for a
                         particular purpose, and non-infringement. In no event will we, the listed students, or the
@@ -143,15 +144,15 @@
                 </section>
 
                 <section class="legal-block">
-                    <h2>Indemnity</h2>
-                    <p>
+                    <h2 data-i18n="legal.indemnityTitle">Indemnity</h2>
+                    <p data-i18n="legal.indemnityText">
                         You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie,
                         and our affiliates, partners, officers, directors, agents, and employees, from and against any
                         claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or
                         relating to your use of Portfolio and/or your breach of this Legal Notice.
                     </p>
-                    <p>For any questions or notices, please contact us at [Contact Email]</p>
-                    <p>Date: July 26, 2025</p>
+                    <p data-i18n="legal.contactText">For any questions or notices, please contact us at [Contact Email]</p>
+                    <p data-i18n="legal.dateText">Date: July 26, 2025</p>
                 </section>
             </div>
         </main>
@@ -159,12 +160,12 @@
         <footer class="site-footer">
             <div class="section-shell footer-inner">
                 <div class="footer-copy">
-                    <a href="./legal-notice.html">Legal notice</a>
+                    <a href="./legal-notice.html" data-i18n="footer.legalNotice">Legal notice</a>
                     <p>© Claudia Fohrer 2024</p>
                 </div>
 
                 <a href="./index.html" class="brand-logo footer-logo" aria-label="Claudia Fohrer developer">
-                    <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" aria-hidden="true" />
+                    <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
                     <span class="brand-copy">
                         <span class="brand-name">C.Fohrer</span>
                         <span class="brand-role">developer</span>
@@ -172,26 +173,14 @@
                 </a>
 
                 <div class="footer-socials">
-                    <a href="#" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.44v-1.73c-2.49.54-3.01-1.2-3.01-1.2-.41-1.04-.99-1.31-.99-1.31-.8-.55.06-.54.06-.54.89.06 1.35.91 1.35.91.78 1.35 2.06.96 2.56.74.08-.57.31-.96.56-1.18-1.99-.23-4.08-1-4.08-4.43 0-.98.35-1.77.91-2.39-.09-.22-.4-1.14.09-2.37 0 0 .75-.24 2.46.91A8.56 8.56 0 0 1 12 7.8c.76 0 1.52.1 2.23.3 1.71-1.15 2.46-.91 2.46-.91.49 1.23.18 2.15.09 2.37.57.62.91 1.41.91 2.39 0 3.44-2.09 4.2-4.09 4.43.32.28.6.84.6 1.69v2.5c0 .24.16.52.62.43A9 9 0 0 0 12 3Z" />
-                        </svg>
-                    </a>
                     <a href="#" aria-label="Email">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="4" y="6" width="16" height="12" rx="3" />
-                            <path d="m6.5 8.5 5.5 4 5.5-4" />
-                        </svg>
+                        <img src="./assets/img/Email button.svg" alt="" class="social-icon" aria-hidden="true" />
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <img src="./assets/img/github.svg" alt="" class="social-icon" aria-hidden="true" />
                     </a>
                     <a href="#" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="7" cy="8" r="1.5" />
-                            <path d="M5.5 10.5v7" />
-                            <path d="M9.5 10.5v7" />
-                            <path d="M9.5 13.5c0-1.8 3-2 3 0v4" />
-                            <rect x="4" y="4" width="16" height="16" rx="5" />
-                        </svg>
+                        <img src="./assets/img/in.svg" alt="" class="social-icon" aria-hidden="true" />
                     </a>
                 </div>
             </div>

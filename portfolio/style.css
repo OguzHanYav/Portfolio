@@ -83,6 +83,7 @@ button {
     letter-spacing: 0.01em;
     color: var(--accent);
     text-align: center;
+    margin-bottom: 80px;
 }
 
 .primary-btn,
@@ -125,8 +126,8 @@ button {
 }
 
 .brand-icon {
-    width: 38px;
-    height: 24px;
+    width: 56px;
+    height: 38px;
     display: block;
     object-fit: contain;
 }
@@ -136,16 +137,21 @@ button {
     flex-direction: column;
     gap: 1px;
     line-height: 1;
+    text-align: center;
 }
 
 .brand-name {
-    font-size: 0.94rem;
+    font-size: 20px;
     letter-spacing: 0.03em;
+    color: #F8F5EC;
+    font-weight: 400;
+    font-family: 'Anta';
 }
 
 .brand-role {
-    font-size: 0.72rem;
+    font-size: 16px;
     letter-spacing: 0.03em;
+    font-weight: 300;
 }
 
 .mobile-header,
@@ -176,6 +182,24 @@ button {
     flex: 0 0 760px;
     min-height: 760px;
     width: 760px;
+    isolation: isolate;
+}
+
+.hero-image-wrap::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    bottom: 0;
+    width: 770px;
+    height: 770px;
+    background: rgba(108, 135, 153, 0.82);
+    -webkit-mask: url("./assets/img/shape-profile.png") center / contain no-repeat;
+    mask: url("./assets/img/shape-profile.png") center / contain no-repeat;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    transform: scale(1);
+    transform-origin: center center;
 }
 
 .hero-shape {
@@ -185,7 +209,18 @@ button {
     width: 770px;
     max-width: none;
     height: auto;
-    z-index: 0;
+    z-index: 1;
+    transform-origin: center center;
+    transform: rotate(0deg);
+    transition: none;
+}
+
+.hero-image-wrap:hover::before {
+    animation: hero-shape-ghost 8s ease-out forwards;
+}
+
+.hero-image-wrap:hover .hero-shape {
+    transform: rotate(-45deg);
 }
 
 .hero-image {
@@ -195,7 +230,24 @@ button {
     width: 570px;
     max-width: none;
     object-fit: contain;
-    z-index: 1;
+    z-index: 2;
+}
+
+@keyframes hero-shape-ghost {
+    0% {
+        opacity: 0.92;
+        transform: scale(1);
+    }
+
+    94% {
+        opacity: 0.84;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
 }
 
 .hero-info {
@@ -238,7 +290,7 @@ button {
 
 #hero-name {
     font-family: var(--font-display);
-    font-size: clamp(4.9rem, 5.6vw, 6.3rem);
+    font-size: 88px;
     font-weight: 400;
     line-height: 0.98;
     letter-spacing: -0.05em;
@@ -256,21 +308,17 @@ button {
 
 .scroll-down,
 .scroll-up {
-    width: 40px;
-    height: 76px;
     margin-top: 164px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
-    font-size: 1.55rem;
 }
 
-.scroll-down span,
-.scroll-up span {
-    transform: translateY(-1px);
+.arrow-icon {
+    width: 38px;
+    height: 89px;
+    display: block;
+    object-fit: contain;
 }
 
 .hero-socials {
@@ -285,31 +333,18 @@ button {
 
 .hero-socials a,
 .footer-socials a {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid rgba(145, 196, 230, 0.75);
+    width: 30px;
+    height: 30px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
 }
 
-.hero-socials svg,
-.footer-socials svg {
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.hero-socials svg path:first-child:only-child,
-.footer-socials svg path:first-child:only-child {
-    fill: currentColor;
-    stroke: none;
+.social-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    object-fit: contain;
 }
 
 .nav-strip {
@@ -334,7 +369,7 @@ button {
     display: flex;
     justify-content: center;
     gap: 108px;
-    font-size: 1.18rem;
+    font-size: 28px;
 }
 
 .lang-switch {
@@ -357,13 +392,13 @@ button {
 .why-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 118px;
+    gap: 80px;
     align-items: start;
 }
 
 .why-grid .section-title {
     grid-column: 1 / -1;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .why-location {
@@ -422,7 +457,7 @@ button {
 #contact {
     display: flex;
     align-items: center;
-    padding: 42px 0 54px;
+    padding: 134px 0 54px;
 }
 
 #skills>.section-shell,

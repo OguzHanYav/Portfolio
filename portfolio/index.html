@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body class="portfolio-page" id="top">
+<body class="portfolio-page" id="top" data-page="portfolio" data-title-en="Oguz Han Yavuz | Frontend Developer"
+    data-title-de="Oguz Han Yavuz | Frontend Entwickler">
     <div class="site-frame">
         <header class="mobile-header">
             <a href="#top" class="brand-logo brand-logo-mobile" aria-label="Oguz Han Yavuz developer">
@@ -32,13 +33,13 @@
 
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="#why-me" class="mobile-link">Why me</a>
-                <a href="#skills" class="mobile-link">Skills</a>
-                <a href="#projects" class="mobile-link">Projects</a>
-                <a href="#contact" class="mobile-link">Contact</a>
+                <a href="#why-me" class="mobile-link" data-i18n="nav.whyMe">Why me</a>
+                <a href="#skills" class="mobile-link" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" class="mobile-link" data-i18n="nav.projects">Projects</a>
+                <a href="#contact" class="mobile-link" data-i18n="nav.contact">Contact</a>
                 <div class="mobile-lang">
-                    <button type="button" class="lang-btn active">DE</button>
-                    <button type="button" class="lang-btn">EN</button>
+                    <button type="button" class="lang-btn" data-lang="de">DE</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
                 </div>
             </nav>
         </div>
@@ -62,36 +63,26 @@
                             </div>
 
                             <aside class="hero-socials" aria-label="Social links">
-                                <a href="#" aria-label="GitHub">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path
-                                            d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.44v-1.73c-2.49.54-3.01-1.2-3.01-1.2-.41-1.04-.99-1.31-.99-1.31-.8-.55.06-.54.06-.54.89.06 1.35.91 1.35.91.78 1.35 2.06.96 2.56.74.08-.57.31-.96.56-1.18-1.99-.23-4.08-1-4.08-4.43 0-.98.35-1.77.91-2.39-.09-.22-.4-1.14.09-2.37 0 0 .75-.24 2.46.91A8.56 8.56 0 0 1 12 7.8c.76 0 1.52.1 2.23.3 1.71-1.15 2.46-.91 2.46-.91.49 1.23.18 2.15.09 2.37.57.62.91 1.41.91 2.39 0 3.44-2.09 4.2-4.09 4.43.32.28.6.84.6 1.69v2.5c0 .24.16.52.62.43A9 9 0 0 0 12 3Z" />
-                                    </svg>
-                                </a>
                                 <a href="#" aria-label="Email">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <rect x="4" y="6" width="16" height="12" rx="3" />
-                                        <path d="m6.5 8.5 5.5 4 5.5-4" />
-                                    </svg>
+                                    <img src="./assets/img/Email button.svg" alt="" class="social-icon"
+                                        aria-hidden="true" />
+                                </a>
+                                <a href="#" aria-label="GitHub">
+                                    <img src="./assets/img/github.svg" alt="" class="social-icon" aria-hidden="true" />
                                 </a>
                                 <a href="#" aria-label="LinkedIn">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <circle cx="7" cy="8" r="1.5" />
-                                        <path d="M5.5 10.5v7" />
-                                        <path d="M9.5 10.5v7" />
-                                        <path d="M9.5 13.5c0-1.8 3-2 3 0v4" />
-                                        <rect x="4" y="4" width="16" height="16" rx="5" />
-                                    </svg>
+                                    <img src="./assets/img/in.svg" alt="" class="social-icon" aria-hidden="true" />
                                 </a>
                             </aside>
                         </div>
 
                         <div class="hero-copy">
                             <h1 id="hero-name">Oguz Han Yavuz</h1>
-                            <p id="hero-role">FRONTEND DEVELOPER</p>
+                            <p id="hero-role" data-i18n="hero.role">FRONTEND DEVELOPER</p>
 
-                            <a href="#why-me" class="scroll-down" aria-label="Scroll down">
-                                <span>↓</span>
+                            <a href="#why-me" class="scroll-down" aria-label="Scroll down"
+                                data-i18n-aria-label="hero.scrollDown">
+                                <img src="./assets/img/Arrow down.svg" alt="" class="arrow-icon" aria-hidden="true" />
                             </a>
                         </div>
                     </div>
@@ -101,7 +92,7 @@
             <div class="nav-strip">
                 <div class="section-shell nav-strip-inner">
                     <a href="#top" class="brand-logo" aria-label="Oguz Han Yavuz developer">
-                        <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" aria-hidden="true" />
+                        <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
                         <span class="brand-copy">
                             <span class="brand-name">O.Yavuz</span>
                             <span class="brand-role">developer</span>
@@ -109,22 +100,22 @@
                     </a>
 
                     <nav class="desktop-nav">
-                        <a href="#why-me">Why me</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
+                        <a href="#why-me" data-i18n="nav.whyMe">Why me</a>
+                        <a href="#skills" data-i18n="nav.skills">Skills</a>
+                        <a href="#projects" data-i18n="nav.projects">Projects</a>
+                        <a href="#contact" data-i18n="nav.contact">Contact</a>
                     </nav>
 
                     <div class="lang-switch">
-                        <button type="button" class="lang-btn active">DE</button>
-                        <button type="button" class="lang-btn">EN</button>
+                        <button type="button" class="lang-btn" data-lang="de">DE</button>
+                        <button type="button" class="lang-btn" data-lang="en">EN</button>
                     </div>
                 </div>
             </div>
 
             <section id="why-me" class="content-section">
                 <div class="section-shell why-grid">
-                    <h2 class="section-title">Why me</h2>
+                    <h2 class="section-title" data-i18n="why.title">Why me</h2>
 
                     <div class="why-location">
                         <div class="location-badge">
@@ -134,38 +125,39 @@
                                 <circle cx="12" cy="11" r="1.8" />
                             </svg>
                         </div>
-                        <p>I am located in Munich.</p>
+                        <p data-i18n="why.location">I am located in Munich.</p>
                     </div>
 
                     <div class="why-copy">
-                        <p>
+                        <p data-i18n="why.copy">
                             Why are you passionate about coding? You can include some key traits like
                             analytical thinking, creativity, persistence and collaboration.
                             A problem-solving mindset is always nice to have.
                         </p>
-                        <a href="#contact" class="outline-btn">Let's talk</a>
+                        <a href="#contact" class="outline-btn" data-i18n="shared.letsTalk">Let's talk</a>
                     </div>
                 </div>
             </section>
 
             <section id="skills" class="content-section full-screen-section">
                 <div class="section-shell">
-                    <h2 class="section-title">My Skills</h2>
+                    <h2 class="section-title" data-i18n="skills.title">My Skills</h2>
 
                     <div class="skills-layout">
                         <div class="skills-grid" id="skills-container"></div>
 
                         <aside class="learning-bubble">
-                            <p class="learning-title">I am currently learning</p>
+                            <p class="learning-title" data-i18n="skills.learningTitle">I am currently learning</p>
                             <div class="learning-icons">
                                 <span class="learning-pill">Vue.js</span>
                                 <span class="learning-pill">React</span>
                             </div>
-                            <p class="learning-text">
+                            <p class="learning-text" data-i18n="skills.learningText">
                                 Show that you are motivated to continuously improve your skills,
                                 implement innovative solutions and stay abreast of new technologies.
                             </p>
-                            <a href="#contact" class="primary-btn mobile-only-inline">Let's talk</a>
+                            <a href="#contact" class="primary-btn mobile-only-inline"
+                                data-i18n="shared.letsTalk">Let's talk</a>
                         </aside>
                     </div>
                 </div>
@@ -173,7 +165,7 @@
 
             <section id="projects" class="content-section full-screen-section">
                 <div class="section-shell">
-                    <h2 class="section-title">My Projects</h2>
+                    <h2 class="section-title" data-i18n="projects.title">My Projects</h2>
                     <div class="project-tabs" id="project-tabs"></div>
 
                     <article class="project-panel">
@@ -188,7 +180,7 @@
                                 <span class="project-dot"></span>
                                 <div>
                                     <div class="project-heading-row">
-                                        <h3>About the project</h3>
+                                        <h3 data-i18n="projects.aboutHeading">About the project</h3>
                                         <span class="project-duration" id="project-duration-desktop"></span>
                                     </div>
                                     <p id="project-description"></p>
@@ -198,7 +190,7 @@
                             <div class="project-item">
                                 <span class="project-dot"></span>
                                 <div>
-                                    <h3>How I have organised my work process</h3>
+                                    <h3 data-i18n="projects.processHeading">How I have organised my work process</h3>
                                     <p id="project-process"></p>
                                 </div>
                             </div>
@@ -206,7 +198,7 @@
                             <div class="project-item">
                                 <span class="project-dot"></span>
                                 <div>
-                                    <h3>My group work experience</h3>
+                                    <h3 data-i18n="projects.teamHeading">My group work experience</h3>
                                     <p id="project-team"></p>
                                 </div>
                             </div>
@@ -214,15 +206,15 @@
 
                         <div class="project-preview">
                             <div class="project-preview-head">
-                                <span class="project-preview-label">Technologies</span>
+                                <span class="project-preview-label" data-i18n="projects.technologies">Technologies</span>
                                 <div class="tech-row" id="project-tech"></div>
                             </div>
                             <img id="project-image" src="./assets/img/project-dabubble.svg" alt="Project preview" />
                             <div class="project-actions">
                                 <a id="project-live" class="primary-btn" href="#" target="_blank"
-                                    rel="noopener noreferrer">Live Test</a>
+                                    rel="noopener noreferrer" data-i18n="projects.liveTest">Live Test</a>
                                 <a id="project-github" class="outline-btn" href="#" target="_blank"
-                                    rel="noopener noreferrer">GitHub</a>
+                                    rel="noopener noreferrer" data-i18n="projects.github">GitHub</a>
                             </div>
                         </div>
                     </article>
@@ -231,37 +223,37 @@
 
             <section class="content-section">
                 <div class="section-shell">
-                    <p class="team-title">Need a teamplayer? Here’s what my colleagues say about me</p>
+                    <p class="team-title" data-i18n="testimonials.title">Need a teamplayer? Here’s what my colleagues say about me</p>
 
                     <div class="testimonials">
                         <article class="testimonial-card">
                             <h3>Sahra Mueller</h3>
-                            <p class="testimonial-role">Project DA Bubble</p>
-                            <p>
+                            <p class="testimonial-role" data-i18n="testimonials.sahra.role">Project DA Bubble</p>
+                            <p data-i18n="testimonials.sahra.quote">
                                 "Oguz Han had to develop, format and deliver content in collaboration
                                 with the team members. She is a reliable and friendly person."
                             </p>
-                            <a href="#">Linked In Profile</a>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
                         </article>
 
                         <article class="testimonial-card">
                             <h3>James Rugman</h3>
-                            <p class="testimonial-role">Project Join</p>
-                            <p>
+                            <p class="testimonial-role" data-i18n="testimonials.james.role">Project Join</p>
+                            <p data-i18n="testimonials.james.quote">
                                 "Oguz Han is a reliable and friendly person. Works in a structured way
                                 and writes a clear code. I recommend her as a colleague."
                             </p>
-                            <a href="#">Linked In Profile</a>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
                         </article>
 
                         <article class="testimonial-card">
                             <h3>Evelyn Marx</h3>
-                            <p class="testimonial-role">Project Sharkie</p>
-                            <p>
+                            <p class="testimonial-role" data-i18n="testimonials.evelyn.role">Project Sharkie</p>
+                            <p data-i18n="testimonials.evelyn.quote">
                                 "She is a trustworthy teamplayer and can cope with the stress of
                                 deadlines. Structured work and clean code."
                             </p>
-                            <a href="#">Linked In Profile</a>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
                         </article>
                     </div>
                 </div>
@@ -270,30 +262,31 @@
             <section id="contact" class="content-section contact-section full-screen-section">
                 <div class="section-shell">
                     <div class="contact-title-row">
-                        <h2 class="section-title">Contact me</h2>
-                        <a href="#top" class="scroll-up" aria-label="Back to top">
-                            <span>↑</span>
+                        <h2 class="section-title" data-i18n="contact.title">Contact me</h2>
+                        <a href="#top" class="scroll-up" aria-label="Back to top"
+                            data-i18n-aria-label="contact.backToTop">
+                            <img src="./assets/img/arrow up.svg" alt="" class="arrow-icon" aria-hidden="true" />
                         </a>
                     </div>
 
                     <div class="contact-grid">
                         <div class="contact-copy">
-                            <p>
+                            <p data-i18n="contact.copy">
                                 Encourage people to contact you and describe what you are interested in.
                                 Show that you will add value to their projects through your work.
                                 Example: Feel free to get in touch with job offers or opportunities such as...
                             </p>
-                            <p class="contact-cta">Let us work together!</p>
+                            <p class="contact-cta" data-i18n="contact.cta">Let us work together!</p>
                         </div>
 
                         <div class="contact-info">
                             <p>
                                 <span class="contact-icon">↳</span>
-                                E-mail: fohrer.developer@gmail.com
+                                E-mail: office@oguzhan-yavuz.com
                             </p>
                             <p>
                                 <span class="contact-icon">↳</span>
-                                Tel: 0157 123 456 68
+                                Tel: 0660 154 51 56
                             </p>
                         </div>
                     </div>
@@ -301,33 +294,36 @@
                     <form id="contact-form" class="contact-form" novalidate>
                         <div class="form-row">
                             <label class="field">
-                                <span class="field-label">Your name</span>
-                                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
+                                <span class="field-label" data-i18n="form.nameLabel">Your name</span>
+                                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name"
+                                    data-i18n-placeholder="form.namePlaceholder" />
                                 <span class="error-space" id="name-error"></span>
                             </label>
 
                             <label class="field">
-                                <span class="field-label">Your Email</span>
+                                <span class="field-label" data-i18n="form.emailLabel">Your Email</span>
                                 <input type="email" id="email" name="email" placeholder="Your Email"
-                                    autocomplete="email" />
+                                    autocomplete="email" data-i18n-placeholder="form.emailPlaceholder" />
                                 <span class="error-space" id="email-error"></span>
                             </label>
                         </div>
 
                         <label class="field">
-                            <span class="field-label">Your Message</span>
-                            <textarea id="message" name="message" placeholder="Your message"></textarea>
+                            <span class="field-label" data-i18n="form.messageLabel">Your Message</span>
+                            <textarea id="message" name="message" placeholder="Your message"
+                                data-i18n-placeholder="form.messagePlaceholder"></textarea>
                             <span class="error-space" id="message-error"></span>
                         </label>
 
                         <label class="checkbox-row">
                             <input type="checkbox" id="privacy" name="privacy" />
-                            <span>I've read the privacy policy and agree to the processing of my data as outlined.</span>
+                            <span data-i18n="form.privacy">I've read the privacy policy and agree to the processing of my data as outlined.</span>
                         </label>
                         <span class="error-space" id="privacy-error"></span>
 
                         <div class="form-actions">
-                            <button type="submit" id="submit-btn" class="outline-btn send-btn" disabled>Send</button>
+                            <button type="submit" id="submit-btn" class="outline-btn send-btn" disabled
+                                data-i18n="form.send">Send</button>
                         </div>
 
                         <p id="form-feedback" class="form-feedback"></p>
@@ -339,12 +335,12 @@
         <footer class="site-footer">
             <div class="section-shell footer-inner">
                 <div class="footer-copy">
-                    <a href="./legal-notice.html">Legal notice</a>
+                    <a href="./legal-notice.html" data-i18n="footer.legalNotice">Legal notice</a>
                     <p>© Oguz Han Yavuz 2024</p>
                 </div>
 
                 <a href="#top" class="brand-logo footer-logo" aria-label="Oguz Han Yavuz developer">
-                    <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" aria-hidden="true" />
+                    <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
                     <span class="brand-copy">
                         <span class="brand-name">O.Yavuz</span>
                         <span class="brand-role">developer</span>
@@ -352,26 +348,14 @@
                 </a>
 
                 <div class="footer-socials">
-                    <a href="#" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.44v-1.73c-2.49.54-3.01-1.2-3.01-1.2-.41-1.04-.99-1.31-.99-1.31-.8-.55.06-.54.06-.54.89.06 1.35.91 1.35.91.78 1.35 2.06.96 2.56.74.08-.57.31-.96.56-1.18-1.99-.23-4.08-1-4.08-4.43 0-.98.35-1.77.91-2.39-.09-.22-.4-1.14.09-2.37 0 0 .75-.24 2.46.91A8.56 8.56 0 0 1 12 7.8c.76 0 1.52.1 2.23.3 1.71-1.15 2.46-.91 2.46-.91.49 1.23.18 2.15.09 2.37.57.62.91 1.41.91 2.39 0 3.44-2.09 4.2-4.09 4.43.32.28.6.84.6 1.69v2.5c0 .24.16.52.62.43A9 9 0 0 0 12 3Z" />
-                        </svg>
-                    </a>
                     <a href="#" aria-label="Email">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="4" y="6" width="16" height="12" rx="3" />
-                            <path d="m6.5 8.5 5.5 4 5.5-4" />
-                        </svg>
+                        <img src="./assets/img/Email button.svg" alt="" class="social-icon" aria-hidden="true" />
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <img src="./assets/img/github.svg" alt="" class="social-icon" aria-hidden="true" />
                     </a>
                     <a href="#" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="7" cy="8" r="1.5" />
-                            <path d="M5.5 10.5v7" />
-                            <path d="M9.5 10.5v7" />
-                            <path d="M9.5 13.5c0-1.8 3-2 3 0v4" />
-                            <rect x="4" y="4" width="16" height="16" rx="5" />
-                        </svg>
+                        <img src="./assets/img/in.svg" alt="" class="social-icon" aria-hidden="true" />
                     </a>
                 </div>
             </div>
