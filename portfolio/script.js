@@ -1,4 +1,5 @@
 const LANGUAGE_STORAGE_KEY = "portfolio-language";
+const CONTACT_API_ENDPOINT = "/api/contact";
 
 const skills = [
   {
@@ -231,7 +232,8 @@ const translations = {
       messagePlaceholder: "Your message",
       privacy: "I've read the privacy policy and agree to the processing of my data as outlined.",
       send: "Send",
-      success: "Message sent successfully."
+      success: "Message sent successfully.",
+      error: "Something went wrong. Please try again."
     },
     validation: {
       name: "Please enter your name.",
@@ -246,11 +248,11 @@ const translations = {
       backToPortfolio: "Back to portfolio",
       title: "Legal Notice",
       imprintTitle: "Imprint",
-      imprintItem1: "[Student Name List]",
-      imprintItem2: "[Address of the JOIN operator - eg one of the students]",
-      imprintItem3: "[Postcode and city]",
+      imprintItem1: "Oguz Han Yavuz",
+      imprintItem2: "Ernst-Heiss-Gasse 1/2/5, 1110 Wien",
+      imprintItem3: "1110 Wien",
       boardTitle: "Exploring the Board",
-      boardEmail: "Email: [Email]",
+      boardEmail: "Email: office@oguzhan-yavuz.com",
       acceptanceTitle: "Acceptance of terms",
       acceptanceText:
         "By accessing and using this Portfolio [Product], you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.",
@@ -271,7 +273,7 @@ const translations = {
       indemnityTitle: "Indemnity",
       indemnityText:
         "You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
-      contactText: "For any questions or notices, please contact us at [Contact Email]",
+      contactText: "For any questions or notices, please contact us at office@oguzhan-yavuz.com",
       dateText: "Date: July 26, 2025"
     }
   },
@@ -346,7 +348,8 @@ const translations = {
       messagePlaceholder: "Deine Nachricht",
       privacy: "Ich habe die Datenschutzerklaerung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
       send: "Senden",
-      success: "Nachricht erfolgreich gesendet."
+      success: "Nachricht erfolgreich gesendet.",
+      error: "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
     validation: {
       name: "Bitte gib deinen Namen ein.",
@@ -361,11 +364,11 @@ const translations = {
       backToPortfolio: "Zurueck zum Portfolio",
       title: "Impressum",
       imprintTitle: "Impressum",
-      imprintItem1: "[Liste der Studierenden]",
-      imprintItem2: "[Adresse des JOIN-Betreibers - z. B. von einem der Studierenden]",
-      imprintItem3: "[Postleitzahl und Ort]",
+      imprintItem1: "Oguz Han Yavuz",
+      imprintItem2: "Ernst-Heiss-Gasse 1/2/5, 1110 Wien",
+      imprintItem3: "1110 Wien",
       boardTitle: "Board erkunden",
-      boardEmail: "E-Mail: [E-Mail]",
+      boardEmail: "E-Mail: office@oguzhan-yavuz.com",
       acceptanceTitle: "Akzeptanz der Bedingungen",
       acceptanceText:
         "Durch den Zugriff auf und die Nutzung dieses Portfolios [Produkt] bestaetigst du, dass du die folgenden Bedingungen sowie alle Richtlinien, Leitfaeden oder Aenderungen akzeptierst, die dir von Zeit zu Zeit praesentiert werden. Wir, die aufgefuehrten Studierenden, koennen die Bedingungen jederzeit ohne vorherige Ankuendigung aktualisieren oder aendern.",
@@ -386,7 +389,7 @@ const translations = {
       indemnityTitle: "Freistellung",
       indemnityText:
         "Du verpflichtest dich, uns, die aufgefuehrten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Anspruechen, Forderungen, Verlusten, Schaeden, Kosten oder Verbindlichkeiten (einschliesslich angemessener Anwaltskosten) freizustellen, die sich aus deiner Nutzung des Portfolios und/oder deinem Verstoss gegen dieses Impressum ergeben.",
-      contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter [Kontakt-E-Mail].",
+      contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter office@oguzhan-yavuz.com.",
       dateText: "Datum: 26. Juli 2025"
     }
   }
@@ -700,7 +703,8 @@ function setLanguage(language) {
   }
 
   if (feedback?.textContent.trim()) {
-    feedback.textContent = getTranslation("form.success");
+    const feedbackKey = feedback.dataset.state === "error" ? "form.error" : "form.success";
+    feedback.textContent = getTranslation(feedbackKey);
   }
 }
 
@@ -793,6 +797,35 @@ function updateSubmitState() {
   submitBtn.disabled = !isValid;
 }
 
+async function submitContactRequest() {
+  const payload = {
+    name: nameInput?.value.trim() || "",
+    email: emailInput?.value.trim() || "",
+    message: messageInput?.value.trim() || "",
+    language: currentLanguage
+  };
+
+  const response = await fetch(CONTACT_API_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  let body = {};
+  try {
+    body = await response.json();
+  } catch (error) {
+    body = {};
+  }
+
+  if (!response.ok || !body.ok) {
+    throw new Error(body.error || "Request failed");
+  }
+}
+
 nameInput?.addEventListener("blur", updateSubmitState);
 emailInput?.addEventListener("blur", updateSubmitState);
 messageInput?.addEventListener("blur", updateSubmitState);
@@ -801,7 +834,7 @@ nameInput?.addEventListener("input", updateSubmitState);
 emailInput?.addEventListener("input", updateSubmitState);
 messageInput?.addEventListener("input", updateSubmitState);
 
-document.getElementById("contact-form")?.addEventListener("submit", (event) => {
+document.getElementById("contact-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const valid = validateName() && validateEmail() && validateMessage() && validatePrivacy();
@@ -810,8 +843,21 @@ document.getElementById("contact-form")?.addEventListener("submit", (event) => {
   submitBtn.disabled = !valid;
   if (!valid) return;
 
-  feedback.textContent = getTranslation("form.success");
-  event.target.reset();
+  feedback.textContent = "";
+  submitBtn.disabled = true;
+
+  try {
+    await submitContactRequest();
+    feedback.dataset.state = "success";
+    feedback.textContent = getTranslation("form.success");
+    event.target.reset();
+  } catch (error) {
+    feedback.dataset.state = "error";
+    feedback.textContent = getTranslation("form.error");
+    submitBtn.disabled = false;
+    return;
+  }
+
   submitBtn.disabled = true;
 });
 
