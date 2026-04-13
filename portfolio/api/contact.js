@@ -46,7 +46,7 @@ async function sendMail(record) {
   const fromEmail = process.env.CONTACT_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
 
   if (!resendApiKey) {
-    throw new Error("RESEND_ENV_MISSING");
+    return { sent: false, reason: "missing_resend_key" };
   }
 
   const subject = `Portfolio Contact: ${record.name}`;
@@ -81,6 +81,8 @@ async function sendMail(record) {
     const textResponse = await response.text();
     throw new Error(`MAIL_SEND_FAILED: ${textResponse}`);
   }
+
+  return { sent: true };
 }
 
 module.exports = async (req, res) => {
@@ -121,9 +123,20 @@ module.exports = async (req, res) => {
     };
 
     await saveToSupabase(record);
-    await sendMail(record);
 
-    return sendJson(res, 200, { ok: true });
+    let mailStatus = { sent: false, reason: "not_attempted" };
+    try {
+      mailStatus = await sendMail(record);
+    } catch (error) {
+      mailStatus = { sent: false, reason: "send_failed" };
+    }
+
+    return sendJson(res, 200, {
+      ok: true,
+      stored: true,
+      emailSent: mailStatus.sent,
+      emailReason: mailStatus.reason || null
+    });
   } catch (error) {
     return sendJson(res, 500, { ok: false, error: "Server error" });
   }
