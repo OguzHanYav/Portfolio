@@ -423,8 +423,8 @@ const projects = [
       de:
         "Im Team habe ich an zentralen Features gearbeitet, die Umsetzung abgestimmt und zu einer reibungslosen Zusammenarbeit im Projekt beigetragen."
     },
-    live: "#",
-    github: "#",
+    live: "https://join.oguzhan-yavuz.com",
+    github: "https://github.com/OguzHanYav/Join-portfolio",
     image: "./assets/img/project-dabubble.svg",
     tech: ["angular", "ts", "firebase"]
   },
