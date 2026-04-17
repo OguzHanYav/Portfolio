@@ -211,7 +211,7 @@ const translations = {
           '"Oguz Han is a reliable and friendly person. Works in a structured way and writes a clear code. I recommend her as a colleague."'
       },
       evelyn: {
-        role: "Project Sharkie",
+        role: "Project El Pollo Loco",
         quote:
           '"She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clean code."'
       }
@@ -327,7 +327,7 @@ const translations = {
           '"Oguz Han ist eine zuverlaessige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
       },
       evelyn: {
-        role: "Projekt Sharkie",
+        role: "Projekt El Pollo Loco",
         quote:
           '"Sie ist ein vertrauenswuerdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
       }
@@ -429,9 +429,9 @@ const projects = [
     tech: ["angular", "ts", "firebase"]
   },
   {
-    key: "sharkie",
-    tab: { en: "2. Sharkie", de: "2. Sharkie" },
-    title: { en: "Sharkie", de: "Sharkie" },
+    key: "elpolloloco",
+    tab: { en: "2. El Pollo Loco", de: "2. El Pollo Loco" },
+    title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     techLine: {
       en: "Technologies JavaScript HTML CSS",
       de: "Technologien JavaScript HTML CSS"
@@ -439,24 +439,24 @@ const projects = [
     duration: { en: "Duration: 5 weeks", de: "Dauer: 5 Wochen" },
     description: {
       en:
-        "A browser game with playful animations, collectible elements and a strong focus on smooth interaction and visual feedback.",
+        "A browser side-scroller game with character animations, collectable items and boss fights, focused on smooth controls and playful visual feedback.",
       de:
-        "Ein Browser-Spiel mit verspielten Animationen, sammelbaren Elementen und einem klaren Fokus auf fluessige Interaktion und visuelles Feedback."
+        "Ein Browser-Side-Scroller mit Charakter-Animationen, sammelbaren Elementen und Bosskaempfen, mit Fokus auf fluessige Steuerung und verspieltes visuelles Feedback."
     },
     process: {
       en:
-        "The work process was organised through reusable scenes, separated game logic and structured asset handling. Documentation and testing kept the project maintainable.",
+        "The work process was organised with reusable classes, separated game logic and structured asset handling. Iterative testing ensured stable gameplay and maintainability.",
       de:
-        "Der Arbeitsprozess wurde ueber wiederverwendbare Szenen, getrennte Spiellogik und strukturierte Asset-Verwaltung organisiert. Dokumentation und Tests hielten das Projekt wartbar."
+        "Der Arbeitsprozess wurde mit wiederverwendbaren Klassen, getrennter Spiellogik und strukturierter Asset-Verwaltung aufgebaut. Iterative Tests sorgten fuer stabiles Gameplay und Wartbarkeit."
     },
     team: {
       en:
-        "This project strengthened collaboration around animation reviews, bug fixing and planning gameplay features step by step.",
+        "This project strengthened collaboration through feature planning, animation reviews and bug fixing in short iterative cycles.",
       de:
-        "Dieses Projekt hat die Zusammenarbeit bei Animations-Reviews, Bugfixing und der schrittweisen Planung von Gameplay-Features gestaerkt."
+        "Dieses Projekt hat die Zusammenarbeit durch Feature-Planung, Animations-Reviews und Bugfixing in kurzen Iterationen gestaerkt."
     },
-    live: "#",
-    github: "#",
+    live: "https://elpolloloco.oguzhan-yavuz.com",
+    github: "https://github.com/OguzHanYav/elPolloLoco",
     image: "./assets/img/project-sharkie.svg",
     tech: ["js", "html", "css"]
   },
