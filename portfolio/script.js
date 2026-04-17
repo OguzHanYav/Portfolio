@@ -487,8 +487,8 @@ const projects = [
       de:
         "Die Arbeit im Team hat Kommunikation, Code-Review-Routinen und die Aufteilung von Verantwortung ueber mehrere Features hinweg verbessert."
     },
-    live: "#",
-    github: "#",
+    live: "https://join.oguzhan-yavuz.com",
+    github: "https://github.com/OguzHanYav/Join-portfolio",
     image: "./assets/img/project-join.svg",
     tech: ["js", "api", "firebase"]
   },
