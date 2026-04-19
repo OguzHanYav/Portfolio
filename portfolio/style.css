@@ -193,15 +193,11 @@ button {
     bottom: 0;
     width: 770px;
     height: 770px;
-    background: rgba(108, 135, 153, 0.82);
-    -webkit-mask: url("./assets/img/shape-profile.png") center / contain no-repeat;
-    mask: url("./assets/img/shape-profile.png") center / contain no-repeat;
-    opacity: 0;
+    -webkit-mask: url("./assets/img/figma-assets/testimonials/shape-default.svg") center / contain no-repeat;
+    mask: url("./assets/img/figma-assets/testimonials/shape-hover.svg") center / contain no-repeat;
     z-index: 0;
-    pointer-events: none;
-    transform: scale(1.08);
-    transform-origin: center center;
-    filter: blur(10px);
+    opacity: 0;
+    transition: transform 240ms ease, filter 240ms ease, opacity 240ms ease;
 }
 
 .hero-shape {
@@ -212,17 +208,12 @@ button {
     max-width: none;
     height: auto;
     z-index: 1;
-    transform-origin: center center;
-    transform: rotate(0deg);
-    transition: transform 0.8s ease;
 }
 
 .hero-image-wrap:hover::before {
-    animation: hero-shape-ghost 2s ease-out forwards;
-}
-
-.hero-image-wrap:hover .hero-shape {
-    transform: rotate(-45deg);
+    transform: translateY(-6px) scale(1.02);
+    filter: brightness(1.03);
+    opacity: 1;
 }
 
 .hero-image {
@@ -235,22 +226,6 @@ button {
     z-index: 2;
 }
 
-@keyframes hero-shape-ghost {
-    0% {
-        opacity: 0.92;
-        transform: scale(1.12);
-    }
-
-    94% {
-        opacity: 0.84;
-        transform: scale(1.08);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.08);
-    }
-}
 
 .hero-info {
     position: relative;
@@ -503,37 +478,15 @@ button {
 
 .skill-card {
     text-align: center;
-}
-
-.skill-icon {
-    width: 66px;
-    height: 66px;
-    margin: 0 auto 10px;
-    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.skill-icon svg {
-    width: 100%;
-    height: 100%;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.skill-icon .fill-shape {
-    fill: currentColor;
-    stroke: none;
-}
-
-.skill-card p {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.3;
+.skill-icon-image {
+    width: min(84px, 100%);
+    height: auto;
+    display: block;
 }
 
 .learning-bubble {
@@ -747,14 +700,39 @@ button {
 }
 
 .testimonial-card {
-    background: var(--panel-circle);
-    border-radius: 50%;
-    aspect-ratio: 1;
+    position: relative;
+    background: none;
+    border-radius: 0;
+    aspect-ratio: 580 / 616;
     padding: 50px 38px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/Ellipse\ 02.svg");
+    transition: transform 240ms ease, background-image 240ms ease, filter 240ms ease;
+    z-index: -1;
+}
+
+.testimonial-card:hover::before {
+    background-image: url("./assets/img/figma-assets/testimonials/Ellipse\ 03.svg");
+    transform: translateY(-6px) scale(1.02);
+    filter: brightness(1.03);
+}
+
+.testimonial-card>* {
+    position: relative;
+    z-index: 1;
+    max-width: 238px;
 }
 
 .testimonial-card h3 {
@@ -828,6 +806,13 @@ button {
     color: var(--accent);
 }
 
+.contact-icon-image {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+}
+
 .contact-form {
     width: 100%;
 }
@@ -881,10 +866,35 @@ textarea::placeholder {
 }
 
 .checkbox-row input {
-    width: 14px;
-    height: 14px;
-    margin-top: 2px;
-    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    flex: 0 0 18px;
+    background: center / contain no-repeat url("./assets/img/figma-assets/contact/checkbox-default.svg");
+    transition: background-image 160ms ease, transform 160ms ease;
+}
+
+.checkbox-row:hover .checkbox-icon {
+    background-image: url("./assets/img/figma-assets/contact/checkbox-hover.svg");
+}
+
+.checkbox-row input:checked+.checkbox-icon {
+    background-image: url("./assets/img/figma-assets/contact/checkbox-checked.svg");
+}
+
+.checkbox-row input.is-invalid+.checkbox-icon {
+    background-image: url("./assets/img/figma-assets/contact/checkbox-error.svg");
+}
+
+.checkbox-row input:focus-visible+.checkbox-icon {
+    outline: 1px solid rgba(145, 196, 230, 0.75);
+    outline-offset: 2px;
 }
 
 .error-space {
@@ -1108,24 +1118,27 @@ textarea::placeholder {
     }
 
     .hero {
-        min-height: auto;
-        padding: 10px 0 14px;
+        min-height: calc(100svh - 52px);
+        padding: 10px 0 0;
     }
 
     .hero-inner {
-        min-height: auto;
+        min-height: calc(100svh - 62px);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 14px;
+        gap: 8px;
         width: 100%;
     }
 
     .hero-info {
+        width: 100%;
         min-height: auto;
         padding-top: 0;
         padding-bottom: 0;
         position: static;
+        display: block;
+        flex: 0 0 auto;
     }
 
     .hero-meta {
@@ -1150,8 +1163,8 @@ textarea::placeholder {
         flex: 0 0 auto;
         align-self: center;
         min-height: 0;
-        width: 214px;
-        height: 214px;
+        width: 228px;
+        height: 228px;
         margin: 0 auto;
     }
 
@@ -1169,8 +1182,10 @@ textarea::placeholder {
     }
 
     .hero-image {
-        width: 228px;
-        left: -7px;
+        width: 176px;
+        left: 20px;
+        top: -34px;
+        bottom: 0;
     }
 
     .hero-image-wrap:hover .hero-shape {
@@ -1185,6 +1200,7 @@ textarea::placeholder {
         position: static;
         max-width: 100%;
         margin-left: 0;
+        padding-bottom: 0;
     }
 
     #hero-name {
@@ -1203,7 +1219,7 @@ textarea::placeholder {
     .scroll-down {
         width: 30px;
         height: 54px;
-        margin-top: 10px;
+        margin-top: 14px;
         font-size: 1.3rem;
     }
 
@@ -1251,13 +1267,8 @@ textarea::placeholder {
         gap: 16px 10px;
     }
 
-    .skill-icon {
-        width: 38px;
-        height: 38px;
-    }
-
-    .skill-card p {
-        font-size: 0.68rem;
+    .skill-icon-image {
+        width: 54px;
     }
 
     .learning-bubble {
@@ -1386,9 +1397,13 @@ textarea::placeholder {
     }
 
     .testimonial-card {
-        min-width: 200px;
-        padding: 30px 24px;
+        min-width: 214px;
+        padding: 34px 24px;
         scroll-snap-align: start;
+    }
+
+    .testimonial-card>* {
+        max-width: 150px;
     }
 
     .testimonial-card h3 {
@@ -1420,6 +1435,12 @@ textarea::placeholder {
     .contact-copy,
     .contact-info {
         font-size: 0.82rem;
+    }
+
+    .contact-icon-image {
+        width: 18px;
+        height: 18px;
+        flex-basis: 18px;
     }
 
     .contact-grid {

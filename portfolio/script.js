@@ -4,106 +4,43 @@ const CONTACT_API_ENDPOINT = "/api/contact";
 const skills = [
   {
     label: "Angular",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2 4 5l1.3 10.2L12 22l6.7-6.8L20 5Z" />
-        <path d="M12 6.5 8.8 15h1.9l.65-1.85h3.32L15.3 15h1.9Z" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/angular.svg"
   },
   {
     label: "TypeScript",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-        <path d="M8 9.5h8" />
-        <path d="M11 9.5v7" />
-        <path d="M14.7 13.4c.3-.5.8-.8 1.5-.8.9 0 1.6.5 1.6 1.3 0 1-.8 1.2-1.7 1.5-.8.3-1.5.5-1.5 1.4 0 .8.7 1.3 1.6 1.3.8 0 1.4-.3 1.8-.8" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/typescript.svg"
   },
   {
     label: "JavaScript",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-        <path d="M10 9.5v5.2c0 1-.5 1.8-1.6 1.8-.7 0-1.2-.3-1.5-.8" />
-        <path d="M13.2 15.2c.3.8 1 1.3 2 1.3 1 0 1.8-.5 1.8-1.3 0-.9-.7-1.2-1.8-1.7-1-.4-1.7-.9-1.7-1.8 0-.8.7-1.5 1.8-1.5.9 0 1.4.3 1.8 1" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/javascript.svg"
   },
   {
     label: "HTML",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-        <path d="m8.4 7.8.3 2.1h6.4l-.2 2.4H9l.3 2h3.6l-.2 2.2" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/html.svg"
   },
   {
     label: "CSS",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-        <path d="m8.5 7.8-.2 2.2h6.1l-.2 2.3H8.7l-.2 2h3.9l-.2 2.2" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/css.svg"
   },
   {
     label: "REST-API",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="4" y="6" width="16" height="12" rx="4" />
-        <path d="M9 10h1.5" />
-        <path d="M7.5 14h3" />
-        <path d="M14 10h2.5" />
-        <path d="M14 14h2.5" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/rest-api.svg"
   },
   {
     label: "Firebase",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 17.5 11.2 4.5 13.6 9l-4.2 8.5Z" />
-        <path d="M11.2 4.5 18 11.3l-7 8.2Z" />
-        <path d="m8.2 13.4 3.2-4.4" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/firebase.svg"
   },
   {
     label: "Git",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m12 3 9 9-9 9-9-9Z" />
-        <path d="M9 10.5a1.5 1.5 0 1 0 0 3" />
-        <path d="M12 7.5v9" />
-        <path d="M12 12h3a1.5 1.5 0 1 1 0 3" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/git.svg"
   },
   {
     label: "Material Design",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M12 3.5v17" />
-        <path d="M3.5 12h17" />
-        <path d="m5.8 6 12.4 12" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/material-design.svg"
   },
   {
     label: "Scrum",
-    icon: `
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 12a7 7 0 0 1 12.3-4.5" />
-        <path d="M19 12a7 7 0 0 1-12.3 4.5" />
-        <path d="M18 5v3.8h-3.8" />
-        <path d="M6 19v-3.8h3.8" />
-      </svg>
-    `
+    iconPath: "./assets/img/figma-assets/skills/scrum.svg"
   }
 ];
 
@@ -598,8 +535,7 @@ function renderSkills() {
     .map(
       (skill) => `
         <article class="skill-card">
-          <div class="skill-icon">${skill.icon}</div>
-          <p>${skill.label}</p>
+          <img src="${skill.iconPath}" alt="${skill.label}" class="skill-icon-image" loading="lazy" />
         </article>
       `
     )
@@ -782,10 +718,12 @@ function validatePrivacy() {
   if (!privacyCheckbox || !error) return false;
 
   if (!privacyCheckbox.checked) {
+    privacyCheckbox.classList.add("is-invalid");
     error.textContent = getTranslation("validation.privacy");
     return false;
   }
 
+  privacyCheckbox.classList.remove("is-invalid");
   error.textContent = "";
   return true;
 }
