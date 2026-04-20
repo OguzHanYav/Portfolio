@@ -111,7 +111,9 @@ const translations = {
     },
     why: {
       title: "Why me",
-      location: "I am located in Munich.",
+      location: "I am located in Munich...",
+      remote: "I am open to remote work...",
+      relocate: "I am open to relocating...",
       copy:
         "Why are you passionate about coding? You can include some key traits like analytical thinking, creativity, persistence and collaboration. A problem-solving mindset is always nice to have."
     },
@@ -227,9 +229,11 @@ const translations = {
     },
     why: {
       title: "Warum ich",
-      location: "Ich bin in Muenchen ansaessig.",
+      location: "Ich bin in Wien ansässig.",
+      remote: "Ich bin offen für Remote-Arbeit.",
+      relocate: "Ich bin offen für einen Umzug.",
       copy:
-        "Warum begeistere ich mich fuers Programmieren? Hier kannst du Eigenschaften wie analytisches Denken, Kreativitaet, Ausdauer und Zusammenarbeit hervorheben. Eine loesungsorientierte Denkweise ist dabei immer ein Plus."
+        "Warum begeistere ich mich fürs Programmieren? Hier kannst du Eigenschaften wie analytisches Denken, Kreativität, Ausdauer und Zusammenarbeit hervorheben. Eine lösungsorientierte Denkweise ist dabei immer ein Plus."
     },
     shared: {
       letsTalk: "Lass uns sprechen"
@@ -238,11 +242,11 @@ const translations = {
       title: "Meine Skills",
       learningTitle: "Ich lerne aktuell",
       learningText:
-        "Zeige, dass du motiviert bist, deine Faehigkeiten stetig zu verbessern, innovative Loesungen umzusetzen und mit neuen Technologien Schritt zu halten."
+        "Zeige, dass du motiviert bist, deine Fähigkeiten stetig zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten."
     },
     projects: {
       title: "Meine Projekte",
-      aboutHeading: "Ueber das Projekt",
+      aboutHeading: "Über das Projekt",
       processHeading: "Wie ich meinen Arbeitsprozess organisiert habe",
       teamHeading: "Meine Erfahrung in der Teamarbeit",
       technologies: "Technologien",
@@ -251,29 +255,29 @@ const translations = {
       previewAltSuffix: "Vorschau"
     },
     testimonials: {
-      title: "Brauchst du einen Teamplayer? Das sagen meine Kolleginnen und Kollegen ueber mich",
+      title: "Brauchst du einen Teamplayer? Das sagen meine Kolleginnen und Kollegen über mich",
       linkedin: "LinkedIn Profil",
       sahra: {
         role: "Projekt DA Bubble",
         quote:
-          '"Oguz Han hat Inhalte gemeinsam mit dem Team entwickelt, aufbereitet und umgesetzt. Sie ist eine zuverlaessige und freundliche Person."'
+          '"Oguz Han hat Inhalte gemeinsam mit dem Team entwickelt, aufbereitet und umgesetzt. Sie ist eine zuverlässige und freundliche Person."'
       },
       james: {
         role: "Projekt Join",
         quote:
-          '"Oguz Han ist eine zuverlaessige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
+          '"Oguz Han ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
       },
       evelyn: {
         role: "Projekt El Pollo Loco",
         quote:
-          '"Sie ist ein vertrauenswuerdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
+          '"Sie ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
       }
     },
     contact: {
       title: "Kontakt",
-      backToTop: "Zurueck nach oben",
+      backToTop: "Zurück nach oben",
       copy:
-        "Ermutige Menschen, dich zu kontaktieren, und beschreibe, wofuer du dich interessierst. Zeige, welchen Mehrwert du mit deiner Arbeit in Projekte einbringst. Beispiel: Melde dich gerne bei Jobangeboten oder spannenden Moeglichkeiten...",
+        "Ermutige Menschen, dich zu kontaktieren, und beschreibe, wofür du dich interessierst. Zeige, welchen Mehrwert du mit deiner Arbeit in Projekte einbringst. Beispiel: Melde dich gerne bei Jobangeboten oder spannenden Möglichkeiten...",
       cta: "Lass uns zusammenarbeiten!"
     },
     form: {
@@ -283,22 +287,22 @@ const translations = {
       emailPlaceholder: "Deine E-Mail",
       messageLabel: "Deine Nachricht",
       messagePlaceholder: "Deine Nachricht",
-      privacy: "Ich habe die Datenschutzerklaerung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+      privacy: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
       send: "Senden",
       success: "Nachricht erfolgreich gesendet.",
       error: "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
     validation: {
       name: "Bitte gib deinen Namen ein.",
-      email: "Bitte gib eine gueltige E-Mail-Adresse ein.",
-      message: "Bitte schreibe eine etwas laengere Nachricht.",
-      privacy: "Bitte akzeptiere die Datenschutzerklaerung."
+      email: "Bitte gib eine gültige E-Mail-Adresse ein.",
+      message: "Bitte schreibe eine etwas längere Nachricht.",
+      privacy: "Bitte akzeptiere die Datenschutzerklärung."
     },
     footer: {
       legalNotice: "Impressum"
     },
     legal: {
-      backToPortfolio: "Zurueck zum Portfolio",
+      backToPortfolio: "Zurück zum Portfolio",
       title: "Impressum",
       imprintTitle: "Impressum",
       imprintItem1: "Oguz Han Yavuz",
@@ -308,24 +312,24 @@ const translations = {
       boardEmail: "E-Mail: office@oguzhan-yavuz.com",
       acceptanceTitle: "Akzeptanz der Bedingungen",
       acceptanceText:
-        "Durch den Zugriff auf und die Nutzung dieses Portfolios [Produkt] bestaetigst du, dass du die folgenden Bedingungen sowie alle Richtlinien, Leitfaeden oder Aenderungen akzeptierst, die dir von Zeit zu Zeit praesentiert werden. Wir, die aufgefuehrten Studierenden, koennen die Bedingungen jederzeit ohne vorherige Ankuendigung aktualisieren oder aendern.",
+        "Durch den Zugriff auf und die Nutzung dieses Portfolios [Produkt] bestätigst du, dass du die folgenden Bedingungen sowie alle Richtlinien, Leitfäden oder Änderungen akzeptierst, die dir von Zeit zu Zeit präsentiert werden. Wir, die aufgeführten Studierenden, können die Bedingungen jederzeit ohne vorherige Ankündigung aktualisieren oder ändern.",
       scopeTitle: "Umfang und Eigentum am Produkt",
       scopeText1:
-        "Das Portfolio wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der Developer Akademie GmbH erstellt. Es dient ausschliesslich Bildungszwecken und ist nicht fuer eine umfangreiche persoenliche oder geschaeftliche Nutzung vorgesehen. Daher koennen wir keine durchgehende Verfuegbarkeit, Zuverlaessigkeit, Genauigkeit oder andere Qualitaetsmerkmale dieses Produkts garantieren.",
+        "Das Portfolio wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der Developer Akademie GmbH erstellt. Es dient ausschließlich Bildungszwecken und ist nicht für eine umfangreiche persönliche oder geschäftliche Nutzung vorgesehen. Daher können wir keine durchgehende Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder andere Qualitätsmerkmale dieses Produkts garantieren.",
       scopeText2:
-        "Das Design des Portfolios wird von der Developer Akademie GmbH genutzt. Eine unbefugte Vervielfaeltigung, Veraenderung, Verbreitung oder Nachbildung des Designs ist streng untersagt.",
+        "Das Design des Portfolios wird von der Developer Akademie GmbH genutzt. Eine unbefugte Vervielfältigung, Veränderung, Verbreitung oder Nachbildung des Designs ist streng untersagt.",
       rightsTitle: "Eigentumsrechte",
       rightsText:
-        "Abgesehen vom Design, das der Developer Akademie GmbH gehoert, behalten wir, die aufgefuehrten Studierenden, alle Eigentumsrechte am Portfolio, einschliesslich saemtlicher urheberrechtlich geschuetzten Materialien, Marken und sonstiger proprietaerer Informationen.",
+        "Abgesehen vom Design, das der Developer Akademie GmbH gehört, behalten wir, die aufgeführten Studierenden, alle Eigentumsrechte am Portfolio, einschließlich sämtlicher urheberrechtlich geschützten Materialien, Marken und sonstiger proprietärer Informationen.",
       useTitle: "Nutzung des Produkts",
       useText:
-        "Das Portfolio darf ausschliesslich fuer rechtmaessige Zwecke und in Uebereinstimmung mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung fuer illegale Aktivitaeten oder um andere Personen zu belaestigen, zu schaedigen, zu bedrohen oder einzuschuechtern, ist strengstens untersagt. Du bist allein fuer deine Interaktionen mit anderen Nutzern des Portfolios verantwortlich.",
-      disclaimerTitle: "Gewaehrleistungsausschluss und Haftungsbeschraenkung",
+        "Das Portfolio darf ausschließlich für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung für illegale Aktivitäten oder um andere Personen zu belästigen, zu schädigen, zu bedrohen oder einzuschüchtern, ist strengstens untersagt. Du bist allein für deine Interaktionen mit anderen Nutzern des Portfolios verantwortlich.",
+      disclaimerTitle: "Gewährleistungsausschluss und Haftungsbeschränkung",
       disclaimerText:
-        'Das Portfolio wird "wie gesehen" ohne jegliche ausdrueckliche oder stillschweigende Gewaehrleistung bereitgestellt, einschliesslich, aber nicht beschraenkt auf, die stillschweigenden Gewaehrleistungen der Marktgaengigkeit, Eignung fuer einen bestimmten Zweck und Nichtverletzung von Rechten Dritter. In keinem Fall haften wir, die aufgefuehrten Studierenden, oder die Developer Akademie fuer direkte, indirekte, zufaellige, besondere, Folge- oder Beispielschäden, einschliesslich, aber nicht beschraenkt auf entgangene Gewinne, Goodwill, Nutzungsausfaelle, Datenverluste oder sonstige immaterielle Schaeden, selbst wenn wir auf die Moeglichkeit solcher Schaeden hingewiesen wurden, die aus der Nutzung oder Leistung des Portfolios entstehen.',
+        'Das Portfolio wird "wie gesehen" ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich, aber nicht beschränkt auf, die stillschweigenden Gewährleistungen der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten Dritter. In keinem Fall haften wir, die aufgeführten Studierenden, oder die Developer Akademie für direkte, indirekte, zufällige, besondere, Folge- oder Beispielschäden, einschließlich, aber nicht beschränkt auf entgangene Gewinne, Goodwill, Nutzungsausfälle, Datenverluste oder sonstige immaterielle Schäden, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die aus der Nutzung oder Leistung des Portfolios entstehen.',
       indemnityTitle: "Freistellung",
       indemnityText:
-        "Du verpflichtest dich, uns, die aufgefuehrten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Anspruechen, Forderungen, Verlusten, Schaeden, Kosten oder Verbindlichkeiten (einschliesslich angemessener Anwaltskosten) freizustellen, die sich aus deiner Nutzung des Portfolios und/oder deinem Verstoss gegen dieses Impressum ergeben.",
+        "Du verpflichtest dich, uns, die aufgeführten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Verbindlichkeiten (einschließlich angemessener Anwaltskosten) freizustellen, die sich aus deiner Nutzung des Portfolios und/oder deinem Verstoß gegen dieses Impressum ergeben.",
       contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter office@oguzhan-yavuz.com.",
       dateText: "Datum: 26. Juli 2025"
     }
@@ -378,19 +382,19 @@ const projects = [
       en:
         "A browser side-scroller game with character animations, collectable items and boss fights, focused on smooth controls and playful visual feedback.",
       de:
-        "Ein Browser-Side-Scroller mit Charakter-Animationen, sammelbaren Elementen und Bosskaempfen, mit Fokus auf fluessige Steuerung und verspieltes visuelles Feedback."
+        "Ein Browser-Side-Scroller mit Charakter-Animationen, sammelbaren Elementen und Bosskämpfen, mit Fokus auf flüssige Steuerung und verspieltes visuelles Feedback."
     },
     process: {
       en:
         "The work process was organised with reusable classes, separated game logic and structured asset handling. Iterative testing ensured stable gameplay and maintainability.",
       de:
-        "Der Arbeitsprozess wurde mit wiederverwendbaren Klassen, getrennter Spiellogik und strukturierter Asset-Verwaltung aufgebaut. Iterative Tests sorgten fuer stabiles Gameplay und Wartbarkeit."
+        "Der Arbeitsprozess wurde mit wiederverwendbaren Klassen, getrennter Spiellogik und strukturierter Asset-Verwaltung aufgebaut. Iterative Tests sorgten für stabiles Gameplay und Wartbarkeit."
     },
     team: {
       en:
         "This project strengthened collaboration through feature planning, animation reviews and bug fixing in short iterative cycles.",
       de:
-        "Dieses Projekt hat die Zusammenarbeit durch Feature-Planung, Animations-Reviews und Bugfixing in kurzen Iterationen gestaerkt."
+        "Dieses Projekt hat die Zusammenarbeit durch Feature-Planung, Animations-Reviews und Bugfixing in kurzen Iterationen gestärkt."
     },
     live: "https://elpolloloco.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/elPolloLoco",
@@ -410,7 +414,7 @@ const projects = [
       en:
         "A task management board for structured workflows, assignments and progress tracking with a clean dashboard layout.",
       de:
-        "Ein Task-Management-Board fuer strukturierte Workflows, Zuweisungen und Fortschrittsverfolgung mit einem klaren Dashboard-Layout."
+        "Ein Task-Management-Board für strukturierte Workflows, Zuweisungen und Fortschrittsverfolgung mit einem klaren Dashboard-Layout."
     },
     process: {
       en:
@@ -422,7 +426,7 @@ const projects = [
       en:
         "Working as part of a team improved communication, code review routines and the ability to split ownership across features.",
       de:
-        "Die Arbeit im Team hat Kommunikation, Code-Review-Routinen und die Aufteilung von Verantwortung ueber mehrere Features hinweg verbessert."
+        "Die Arbeit im Team hat Kommunikation, Code-Review-Routinen und die Aufteilung von Verantwortung über mehrere Features hinweg verbessert."
     },
     live: "https://join.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/Join-portfolio",
@@ -448,13 +452,13 @@ const projects = [
       en:
         "The process is centred around continuous iteration, prototyping and polishing the interaction design for desktop and mobile.",
       de:
-        "Der Prozess ist auf kontinuierliche Iteration, Prototyping und die Verfeinerung des Interaktionsdesigns fuer Desktop und Mobile ausgerichtet."
+        "Der Prozess ist auf kontinuierliche Iteration, Prototyping und die Verfeinerung des Interaktionsdesigns für Desktop und Mobile ausgerichtet."
     },
     team: {
       en:
         "It supports stronger collaboration habits, clearer planning and better communication of progress.",
       de:
-        "Es unterstuetzt staerkere Kollaborationsgewohnheiten, klarere Planung und eine bessere Kommunikation von Fortschritten."
+        "Es unterstützt stärkere Kollaborationsgewohnheiten, klarere Planung und eine bessere Kommunikation von Fortschritten."
     },
     live: "#",
     github: "#",
@@ -463,8 +467,24 @@ const projects = [
   }
 ];
 
+const whyHighlights = [
+  {
+    icon: "./assets/img/figma-web/Group 60.svg",
+    textKey: "why.location"
+  },
+  {
+    icon: "./assets/img/figma-web/Icon Remote.svg",
+    textKey: "why.remote"
+  },
+  {
+    icon: "./assets/img/figma-web/Group 26.svg",
+    textKey: "why.relocate"
+  }
+];
+
 let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || "en";
 let currentProjectIndex = 0;
+let whyHighlightRunId = 0;
 
 const burger = document.getElementById("burger");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -474,6 +494,10 @@ const messageInput = document.getElementById("message");
 const privacyCheckbox = document.getElementById("privacy");
 const submitBtn = document.getElementById("submit-btn");
 const feedback = document.getElementById("form-feedback");
+const whyHighlight = document.getElementById("why-highlight");
+const whyHighlightIcon = document.getElementById("why-highlight-icon");
+const whyHighlightText = document.getElementById("why-highlight-text");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function getTranslation(path, language = currentLanguage) {
   return path.split(".").reduce((value, segment) => value?.[segment], translations[language]);
@@ -485,6 +509,87 @@ function getLocalizedValue(value) {
   }
 
   return value;
+}
+
+function wait(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+function getWhyHighlightItems() {
+  return whyHighlights.map((item) => ({
+    icon: item.icon,
+    text: getTranslation(item.textKey) || ""
+  }));
+}
+
+function renderWhyHighlightStatic() {
+  const firstItem = getWhyHighlightItems()[0];
+  if (!whyHighlight || !whyHighlightIcon || !whyHighlightText || !firstItem) return;
+
+  whyHighlightIcon.src = firstItem.icon;
+  whyHighlightIcon.classList.add("is-visible");
+  whyHighlightText.textContent = firstItem.text;
+  whyHighlight.setAttribute("aria-label", firstItem.text);
+}
+
+async function runWhyHighlightLoop(runId) {
+  if (!whyHighlight || !whyHighlightIcon || !whyHighlightText) return;
+
+  while (runId === whyHighlightRunId) {
+    const items = getWhyHighlightItems();
+
+    for (const item of items) {
+      whyHighlightIcon.classList.remove("is-visible");
+      whyHighlightIcon.src = item.icon;
+      whyHighlightText.textContent = "";
+      whyHighlight.setAttribute("aria-label", item.text);
+
+      await wait(140);
+      if (runId !== whyHighlightRunId) return;
+
+      whyHighlightIcon.classList.add("is-visible");
+
+      await wait(240);
+      if (runId !== whyHighlightRunId) return;
+
+      for (let index = 1; index <= item.text.length; index += 1) {
+        whyHighlightText.textContent = item.text.slice(0, index);
+        await wait(48);
+        if (runId !== whyHighlightRunId) return;
+      }
+
+      await wait(1200);
+      if (runId !== whyHighlightRunId) return;
+
+      for (let index = item.text.length - 1; index >= 0; index -= 1) {
+        whyHighlightText.textContent = item.text.slice(0, index);
+        await wait(28);
+        if (runId !== whyHighlightRunId) return;
+      }
+
+      whyHighlightIcon.classList.remove("is-visible");
+
+      await wait(280);
+      if (runId !== whyHighlightRunId) return;
+    }
+  }
+}
+
+function startWhyHighlightLoop() {
+  if (!whyHighlight || !whyHighlightIcon || !whyHighlightText) return;
+
+  whyHighlightRunId += 1;
+  whyHighlightText.textContent = "";
+  whyHighlightIcon.classList.remove("is-visible");
+
+  if (reducedMotionQuery.matches) {
+    renderWhyHighlightStatic();
+    return;
+  }
+
+  runWhyHighlightLoop(whyHighlightRunId);
 }
 
 function updateDocumentLanguage() {
@@ -631,6 +736,7 @@ function setLanguage(language) {
   updateDocumentLanguage();
   updateLanguageButtons();
   applyTranslations();
+  startWhyHighlightLoop();
   renderProjectTabs();
   renderProjectCard();
 
@@ -798,6 +904,10 @@ document.getElementById("contact-form")?.addEventListener("submit", async (event
 
   submitBtn.disabled = true;
 });
+
+if (typeof reducedMotionQuery.addEventListener === "function") {
+  reducedMotionQuery.addEventListener("change", startWhyHighlightLoop);
+}
 
 renderSkills();
 setLanguage(currentLanguage);
