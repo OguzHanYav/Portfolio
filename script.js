@@ -524,13 +524,26 @@ function getWhyHighlightItems() {
   }));
 }
 
+function getWhyHighlightTextParts(text) {
+  const suffix = text.endsWith("...") ? "..." : "";
+  const coreText = suffix ? text.slice(0, -suffix.length) : text;
+
+  return { coreText, suffix };
+}
+
+function setWhyHighlightText(text = "", suffix = "") {
+  if (!whyHighlightText) return;
+
+  whyHighlightText.textContent = `${text}${suffix}`;
+}
+
 function renderWhyHighlightStatic() {
   const firstItem = getWhyHighlightItems()[0];
   if (!whyHighlight || !whyHighlightIcon || !whyHighlightText || !firstItem) return;
 
   whyHighlightIcon.src = firstItem.icon;
   whyHighlightIcon.classList.add("is-visible");
-  whyHighlightText.textContent = firstItem.text;
+  setWhyHighlightText(firstItem.text);
   whyHighlight.setAttribute("aria-label", firstItem.text);
 }
 
@@ -541,9 +554,11 @@ async function runWhyHighlightLoop(runId) {
     const items = getWhyHighlightItems();
 
     for (const item of items) {
+      const { coreText, suffix } = getWhyHighlightTextParts(item.text);
+
       whyHighlightIcon.classList.remove("is-visible");
       whyHighlightIcon.src = item.icon;
-      whyHighlightText.textContent = "";
+      setWhyHighlightText("", suffix);
       whyHighlight.setAttribute("aria-label", item.text);
 
       await wait(140);
@@ -554,8 +569,8 @@ async function runWhyHighlightLoop(runId) {
       await wait(240);
       if (runId !== whyHighlightRunId) return;
 
-      for (let index = 1; index <= item.text.length; index += 1) {
-        whyHighlightText.textContent = item.text.slice(0, index);
+      for (let index = 1; index <= coreText.length; index += 1) {
+        setWhyHighlightText(coreText.slice(0, index), suffix);
         await wait(48);
         if (runId !== whyHighlightRunId) return;
       }
@@ -563,8 +578,8 @@ async function runWhyHighlightLoop(runId) {
       await wait(1200);
       if (runId !== whyHighlightRunId) return;
 
-      for (let index = item.text.length - 1; index >= 0; index -= 1) {
-        whyHighlightText.textContent = item.text.slice(0, index);
+      for (let index = coreText.length - 1; index >= 0; index -= 1) {
+        setWhyHighlightText(coreText.slice(0, index), suffix);
         await wait(28);
         if (runId !== whyHighlightRunId) return;
       }
@@ -581,7 +596,7 @@ function startWhyHighlightLoop() {
   if (!whyHighlight || !whyHighlightIcon || !whyHighlightText) return;
 
   whyHighlightRunId += 1;
-  whyHighlightText.textContent = "";
+  setWhyHighlightText("");
   whyHighlightIcon.classList.remove("is-visible");
 
   if (reducedMotionQuery.matches) {

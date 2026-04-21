@@ -385,7 +385,7 @@ button {
 
 .why-location {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-left: clamp(0px, 8vw, 132px);
     margin-top: 24px;
 }
@@ -397,10 +397,6 @@ button {
     width: min(100%, 480px);
     min-height: 96px;
     padding: 18px 22px;
-    border: 1px dashed rgba(137, 188, 217, 0.34);
-    border-radius: 28px;
-    background: rgba(20, 27, 34, 0.56);
-    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
 }
 
 .why-highlight-icon-shell {
@@ -429,29 +425,33 @@ button {
 
 .why-highlight-copy {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;
     min-width: 0;
     flex: 1;
+    flex-wrap: nowrap;
 }
 
 .why-highlight-text {
-    min-height: 1.4em;
+    min-height: 0;
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-body);
     font-size: clamp(1.35rem, 1.85vw, 1.95rem);
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: 0.02em;
     color: var(--text);
+    white-space: nowrap;
 }
 
-.why-highlight-cursor {
+.why-highlight-text::after {
+    content: "";
     width: 3px;
-    min-width: 3px;
     height: 1.35em;
-    margin-top: 0.08em;
+    margin-left: 6px;
+    flex: 0 0 3px;
     border-radius: 999px;
-    background: var(--accent);
+    background: var(--text);
     animation: why-caret-blink 1s steps(2, end) infinite;
 }
 
@@ -542,11 +542,13 @@ button {
 }
 
 .learning-bubble {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
     width: 100%;
     aspect-ratio: 1;
     max-width: 406px;
     border-radius: 50%;
-    background: var(--panel-circle);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -555,6 +557,26 @@ button {
     padding: 52px;
     margin-top: 16px;
     justify-self: center;
+}
+
+.learning-bubble::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/Ellipse 25.svg");
+    transition: transform 240ms ease, background-image 240ms ease, filter 240ms ease;
+    z-index: -1;
+}
+
+.learning-bubble:hover::before {
+    background-image: url("./assets/img/figma-assets/testimonials/Ellipse 25-hover.svg");
+    transform: translateY(-6px) scale(1.02);
+    filter: brightness(1.03);
+}
+
+.learning-bubble > * {
+    position: relative;
+    z-index: 1;
 }
 
 .learning-title {
