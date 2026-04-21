@@ -111,7 +111,7 @@ const translations = {
     },
     why: {
       title: "Why me",
-      location: "I am located in Munich...",
+      location: "I am located in Vienna...",
       remote: "I am open to remote work...",
       relocate: "I am open to relocating...",
       copy:
@@ -229,9 +229,9 @@ const translations = {
     },
     why: {
       title: "Warum ich",
-      location: "Ich bin in Wien ansässig.",
-      remote: "Ich bin offen für Remote-Arbeit.",
-      relocate: "Ich bin offen für einen Umzug.",
+      location: "Ich bin in Wien ansässig...",
+      remote: "Ich bin offen für Remote-Arbeit...",
+      relocate: "Ich bin offen für einen Umzug...",
       copy:
         "Warum begeistere ich mich fürs Programmieren? Hier kannst du Eigenschaften wie analytisches Denken, Kreativität, Ausdauer und Zusammenarbeit hervorheben. Eine lösungsorientierte Denkweise ist dabei immer ein Plus."
     },
@@ -366,7 +366,7 @@ const projects = [
     },
     live: "https://join.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/Join-portfolio",
-    image: "./assets/img/project-dabubble.svg",
+    image: "./assets/img/figma-assets/projects/dabubble.svg",
     tech: ["angular", "ts", "firebase"]
   },
   {
@@ -398,7 +398,7 @@ const projects = [
     },
     live: "https://elpolloloco.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/elPolloLoco",
-    image: "./assets/img/project-sharkie.svg",
+    image: "./assets/img/figma-assets/projects/polloloco.png",
     tech: ["js", "html", "css"]
   },
   {
@@ -430,7 +430,7 @@ const projects = [
     },
     live: "https://join.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/Join-portfolio",
-    image: "./assets/img/project-join.svg",
+    image: "./assets/img/figma-assets/projects/join project.svg",
     tech: ["js", "api", "firebase"]
   },
   {
@@ -462,7 +462,7 @@ const projects = [
     },
     live: "#",
     github: "#",
-    image: "./assets/img/project-ongoing.svg",
+    image: "./assets/img/figma-assets/projects/comingsoon.svg",
     tech: ["ts", "git"]
   }
 ];
@@ -524,17 +524,49 @@ function getWhyHighlightItems() {
   }));
 }
 
-function getWhyHighlightTextParts(text) {
-  const suffix = text.endsWith("...") ? "..." : "";
-  const coreText = suffix ? text.slice(0, -suffix.length) : text;
-
-  return { coreText, suffix };
+function escapeHtml(text) {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
-function setWhyHighlightText(text = "", suffix = "") {
+function getWhyHighlightPrefix() {
+  const prefixes = {
+    en: "I am",
+    de: "Ich bin"
+  };
+
+  return prefixes[currentLanguage] || "";
+}
+
+function formatWhyHighlightText(text = "") {
+  const prefix = getWhyHighlightPrefix();
+  const safeText = escapeHtml(text);
+
+  if (!prefix || !text) {
+    return safeText;
+  }
+
+  if (prefix.startsWith(text)) {
+    return `<span class="why-highlight-prefix">${safeText}</span>`;
+  }
+
+  if (text.startsWith(prefix)) {
+    const safePrefix = escapeHtml(prefix);
+    const safeRest = escapeHtml(text.slice(prefix.length));
+    return `<span class="why-highlight-prefix">${safePrefix}</span>${safeRest}`;
+  }
+
+  return safeText;
+}
+
+function setWhyHighlightText(text = "") {
   if (!whyHighlightText) return;
 
-  whyHighlightText.textContent = `${text}${suffix}`;
+  whyHighlightText.innerHTML = formatWhyHighlightText(text);
 }
 
 function renderWhyHighlightStatic() {
@@ -554,11 +586,9 @@ async function runWhyHighlightLoop(runId) {
     const items = getWhyHighlightItems();
 
     for (const item of items) {
-      const { coreText, suffix } = getWhyHighlightTextParts(item.text);
-
       whyHighlightIcon.classList.remove("is-visible");
       whyHighlightIcon.src = item.icon;
-      setWhyHighlightText("", suffix);
+      setWhyHighlightText("");
       whyHighlight.setAttribute("aria-label", item.text);
 
       await wait(140);
@@ -569,8 +599,8 @@ async function runWhyHighlightLoop(runId) {
       await wait(240);
       if (runId !== whyHighlightRunId) return;
 
-      for (let index = 1; index <= coreText.length; index += 1) {
-        setWhyHighlightText(coreText.slice(0, index), suffix);
+      for (let index = 1; index <= item.text.length; index += 1) {
+        setWhyHighlightText(item.text.slice(0, index));
         await wait(48);
         if (runId !== whyHighlightRunId) return;
       }
@@ -578,8 +608,8 @@ async function runWhyHighlightLoop(runId) {
       await wait(1200);
       if (runId !== whyHighlightRunId) return;
 
-      for (let index = coreText.length - 1; index >= 0; index -= 1) {
-        setWhyHighlightText(coreText.slice(0, index), suffix);
+      for (let index = item.text.length - 1; index >= 0; index -= 1) {
+        setWhyHighlightText(item.text.slice(0, index));
         await wait(28);
         if (runId !== whyHighlightRunId) return;
       }
@@ -668,7 +698,9 @@ function renderProjectTabs() {
 
   tabsContainer.innerHTML = projects
     .map((project, index) => {
-      const tabLabel = getLocalizedValue(project.tab);
+      const tabLabel = window.matchMedia("(max-width: 767px)").matches
+        ? `${index + 1}. Project`
+        : getLocalizedValue(project.tab);
       const activeClass = index === currentProjectIndex ? "active" : "";
 
       return `
@@ -922,6 +954,11 @@ document.getElementById("contact-form")?.addEventListener("submit", async (event
 
 if (typeof reducedMotionQuery.addEventListener === "function") {
   reducedMotionQuery.addEventListener("change", startWhyHighlightLoop);
+}
+
+const projectTabsViewportQuery = window.matchMedia("(max-width: 767px)");
+if (typeof projectTabsViewportQuery.addEventListener === "function") {
+  projectTabsViewportQuery.addEventListener("change", renderProjectTabs);
 }
 
 renderSkills();

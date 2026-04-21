@@ -1,0 +1,29 @@
+npx vercel oder npx vercel deploy
+Preview-Deploy
+npx vercel --prod
+Production-Deploy
+npx vercel --prod --yes
+Production-Deploy ohne Rückfragen
+npx vercel build
+Lokal builden
+npx vercel deploy --prebuilt
+Vorher lokal gebautes Output deployen
+npx vercel inspect <deployment-url>
+Deployment prüfen
+npx vercel logs <deployment-url>
+Logs ansehen
+npx vercel rollback <deployment-id-oder-url>
+Rollback
+npx vercel redeploy <deployment-id-oder-url>
+Neu deployen
+Für dein normales Live-Pushen reicht meistens:
+npx vercel --prod --yes
+
+zum pushen -----------------------------------wichtig
+Einmalig vorher:
+
+npx vercel login
+npx vercel link
+Danach für live meist nur:
+
+npx vercel --prod --yes
