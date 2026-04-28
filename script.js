@@ -97,6 +97,17 @@ const techIcons = {
   `
 };
 
+const techLabels = {
+  angular: { en: "Angular", de: "Angular" },
+  ts: { en: "TypeScript", de: "TypeScript" },
+  firebase: { en: "Firebase", de: "Firebase" },
+  js: { en: "JavaScript", de: "JavaScript" },
+  html: { en: "HTML", de: "HTML" },
+  css: { en: "CSS", de: "CSS" },
+  api: { en: "REST-API", de: "REST-API" },
+  git: { en: "Git", de: "Git" }
+};
+
 const translations = {
   en: {
     nav: {
@@ -111,9 +122,9 @@ const translations = {
     },
     why: {
       title: "Why me",
-      location: "I am located in Vienna...",
-      remote: "I am open to remote work...",
-      relocate: "I am open to relocating...",
+      location: "located in Vienna...",
+      remote: "open to remote work...",
+      relocate: "open to relocating...",
       copy:
         "Why are you passionate about coding? You can include some key traits like analytical thinking, creativity, persistence and collaboration. A problem-solving mindset is always nice to have."
     },
@@ -138,7 +149,8 @@ const translations = {
       previewAltSuffix: "preview"
     },
     testimonials: {
-      title: "Need a teamplayer? Here's what my colleagues say about me",
+      titleLead: "Need a teamplayer?",
+      titleRest: "Here's what my colleagues say about me",
       linkedin: "Linked In Profile",
       sahra: {
         role: "Project DA Bubble",
@@ -151,7 +163,7 @@ const translations = {
           '"Oguz Han is a reliable and friendly person. Works in a structured way and writes a clear code. I recommend her as a colleague."'
       },
       evelyn: {
-        role: "Project El Pollo Loco",
+        role: "Project Sharkie",
         quote:
           '"She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clean code."'
       }
@@ -230,9 +242,9 @@ const translations = {
     },
     why: {
       title: "Warum ich",
-      location: "Ich bin in Wien ansässig...",
-      remote: "Ich bin offen für Remote-Arbeit...",
-      relocate: "Ich bin offen für einen Umzug...",
+      location: "in Wien ansässig...",
+      remote: "offen für Remote-Arbeit...",
+      relocate: "offen für einen Umzug...",
       copy:
         "Warum begeistere ich mich fürs Programmieren? Hier kannst du Eigenschaften wie analytisches Denken, Kreativität, Ausdauer und Zusammenarbeit hervorheben. Eine lösungsorientierte Denkweise ist dabei immer ein Plus."
     },
@@ -257,7 +269,8 @@ const translations = {
       previewAltSuffix: "Vorschau"
     },
     testimonials: {
-      title: "Brauchst du einen Teamplayer? Das sagen meine Kolleginnen und Kollegen über mich",
+      titleLead: "Brauchst du einen Teamplayer?",
+      titleRest: "Das sagen meine Kolleginnen und Kollegen über mich",
       linkedin: "LinkedIn Profil",
       sahra: {
         role: "Projekt DA Bubble",
@@ -270,7 +283,7 @@ const translations = {
           '"Oguz Han ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
       },
       evelyn: {
-        role: "Projekt El Pollo Loco",
+        role: "Projekt Sharkie",
         quote:
           '"Sie ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
       }
@@ -373,8 +386,8 @@ const projects = [
   },
   {
     key: "elpolloloco",
-    tab: { en: "2. El Pollo Loco", de: "2. El Pollo Loco" },
-    title: { en: "El Pollo Loco", de: "El Pollo Loco" },
+    tab: { en: "2. Sharkie", de: "2. Sharkie" },
+    title: { en: "Sharkie", de: "Sharkie" },
     techLine: {
       en: "Technologies JavaScript HTML CSS",
       de: "Technologien JavaScript HTML CSS"
@@ -401,7 +414,7 @@ const projects = [
     live: "https://elpolloloco.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/elPolloLoco",
     image: "./assets/img/figma-assets/projects/polloloco.png",
-    tech: ["js", "html", "css"]
+    tech: ["html", "css", "js"]
   },
   {
     key: "join",
@@ -544,37 +557,62 @@ function getWhyHighlightPrefix() {
   return prefixes[currentLanguage] || "";
 }
 
-function formatWhyHighlightText(text = "") {
+function initWhyHighlightSpans() {
+  if (!whyHighlightText) return;
+
+  let prefixSpan = whyHighlightText.querySelector(".why-highlight-prefix");
+  let spaceSpan = whyHighlightText.querySelector(".why-highlight-space");
+  let restSpan = whyHighlightText.querySelector(".why-highlight-rest");
+
+  if (!prefixSpan || !spaceSpan || !restSpan) {
+    whyHighlightText.innerHTML = "";
+    
+    prefixSpan = document.createElement("span");
+    prefixSpan.className = "why-highlight-prefix";
+    
+    spaceSpan = document.createElement("span");
+    spaceSpan.className = "why-highlight-space";
+    spaceSpan.textContent = " ";
+    
+    restSpan = document.createElement("span");
+    restSpan.className = "why-highlight-rest";
+    
+    whyHighlightText.appendChild(prefixSpan);
+    whyHighlightText.appendChild(spaceSpan);
+    whyHighlightText.appendChild(restSpan);
+  }
+
+  return { prefixSpan, spaceSpan, restSpan };
+}
+
+function clearWhyHighlightText() {
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
+
+  const { prefixSpan, spaceSpan, restSpan } = spans;
+  prefixSpan.textContent = "";
+  spaceSpan.textContent = "";
+  restSpan.textContent = "";
+}
+
+function setWhyHighlightPrefix() {
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
+
+  const { prefixSpan, spaceSpan, restSpan } = spans;
   const prefix = getWhyHighlightPrefix();
-  const safeText = escapeHtml(text);
-
-  if (!prefix || !text) {
-    return safeText;
-  }
-
-  if (prefix.startsWith(text)) {
-    return `<span class="why-highlight-prefix">${safeText}</span>`;
-  }
-
-  if (text.startsWith(prefix)) {
-    const safePrefix = escapeHtml(prefix);
-    const rest = text.slice(prefix.length).trimStart();
-
-    if (!rest) {
-      return `<span class="why-highlight-prefix">${safePrefix}</span>`;
-    }
-
-    const safeRest = escapeHtml(rest);
-    return `<span class="why-highlight-prefix">${safePrefix}</span><span class="why-highlight-rest">${safeRest}</span>`;
-  }
-
-  return safeText;
+  
+  prefixSpan.textContent = prefix;
+  spaceSpan.textContent = " ";
+  restSpan.textContent = "";
 }
 
 function setWhyHighlightText(text = "") {
-  if (!whyHighlightText) return;
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
 
-  whyHighlightText.innerHTML = formatWhyHighlightText(text);
+  const { restSpan } = spans;
+  restSpan.textContent = text;
 }
 
 function renderWhyHighlightStatic() {
@@ -596,7 +634,7 @@ async function runWhyHighlightLoop(runId) {
     for (const item of items) {
       whyHighlightIcon.classList.remove("is-visible");
       whyHighlightIcon.src = item.icon;
-      setWhyHighlightText("");
+      clearWhyHighlightText();
       whyHighlight.setAttribute("aria-label", item.text);
 
       await wait(140);
@@ -606,6 +644,8 @@ async function runWhyHighlightLoop(runId) {
 
       await wait(240);
       if (runId !== whyHighlightRunId) return;
+
+      setWhyHighlightPrefix();
 
       for (let index = 1; index <= item.text.length; index += 1) {
         setWhyHighlightText(item.text.slice(0, index));
@@ -622,6 +662,7 @@ async function runWhyHighlightLoop(runId) {
         if (runId !== whyHighlightRunId) return;
       }
 
+      clearWhyHighlightText();
       whyHighlightIcon.classList.remove("is-visible");
 
       await wait(280);
@@ -762,6 +803,9 @@ function renderProjectCard() {
 
   const localizedTitle = getLocalizedValue(project.title);
   const localizedDuration = getLocalizedValue(project.duration);
+  const localizedTechnologies = project.tech
+    .map((tech) => getLocalizedValue(techLabels[tech]) || tech)
+    .join(", ");
 
   description.textContent = getLocalizedValue(project.description);
   process.textContent = getLocalizedValue(project.process);
@@ -772,7 +816,7 @@ function renderProjectCard() {
   github.href = project.github;
   durationDesktop.textContent = localizedDuration;
   titleMobile.textContent = localizedTitle;
-  techLineMobile.textContent = getLocalizedValue(project.techLine);
+  techLineMobile.textContent = `${getTranslation("projects.technologies")}: ${localizedTechnologies}`;
   durationMobile.textContent = localizedDuration;
 
   techRow.innerHTML = project.tech

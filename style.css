@@ -19,16 +19,14 @@
     --section-gutter: 48px;
 }
 
-* {
-    outline: 1px solid red;
-}
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
+    background: var(--panel);
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    overscroll-behavior: auto;
 }
 
 * {
@@ -44,6 +42,11 @@ body {
     font-family: var(--font-body);
     line-height: 1.45;
     overflow-x: hidden;
+    overscroll-behavior: auto;
+}
+
+body.portfolio-page {
+    background: var(--panel);
 }
 
 img {
@@ -432,6 +435,7 @@ button {
 .why-highlight-copy {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     min-width: 0;
     min-height: 64px;
 }
@@ -440,7 +444,8 @@ button {
     min-height: 0;
     display: inline-flex;
     align-items: center;
-    gap: 0.24em;
+    justify-content: flex-start;
+    gap: 0;
     font-family: var(--font-body);
     font-size: clamp(1.35rem, 1.85vw, 1.95rem);
     font-weight: 600;
@@ -448,10 +453,23 @@ button {
     letter-spacing: 0.02em;
     color: var(--text);
     white-space: nowrap;
+    min-width: 26ch;
+}
+
+@media (max-width: 767px) {
+    .why-highlight-text {
+        min-width: 0;
+    }
 }
 
 .why-highlight-prefix {
     color: var(--accent);
+}
+
+.why-highlight-space {
+    display: inline;
+    width: 0.28em;
+    flex: 0 0 0.28em;
 }
 
 .why-highlight-rest {
@@ -638,10 +656,9 @@ button {
 
 #projects .section-title,
 #projects .project-tabs {
+    padding-inline: max(var(--section-gutter), calc((100% - var(--container-max)) / 2));
+    margin-inline: auto;
     width: 100%;
-    max-width: 100%;
-    padding-inline: var(--section-gutter);
-    margin-inline: 0;
 }
 
 #projects .section-title {
@@ -775,6 +792,7 @@ button {
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--muted-soft);
+    line-height: 1.24;
 }
 
 .tech-row {
@@ -826,23 +844,33 @@ button {
 .team-title {
     max-width: 900px;
     margin: 0 auto 36px;
-    font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
-    font-weight: 400;
-    line-height: 1.14;
-    color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
     text-align: center;
+}
+
+.team-title-lead {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    font-weight: 400;
+    line-height: 0.98;
+    color: var(--accent);
+}
+
+.team-title-rest {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.55vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.18;
+    color: var(--text);
 }
 
 .testimonials {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-}
-
-.testimonials>* {
-    min-width: 0;
-    max-width: 100%;
 }
 
 .testimonial-card {
@@ -886,7 +914,9 @@ button {
     font-family: var(--font-body);
     font-size: clamp(1.55rem, 1.9vw, 2rem);
     font-weight: 600;
-    line-height: 1.06;
+    line-height: 1.12;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .testimonial-role {
@@ -1335,10 +1365,8 @@ textarea::placeholder {
     .mobile-menu {
         position: fixed;
         top: 44px;
-        left: 10px;
-        right: 10px;
-        width: auto;
-        max-width: none;
+        right: 8px;
+        width: min(220px, calc(100vw - 20px));
         aspect-ratio: 354 / 370;
         min-height: 0;
         border-radius: 0;
@@ -1562,9 +1590,11 @@ textarea::placeholder {
 
     .scroll-up {
         position: static;
-        width: 24px;
-        height: 42px;
-        margin: 24px auto 0;
+        display: flex;
+        width: 48px;
+        height: 96px;
+        margin: 48px auto 0;
+        transform: rotate(180deg);
     }
 
     .contact-copy,
@@ -1678,10 +1708,14 @@ textarea::placeholder {
 
     .section-shell {
         width: min(calc(100% - 28px), 640px);
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .content-section {
         padding-top: 20px;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .hero {
@@ -2012,37 +2046,62 @@ textarea::placeholder {
     }
 
     .team-title {
-        font-size: 1.3rem;
-        line-height: 1.3;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 24px;
+        text-align: left;
+    }
+
+    .team-title-lead {
+        font-size: 1.95rem;
+        line-height: 0.98;
+    }
+
+    .team-title-rest {
+        max-width: 280px;
+        font-size: 0.98rem;
+        line-height: 1.24;
     }
 
     .testimonials {
         display: flex;
+        flex-wrap: nowrap;
         gap: 14px;
+        width: 100%;
+        max-width: 100%;
         overflow-x: auto;
+        overflow-y: hidden;
         padding-bottom: 6px;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
     .testimonial-card {
-        min-width: 214px;
-        min-height: auto;
-        padding: 34px 24px;
+        flex: 0 0 214px;
+        width: 214px;
+        max-width: 214px;
+        min-width: 0;
         scroll-snap-align: start;
     }
 
+    .testimonials .testimonial-card:last-child {
+        margin-right: 0;
+    }
+
     .testimonial-card>* {
-        max-width: 150px;
+        max-width: 172px;
     }
 
     .testimonial-card h3 {
         font-size: 1.04rem;
+        line-height: 1.14;
     }
 
     .testimonial-card p,
     .testimonial-card a,
     .testimonial-role {
-        font-size: 0.76rem;
+        font-size: 0.8rem;
+        line-height: 1.32;
     }
 
     .contact-section {
@@ -2085,6 +2144,20 @@ textarea::placeholder {
         padding: 5px 14px;
     }
 
+    .project-mobile-head h3 {
+        margin-bottom: 10px;
+    }
+
+    .project-meta-line {
+        font-size: 0.96rem;
+        line-height: 1.28;
+        color: var(--text);
+    }
+
+    #project-techline-mobile {
+        margin-bottom: 2px;
+    }
+
     .site-footer {
         min-height: 188px;
         padding-block: 20px 14px;
@@ -2111,9 +2184,9 @@ textarea::placeholder {
         order: 3;
         justify-self: stretch;
         width: 100%;
-        max-width: 100%;
-        flex-wrap: wrap;
+        display: flex;
         align-items: center;
+        justify-content: space-evenly;
         gap: 12px;
         margin-top: 6px;
         font-size: 0.78rem;
@@ -2181,13 +2254,26 @@ textarea::placeholder {
     html,
     body,
     .site-frame {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .testimonials {
         width: 100%;
         max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .testimonial-card {
+        flex: 0 0 190px;
+        min-width: 0;
     }
 
     .section-shell {
-        width: calc(100% - 20px);
+        width: min(calc(100% - 20px), 100%);
+        max-width: 100%;
+        overflow-x: clip;
     }
 
     .hero-image-wrap {
@@ -2256,6 +2342,19 @@ textarea::placeholder {
         font-size: 0.88rem;
     }
 
+    .team-title-lead {
+        font-size: 1.75rem;
+    }
+
+    .team-title-rest {
+        max-width: 248px;
+        font-size: 0.9rem;
+    }
+
+    .project-meta-line {
+        font-size: 0.82rem;
+    }
+
     .learning-bubble {
         grid-template-columns: minmax(0, 1fr) 128px;
         gap: 16px 10px;
@@ -2280,10 +2379,13 @@ textarea::placeholder {
         width: 48px;
     }
 
-    .mobile-menu {}
+    .mobile-menu {
+        width: min(196px, calc(100vw - 20px));
+    }
 
     .testimonial-card {
-        min-width: 190px;
+        min-width: 0;
+        flex: 0 0 190px;
     }
 
     .project-tab.active {
