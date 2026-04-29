@@ -1767,18 +1767,23 @@ textarea::placeholder {
     }
 
     .hero-image-wrap {
-        width: 311.165px;
+        position: relative;
+        width: 311px;
         height: 370px;
         max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        isolation: isolate;
     }
 
     .hero-image-wrap::before {
         content: "";
         position: absolute;
         inset: 0;
+        width: 100%;
+        height: 100%;
         background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/shape-default.svg");
         transform: none;
-        transition: none;
         z-index: 0;
     }
 
@@ -1790,12 +1795,13 @@ textarea::placeholder {
 
     .hero-image {
         position: absolute;
-        width: 266.955px;
+        width: 267px;
         height: 370px;
-        left: 59.91px;
+        left: 50%;
         top: 0;
-        transform: none;
+        transform: translateX(-50%);
         object-fit: contain;
+        object-position: center bottom;
         opacity: 1;
         z-index: 1;
     }
