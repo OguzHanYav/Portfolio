@@ -22,9 +22,11 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
+    background: var(--panel);
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    overscroll-behavior: auto;
 }
 
 * {
@@ -39,6 +41,12 @@ body {
     color: var(--text);
     font-family: var(--font-body);
     line-height: 1.45;
+    overflow-x: hidden;
+    overscroll-behavior: auto;
+}
+
+body.portfolio-page {
+    background: var(--panel);
 }
 
 img {
@@ -55,6 +63,8 @@ button,
 input,
 textarea {
     font: inherit;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 button {
@@ -79,6 +89,7 @@ button {
 }
 
 .full-screen-section {
+    min-height: 100vh;
     min-height: 100svh;
 }
 
@@ -226,6 +237,7 @@ button {
 .hero-info {
     position: relative;
     min-height: clamp(420px, 62vw, 760px);
+    overflow: visible;
 }
 
 .hero-meta {
@@ -290,6 +302,16 @@ button {
     height: 89px;
     display: block;
     object-fit: contain;
+}
+
+.hero > .scroll-down,
+.hero-inner > .scroll-down,
+.hero .scroll-down:not(.hero-copy .scroll-down) {
+    display: none !important;
+}
+
+.hero-copy .scroll-down {
+    display: inline-flex !important;
 }
 
 .hero-socials {
@@ -391,9 +413,10 @@ button {
 }
 
 .why-highlight {
-    display: flex;
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
     align-items: center;
-    gap: 18px;
+    column-gap: 18px;
     width: min(100%, 480px);
     min-height: 96px;
     padding: 18px 22px;
@@ -426,15 +449,17 @@ button {
 .why-highlight-copy {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     min-width: 0;
-    flex: 1;
-    flex-wrap: nowrap;
+    min-height: 64px;
 }
 
 .why-highlight-text {
     min-height: 0;
     display: inline-flex;
     align-items: center;
+    justify-content: flex-start;
+    gap: 0;
     font-family: var(--font-body);
     font-size: clamp(1.35rem, 1.85vw, 1.95rem);
     font-weight: 600;
@@ -442,10 +467,27 @@ button {
     letter-spacing: 0.02em;
     color: var(--text);
     white-space: nowrap;
+    min-width: 26ch;
+}
+
+@media (max-width: 767px) {
+    .why-highlight-text {
+        min-width: 0;
+    }
 }
 
 .why-highlight-prefix {
     color: var(--accent);
+}
+
+.why-highlight-space {
+    display: inline;
+    width: 0.28em;
+    flex: 0 0 0.28em;
+}
+
+.why-highlight-rest {
+    color: var(--text);
 }
 
 .why-highlight-text::after {
@@ -460,6 +502,7 @@ button {
 }
 
 @keyframes why-caret-blink {
+
     0%,
     45% {
         opacity: 1;
@@ -578,7 +621,7 @@ button {
     filter: brightness(1.03);
 }
 
-.learning-bubble > * {
+.learning-bubble>* {
     position: relative;
     z-index: 1;
 }
@@ -591,6 +634,11 @@ button {
     margin-bottom: 18px;
 }
 
+.learning-title-mobile,
+.learning-visual-mobile {
+    display: none;
+}
+
 .learning-icons {
     display: flex;
     gap: 22px;
@@ -601,9 +649,19 @@ button {
 }
 
 .learning-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-body);
     font-size: 0.96rem;
     font-weight: 500;
+}
+
+.learning-icon-image {
+    width: 42px;
+    height: 54px;
+    object-fit: contain;
 }
 
 .learning-text {
@@ -758,6 +816,7 @@ button {
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--muted-soft);
+    line-height: 1.24;
 }
 
 .tech-row {
@@ -778,14 +837,11 @@ button {
     justify-content: center;
 }
 
-.tech-badge svg {
+.tech-badge .tech-icon-image {
     width: 34px;
     height: 34px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    object-fit: contain;
+    display: block;
 }
 
 #project-image {
@@ -809,12 +865,27 @@ button {
 .team-title {
     max-width: 900px;
     margin: 0 auto 36px;
-    font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
-    font-weight: 400;
-    line-height: 1.14;
-    color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
     text-align: center;
+}
+
+.team-title-lead {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    font-weight: 400;
+    line-height: 0.98;
+    color: var(--accent);
+}
+
+.team-title-rest {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.55vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.18;
+    color: var(--text);
 }
 
 .testimonials {
@@ -864,7 +935,9 @@ button {
     font-family: var(--font-body);
     font-size: clamp(1.55rem, 1.9vw, 2rem);
     font-weight: 600;
-    line-height: 1.06;
+    line-height: 1.12;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .testimonial-role {
@@ -903,11 +976,16 @@ button {
     margin-bottom: 56px;
 }
 
-.scroll-up {
+#contact .section-shell {
+    position: relative;
+}
+
+#contact .scroll-up {
     position: absolute;
-    top: -6px;
+    top: 120px;
     right: 0;
-    margin-top: 0;
+    margin: 0;
+    transform: rotate(180deg);
 }
 
 .contact-grid {
@@ -1266,12 +1344,16 @@ textarea::placeholder {
     }
 
     .burger {
-        width: 20px;
-        height: 16px;
+        width: 30px;
+        height: 32px;
         border: 0;
         background: transparent;
         position: relative;
+        top: 27px;
         z-index: 61;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .burger span {
@@ -1312,17 +1394,19 @@ textarea::placeholder {
 
     .mobile-menu {
         position: fixed;
-        top: 52px;
-        right: 16px;
-        width: 220px;
-        min-height: 220px;
-        border-radius: 50%;
-        background: var(--accent);
+        top: 44px;
+        right: 8px;
+        width: min(220px, calc(100vw - 20px));
+        aspect-ratio: 354 / 370;
+        min-height: 0;
+        border-radius: 0;
+        background: center / 100% 100% no-repeat url("./assets/img/figma-assets/Hero/menu-shape.svg");
         z-index: 60;
         display: none;
         align-items: center;
         justify-content: center;
-        padding: 22px;
+        padding: 34px 24px 28px;
+        overflow: hidden;
     }
 
     .mobile-menu.open {
@@ -1534,11 +1618,13 @@ textarea::placeholder {
         margin-bottom: 28px;
     }
 
-    .scroll-up {
+    #contact .scroll-up {
         position: static;
-        width: 24px;
-        height: 42px;
-        margin: 24px auto 0;
+        display: flex;
+        width: 48px;
+        height: 96px;
+        margin: 48px auto 0;
+        transform: rotate(180deg);
     }
 
     .contact-copy,
@@ -1652,34 +1738,38 @@ textarea::placeholder {
 
     .section-shell {
         width: min(calc(100% - 28px), 640px);
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .content-section {
         padding-top: 20px;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .hero {
-        min-height: auto;
-        padding: 8px 0 0;
+        height: calc(100svh - 72px);
+        min-height: calc(100svh - 72px);
+        padding: 0;
+        display: flex;
+        align-items: center;
     }
 
     .hero-inner {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        align-items: center;
-        justify-items: center;
-        gap: 10px;
+        height: 100%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
         width: 100%;
     }
 
     .hero-image-wrap {
-        position: relative;
-        width: min(311px, 100%);
-        aspect-ratio: 311 / 326;
-        height: auto;
-        margin: 0 auto;
-        overflow: hidden;
-        isolation: isolate;
+        width: 311.165px;
+        height: 370px;
+        max-width: 100%;
     }
 
     .hero-image-wrap::before {
@@ -1700,12 +1790,13 @@ textarea::placeholder {
 
     .hero-image {
         position: absolute;
-        width: 85.85%;
-        left: 7.07%;
+        width: 266.955px;
+        height: 370px;
+        left: 59.91px;
         top: 0;
-        height: auto;
-        max-width: none;
+        transform: none;
         object-fit: contain;
+        opacity: 1;
         z-index: 1;
     }
 
@@ -1744,33 +1835,38 @@ textarea::placeholder {
     #hero-name {
         font-family: "Anta", sans-serif;
         font-weight: 400;
-        font-size: 40px;
+        font-style: normal;
+        font-size: 48px;
         line-height: 120%;
         letter-spacing: 0;
         text-align: center;
-        white-space: nowrap;
     }
 
     #hero-role {
-        margin-top: 6px;
+        margin-top: 4px;
         font-family: "Josefin Sans", sans-serif;
         font-weight: 400;
+        font-style: normal;
         font-size: 24px;
         line-height: 120%;
         letter-spacing: 0;
         text-align: center;
-        white-space: nowrap;
     }
 
     .scroll-down {
         width: 30px;
-        height: 54px;
+        height: 72px;
         margin-top: 14px;
     }
 
+    .arrow-icon {
+        height: 72px;
+        width: auto;
+    }
+
     #why-me.content-section {
-        padding-top: 0;
-        margin-top: 16px;
+        padding-top: 32px;
+        margin-top: 0;
     }
 
     .section-title {
@@ -1798,8 +1894,9 @@ textarea::placeholder {
     .why-highlight {
         width: 100%;
         min-height: 88px;
+        grid-template-columns: 60px minmax(0, 1fr);
         padding: 14px 16px;
-        gap: 14px;
+        column-gap: 14px;
         border-radius: 24px;
     }
 
@@ -1812,6 +1909,10 @@ textarea::placeholder {
     .why-highlight-text {
         font-size: 0.94rem;
         line-height: 1.45;
+    }
+
+    .why-highlight-copy {
+        min-height: 52px;
     }
 
     .why-copy {
@@ -1839,34 +1940,73 @@ textarea::placeholder {
 
     .learning-bubble {
         max-width: none;
-        border-radius: 24px;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 148px;
+        gap: 18px 14px;
+        align-items: center;
+        border-radius: 0;
+        aspect-ratio: auto;
         text-align: left;
-        padding: 18px;
+        padding: 0;
+        margin-top: 8px;
+    }
+
+    .learning-bubble::before {
+        display: none;
     }
 
     .learning-title {
+        grid-column: 1 / -1;
         text-align: center;
-        font-size: 0.84rem;
-        margin-bottom: 10px;
+        font-size: 0.94rem;
+        margin-bottom: 0;
         color: var(--accent);
     }
 
-    .learning-icons {
+    .learning-title-desktop,
+    .learning-icons-desktop {
+        display: none;
+    }
+
+    .learning-title-mobile,
+    .learning-visual-mobile {
+        display: block;
+    }
+
+    .learning-visual-mobile {
+        grid-column: 2;
+        grid-row: 2;
+        width: 148px;
+        min-width: 148px;
+        height: 128px;
+        justify-self: end;
+        align-self: center;
+        display: flex;
+        align-items: center;
         justify-content: center;
-        margin-bottom: 10px;
-        order: 2;
+    }
+
+    .learning-visual-image {
+        width: 114px;
+        max-width: 100%;
+        height: auto;
     }
 
     .learning-text {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: none;
         font-size: 0.76rem;
-        order: 1;
+        line-height: 1.36;
+        color: var(--text);
+        margin: 0;
     }
 
     .mobile-only-inline {
         display: inline-flex;
+        grid-column: 1 / -1;
+        justify-self: center;
         align-self: center;
-        order: 3;
         margin-top: 12px;
     }
 
@@ -1942,37 +2082,63 @@ textarea::placeholder {
     }
 
     .team-title {
-        font-size: 1.3rem;
-        line-height: 1.3;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 24px;
+        text-align: left;
+    }
+
+    .team-title-lead {
+        font-size: 1.95rem;
+        line-height: 0.98;
+    }
+
+    .team-title-rest {
+        max-width: 280px;
+        font-size: 0.98rem;
+        line-height: 1.24;
     }
 
     .testimonials {
         display: flex;
+        flex-wrap: nowrap;
         gap: 14px;
+        width: 100%;
+        max-width: 100%;
         overflow-x: auto;
+        overflow-y: hidden;
         padding-bottom: 6px;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-inline: contain;
     }
 
     .testimonial-card {
-        min-width: 214px;
-        min-height: auto;
-        padding: 34px 24px;
+        flex: 0 0 214px;
+        width: 214px;
+        max-width: 214px;
+        min-width: 0;
         scroll-snap-align: start;
     }
 
-    .testimonial-card > * {
-        max-width: 150px;
+    .testimonials .testimonial-card:last-child {
+        margin-right: 0;
+    }
+
+    .testimonial-card>* {
+        max-width: 172px;
     }
 
     .testimonial-card h3 {
         font-size: 1.04rem;
+        line-height: 1.14;
     }
 
     .testimonial-card p,
     .testimonial-card a,
     .testimonial-role {
-        font-size: 0.76rem;
+        font-size: 0.8rem;
+        line-height: 1.32;
     }
 
     .contact-section {
@@ -2013,6 +2179,20 @@ textarea::placeholder {
         min-width: 64px;
         min-height: 28px;
         padding: 5px 14px;
+    }
+
+    .project-mobile-head h3 {
+        margin-bottom: 10px;
+    }
+
+    .project-meta-line {
+        font-size: 0.96rem;
+        line-height: 1.28;
+        color: var(--text);
+    }
+
+    #project-techline-mobile {
+        margin-bottom: 2px;
     }
 
     .site-footer {
@@ -2107,6 +2287,7 @@ textarea::placeholder {
 /* SMALL MOBILE ~390px bis 320px */
 
 @media (max-width: 390px) {
+
     html,
     body,
     .site-frame {
@@ -2114,8 +2295,22 @@ textarea::placeholder {
         max-width: 100%;
     }
 
+    .testimonials {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .testimonial-card {
+        flex: 0 0 190px;
+        min-width: 0;
+    }
+
     .section-shell {
-        width: calc(100% - 20px);
+        width: min(calc(100% - 20px), 100%);
+        max-width: 100%;
+        overflow-x: clip;
     }
 
     .hero-image-wrap {
@@ -2184,6 +2379,35 @@ textarea::placeholder {
         font-size: 0.88rem;
     }
 
+    .team-title-lead {
+        font-size: 1.75rem;
+    }
+
+    .team-title-rest {
+        max-width: 248px;
+        font-size: 0.9rem;
+    }
+
+    .project-meta-line {
+        font-size: 0.82rem;
+    }
+
+    .learning-bubble {
+        grid-template-columns: minmax(0, 1fr) 128px;
+        gap: 16px 10px;
+    }
+
+    .learning-visual-mobile {
+        width: 128px;
+        min-width: 128px;
+        height: 112px;
+    }
+
+    .learning-visual-image {
+        width: 102px;
+        height: auto;
+    }
+
     .skills-grid {
         gap: 12px 8px;
     }
@@ -2193,12 +2417,12 @@ textarea::placeholder {
     }
 
     .mobile-menu {
-        width: 190px;
-        min-height: 190px;
+        width: min(196px, calc(100vw - 20px));
     }
 
     .testimonial-card {
-        min-width: 190px;
+        min-width: 0;
+        flex: 0 0 190px;
     }
 
     .project-tab.active {

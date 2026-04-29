@@ -150,10 +150,20 @@
                         <div class="skills-grid" id="skills-container"></div>
 
                         <aside class="learning-bubble">
-                            <p class="learning-title" data-i18n="skills.learningTitle">I am currently learning</p>
-                            <div class="learning-icons">
-                                <span class="learning-pill">Vue.js</span>
-                                <span class="learning-pill">React</span>
+                            <p class="learning-title">
+                                <span class="learning-title-desktop" data-i18n="skills.learningTitle">I am currently learning</span>
+                                <span class="learning-title-mobile" data-i18n="skills.learningTitleMobile">What I am currently learning</span>
+                            </p>
+                            <div class="learning-icons learning-icons-desktop">
+                                <span class="learning-pill">
+                                    <img src="./assets/img/figma-assets/learning/vue.svg" alt="Vue.js" class="learning-icon-image" />
+                                </span>
+                                <span class="learning-pill">
+                                    <img src="./assets/img/figma-assets/learning/react.svg" alt="React" class="learning-icon-image" />
+                                </span>
+                            </div>
+                            <div class="learning-visual-mobile" aria-hidden="true">
+                                <img class="learning-visual-image" src="./assets/img/figma-assets/learning/icons-learning.svg" alt="" loading="lazy" />
                             </div>
                             <p class="learning-text" data-i18n="skills.learningText">
                                 Show that you are motivated to continuously improve your skills,
@@ -227,8 +237,10 @@
 
             <section class="content-section">
                 <div class="section-shell">
-                    <p class="team-title" data-i18n="testimonials.title">Need a teamplayer? Here’s what my colleagues
-                        say about me</p>
+                    <p class="team-title">
+                        <span class="team-title-lead" data-i18n="testimonials.titleLead">Need a teamplayer?</span>
+                        <span class="team-title-rest" data-i18n="testimonials.titleRest">Here’s what my colleagues say about me</span>
+                    </p>
 
                     <div class="testimonials">
                         <article class="testimonial-card">
@@ -253,7 +265,7 @@
 
                         <article class="testimonial-card">
                             <h3>Evelyn Marx</h3>
-                            <p class="testimonial-role" data-i18n="testimonials.evelyn.role">Project El Pollo Loco</p>
+                            <p class="testimonial-role" data-i18n="testimonials.evelyn.role">Project Sharkie</p>
                             <p data-i18n="testimonials.evelyn.quote">
                                 "She is a trustworthy teamplayer and can cope with the stress of
                                 deadlines. Structured work and clean code."
@@ -268,10 +280,6 @@
                 <div class="section-shell">
                     <div class="contact-title-row">
                         <h2 class="section-title" data-i18n="contact.title">Contact me</h2>
-                        <a href="#top" class="scroll-up" aria-label="Back to top"
-                            data-i18n-aria-label="contact.backToTop">
-                            <img src="./assets/img/arrow up.svg" alt="" class="arrow-icon" aria-hidden="true" />
-                        </a>
                     </div>
 
                     <div class="contact-grid">
@@ -337,6 +345,11 @@
 
                         <p id="form-feedback" class="form-feedback"></p>
                     </form>
+
+                    <a href="#top" class="scroll-up" aria-label="Back to top"
+                        data-i18n-aria-label="contact.backToTop">
+                        <img src="./assets/img/Arrow down.svg" alt="" class="arrow-icon" aria-hidden="true" />
+                    </a>
                 </div>
             </section>
         </main>

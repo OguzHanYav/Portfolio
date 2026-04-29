@@ -45,56 +45,27 @@ const skills = [
 ];
 
 const techIcons = {
-  angular: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2 4 5l1.3 10.2L12 22l6.7-6.8L20 5Z" />
-      <path d="M12 6.5 8.8 15h1.9l.65-1.85h3.32L15.3 15h1.9Z" />
-    </svg>
-  `,
-  ts: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-      <path d="M8 9.5h8" />
-      <path d="M11 9.5v7" />
-    </svg>
-  `,
-  firebase: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 17.5 11.2 4.5 13.6 9l-4.2 8.5Z" />
-      <path d="M11.2 4.5 18 11.3l-7 8.2Z" />
-    </svg>
-  `,
-  js: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-      <path d="M10 9.5v5.2c0 1-.5 1.8-1.6 1.8" />
-      <path d="M13.2 15.2c.3.8 1 1.3 2 1.3" />
-    </svg>
-  `,
-  html: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-      <path d="m8.4 7.8.3 2.1h6.4" />
-    </svg>
-  `,
-  css: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-      <path d="m8.5 7.8-.2 2.2h6.1" />
-    </svg>
-  `,
-  api: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="4" y="6" width="16" height="12" rx="4" />
-      <path d="M7.5 14h9" />
-    </svg>
-  `,
-  git: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m12 3 9 9-9 9-9-9Z" />
-      <path d="M12 7.5v9" />
-    </svg>
-  `
+  angular: "./assets/img/figma-assets/technologies/Frame 498.svg",
+  ts: "./assets/img/figma-assets/technologies/Frame 499.svg",
+  html: "./assets/img/figma-assets/technologies/Frame 500.svg",
+  css: "./assets/img/figma-assets/technologies/Frame 501.svg",
+  firebase: "./assets/img/figma-assets/technologies/Frame 525.svg",
+  js: "./assets/img/figma-assets/technologies/Javascript.svg",
+  javascript: "./assets/img/figma-assets/technologies/Javascript.svg",
+  vue: "./assets/img/figma-assets/technologies/Vue Js.svg",
+  react: "./assets/img/figma-assets/technologies/React.svg"
+};
+
+const techLabels = {
+  angular: { en: "Angular", de: "Angular" },
+  ts: { en: "TypeScript", de: "TypeScript" },
+  html: { en: "HTML", de: "HTML" },
+  css: { en: "CSS", de: "CSS" },
+  firebase: { en: "Firebase", de: "Firebase" },
+  js: { en: "JavaScript", de: "JavaScript" },
+  javascript: { en: "JavaScript", de: "JavaScript" },
+  vue: { en: "Vue.js", de: "Vue.js" },
+  react: { en: "React", de: "React" }
 };
 
 const translations = {
@@ -111,9 +82,9 @@ const translations = {
     },
     why: {
       title: "Why me",
-      location: "I am located in Vienna...",
-      remote: "I am open to remote work...",
-      relocate: "I am open to relocating...",
+      location: "located in Vienna...",
+      remote: "open to remote work...",
+      relocate: "open to relocating...",
       copy:
         "Why are you passionate about coding? You can include some key traits like analytical thinking, creativity, persistence and collaboration. A problem-solving mindset is always nice to have."
     },
@@ -123,6 +94,7 @@ const translations = {
     skills: {
       title: "My Skills",
       learningTitle: "I am currently learning",
+      learningTitleMobile: "What I am currently learning",
       learningText:
         "Show that you are motivated to continuously improve your skills, implement innovative solutions and stay abreast of new technologies."
     },
@@ -137,7 +109,8 @@ const translations = {
       previewAltSuffix: "preview"
     },
     testimonials: {
-      title: "Need a teamplayer? Here's what my colleagues say about me",
+      titleLead: "Need a teamplayer?",
+      titleRest: "Here's what my colleagues say about me",
       linkedin: "Linked In Profile",
       sahra: {
         role: "Project DA Bubble",
@@ -150,7 +123,7 @@ const translations = {
           '"Oguz Han is a reliable and friendly person. Works in a structured way and writes a clear code. I recommend her as a colleague."'
       },
       evelyn: {
-        role: "Project El Pollo Loco",
+        role: "Project Sharkie",
         quote:
           '"She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clean code."'
       }
@@ -229,9 +202,9 @@ const translations = {
     },
     why: {
       title: "Warum ich",
-      location: "Ich bin in Wien ansässig...",
-      remote: "Ich bin offen für Remote-Arbeit...",
-      relocate: "Ich bin offen für einen Umzug...",
+      location: "in Wien ansässig...",
+      remote: "offen für Remote-Arbeit...",
+      relocate: "offen für einen Umzug...",
       copy:
         "Warum begeistere ich mich fürs Programmieren? Hier kannst du Eigenschaften wie analytisches Denken, Kreativität, Ausdauer und Zusammenarbeit hervorheben. Eine lösungsorientierte Denkweise ist dabei immer ein Plus."
     },
@@ -241,6 +214,7 @@ const translations = {
     skills: {
       title: "Meine Skills",
       learningTitle: "Ich lerne aktuell",
+      learningTitleMobile: "Was ich aktuell lerne",
       learningText:
         "Zeige, dass du motiviert bist, deine Fähigkeiten stetig zu verbessern, innovative Lösungen umzusetzen und mit neuen Technologien Schritt zu halten."
     },
@@ -255,7 +229,8 @@ const translations = {
       previewAltSuffix: "Vorschau"
     },
     testimonials: {
-      title: "Brauchst du einen Teamplayer? Das sagen meine Kolleginnen und Kollegen über mich",
+      titleLead: "Brauchst du einen Teamplayer?",
+      titleRest: "Das sagen meine Kolleginnen und Kollegen über mich",
       linkedin: "LinkedIn Profil",
       sahra: {
         role: "Projekt DA Bubble",
@@ -268,7 +243,7 @@ const translations = {
           '"Oguz Han ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
       },
       evelyn: {
-        role: "Projekt El Pollo Loco",
+        role: "Projekt Sharkie",
         quote:
           '"Sie ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
       }
@@ -371,11 +346,11 @@ const projects = [
   },
   {
     key: "elpolloloco",
-    tab: { en: "2. El Pollo Loco", de: "2. El Pollo Loco" },
-    title: { en: "El Pollo Loco", de: "El Pollo Loco" },
+    tab: { en: "2. Sharkie", de: "2. Sharkie" },
+    title: { en: "Sharkie", de: "Sharkie" },
     techLine: {
-      en: "Technologies JavaScript HTML CSS",
-      de: "Technologien JavaScript HTML CSS"
+      en: "Technologies HTML JavaScript CSS",
+      de: "Technologien HTML JavaScript CSS"
     },
     duration: { en: "Duration: 5 weeks", de: "Dauer: 5 Wochen" },
     description: {
@@ -399,15 +374,15 @@ const projects = [
     live: "https://elpolloloco.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/elPolloLoco",
     image: "./assets/img/figma-assets/projects/polloloco.png",
-    tech: ["js", "html", "css"]
+    tech: ["html", "css", "js"]
   },
   {
     key: "join",
     tab: { en: "3. Join", de: "3. Join" },
     title: { en: "Join", de: "Join" },
     techLine: {
-      en: "Technologies JavaScript REST-API Firebase",
-      de: "Technologien JavaScript REST-API Firebase"
+      en: "Technologies JavaScript HTML CSS",
+      de: "Technologien JavaScript HTML CSS"
     },
     duration: { en: "Duration: 6 weeks", de: "Dauer: 6 Wochen" },
     description: {
@@ -431,15 +406,15 @@ const projects = [
     live: "https://join.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/Join-portfolio",
     image: "./assets/img/figma-assets/projects/join project.svg",
-    tech: ["js", "api", "firebase"]
+    tech: ["javascript", "html", "css"]
   },
   {
     key: "ongoing",
     tab: { en: "4. Ongoing Project", de: "4. Laufendes Projekt" },
     title: { en: "Ongoing Project", de: "Laufendes Projekt" },
     techLine: {
-      en: "Technologies TypeScript Git",
-      de: "Technologien TypeScript Git"
+      en: "Technologies Angular TypeScript HTML CSS Vue.js React",
+      de: "Technologien Angular TypeScript HTML CSS Vue.js React"
     },
     duration: { en: "Duration: ongoing", de: "Dauer: fortlaufend" },
     description: {
@@ -463,7 +438,7 @@ const projects = [
     live: "#",
     github: "#",
     image: "./assets/img/figma-assets/projects/comingsoon.svg",
-    tech: ["ts", "git"]
+    tech: ["angular", "ts", "html", "css", "vue", "react"]
   }
 ];
 
@@ -542,31 +517,62 @@ function getWhyHighlightPrefix() {
   return prefixes[currentLanguage] || "";
 }
 
-function formatWhyHighlightText(text = "") {
+function initWhyHighlightSpans() {
+  if (!whyHighlightText) return;
+
+  let prefixSpan = whyHighlightText.querySelector(".why-highlight-prefix");
+  let spaceSpan = whyHighlightText.querySelector(".why-highlight-space");
+  let restSpan = whyHighlightText.querySelector(".why-highlight-rest");
+
+  if (!prefixSpan || !spaceSpan || !restSpan) {
+    whyHighlightText.innerHTML = "";
+    
+    prefixSpan = document.createElement("span");
+    prefixSpan.className = "why-highlight-prefix";
+    
+    spaceSpan = document.createElement("span");
+    spaceSpan.className = "why-highlight-space";
+    spaceSpan.textContent = " ";
+    
+    restSpan = document.createElement("span");
+    restSpan.className = "why-highlight-rest";
+    
+    whyHighlightText.appendChild(prefixSpan);
+    whyHighlightText.appendChild(spaceSpan);
+    whyHighlightText.appendChild(restSpan);
+  }
+
+  return { prefixSpan, spaceSpan, restSpan };
+}
+
+function clearWhyHighlightText() {
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
+
+  const { prefixSpan, spaceSpan, restSpan } = spans;
+  prefixSpan.textContent = "";
+  spaceSpan.textContent = "";
+  restSpan.textContent = "";
+}
+
+function setWhyHighlightPrefix() {
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
+
+  const { prefixSpan, spaceSpan, restSpan } = spans;
   const prefix = getWhyHighlightPrefix();
-  const safeText = escapeHtml(text);
-
-  if (!prefix || !text) {
-    return safeText;
-  }
-
-  if (prefix.startsWith(text)) {
-    return `<span class="why-highlight-prefix">${safeText}</span>`;
-  }
-
-  if (text.startsWith(prefix)) {
-    const safePrefix = escapeHtml(prefix);
-    const safeRest = escapeHtml(text.slice(prefix.length));
-    return `<span class="why-highlight-prefix">${safePrefix}</span>${safeRest}`;
-  }
-
-  return safeText;
+  
+  prefixSpan.textContent = prefix;
+  spaceSpan.textContent = " ";
+  restSpan.textContent = "";
 }
 
 function setWhyHighlightText(text = "") {
-  if (!whyHighlightText) return;
+  const spans = initWhyHighlightSpans();
+  if (!spans) return;
 
-  whyHighlightText.innerHTML = formatWhyHighlightText(text);
+  const { restSpan } = spans;
+  restSpan.textContent = text;
 }
 
 function renderWhyHighlightStatic() {
@@ -588,7 +594,7 @@ async function runWhyHighlightLoop(runId) {
     for (const item of items) {
       whyHighlightIcon.classList.remove("is-visible");
       whyHighlightIcon.src = item.icon;
-      setWhyHighlightText("");
+      clearWhyHighlightText();
       whyHighlight.setAttribute("aria-label", item.text);
 
       await wait(140);
@@ -598,6 +604,8 @@ async function runWhyHighlightLoop(runId) {
 
       await wait(240);
       if (runId !== whyHighlightRunId) return;
+
+      setWhyHighlightPrefix();
 
       for (let index = 1; index <= item.text.length; index += 1) {
         setWhyHighlightText(item.text.slice(0, index));
@@ -614,6 +622,7 @@ async function runWhyHighlightLoop(runId) {
         if (runId !== whyHighlightRunId) return;
       }
 
+      clearWhyHighlightText();
       whyHighlightIcon.classList.remove("is-visible");
 
       await wait(280);
@@ -754,6 +763,9 @@ function renderProjectCard() {
 
   const localizedTitle = getLocalizedValue(project.title);
   const localizedDuration = getLocalizedValue(project.duration);
+  const localizedTechnologies = project.tech
+    .map((tech) => getLocalizedValue(techLabels[tech]) || tech)
+    .join(", ");
 
   description.textContent = getLocalizedValue(project.description);
   process.textContent = getLocalizedValue(project.process);
@@ -764,11 +776,17 @@ function renderProjectCard() {
   github.href = project.github;
   durationDesktop.textContent = localizedDuration;
   titleMobile.textContent = localizedTitle;
-  techLineMobile.textContent = getLocalizedValue(project.techLine);
+  techLineMobile.textContent = `${getTranslation("projects.technologies")}: ${localizedTechnologies}`;
   durationMobile.textContent = localizedDuration;
 
   techRow.innerHTML = project.tech
-    .map((tech) => `<span class="tech-badge">${techIcons[tech] || ""}</span>`)
+    .map((tech) => {
+      const src = techIcons[tech];
+      const label = getLocalizedValue(techLabels[tech]) || tech;
+      return src
+        ? `<span class="tech-badge"><img src="${src}" alt="${label}" class="tech-icon-image" /></span>`
+        : `<span class="tech-badge">${label}</span>`;
+    })
     .join("");
 }
 
@@ -816,6 +834,19 @@ if (burger && mobileMenu) {
     link.addEventListener("click", () => {
       closeMobileMenu();
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!mobileMenu.classList.contains("open")) return;
+
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+
+    if (mobileMenu.contains(target) || burger.contains(target)) {
+      return;
+    }
+
+    closeMobileMenu();
   });
 }
 
