@@ -45,67 +45,27 @@ const skills = [
 ];
 
 const techIcons = {
-  angular: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2 4 5l1.3 10.2L12 22l6.7-6.8L20 5Z" />
-      <path d="M12 6.5 8.8 15h1.9l.65-1.85h3.32L15.3 15h1.9Z" />
-    </svg>
-  `,
-  ts: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-      <path d="M8 9.5h8" />
-      <path d="M11 9.5v7" />
-    </svg>
-  `,
-  firebase: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6 17.5 11.2 4.5 13.6 9l-4.2 8.5Z" />
-      <path d="M11.2 4.5 18 11.3l-7 8.2Z" />
-    </svg>
-  `,
-  js: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="2.5" />
-      <path d="M10 9.5v5.2c0 1-.5 1.8-1.6 1.8" />
-      <path d="M13.2 15.2c.3.8 1 1.3 2 1.3" />
-    </svg>
-  `,
-  html: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-      <path d="m8.4 7.8.3 2.1h6.4" />
-    </svg>
-  `,
-  css: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 3.5h14l-1.3 15-5.7 2-5.7-2Z" />
-      <path d="m8.5 7.8-.2 2.2h6.1" />
-    </svg>
-  `,
-  api: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="4" y="6" width="16" height="12" rx="4" />
-      <path d="M7.5 14h9" />
-    </svg>
-  `,
-  git: `
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m12 3 9 9-9 9-9-9Z" />
-      <path d="M12 7.5v9" />
-    </svg>
-  `
+  angular: "./assets/img/figma-assets/technologies/Frame 498.svg",
+  ts: "./assets/img/figma-assets/technologies/Frame 499.svg",
+  html: "./assets/img/figma-assets/technologies/Frame 500.svg",
+  css: "./assets/img/figma-assets/technologies/Frame 501.svg",
+  firebase: "./assets/img/figma-assets/technologies/Frame 525.svg",
+  js: "./assets/img/figma-assets/technologies/Javascript.svg",
+  javascript: "./assets/img/figma-assets/technologies/Javascript.svg",
+  vue: "./assets/img/figma-assets/technologies/Vue Js.svg",
+  react: "./assets/img/figma-assets/technologies/React.svg"
 };
 
 const techLabels = {
   angular: { en: "Angular", de: "Angular" },
   ts: { en: "TypeScript", de: "TypeScript" },
-  firebase: { en: "Firebase", de: "Firebase" },
-  js: { en: "JavaScript", de: "JavaScript" },
   html: { en: "HTML", de: "HTML" },
   css: { en: "CSS", de: "CSS" },
-  api: { en: "REST-API", de: "REST-API" },
-  git: { en: "Git", de: "Git" }
+  firebase: { en: "Firebase", de: "Firebase" },
+  js: { en: "JavaScript", de: "JavaScript" },
+  javascript: { en: "JavaScript", de: "JavaScript" },
+  vue: { en: "Vue.js", de: "Vue.js" },
+  react: { en: "React", de: "React" }
 };
 
 const translations = {
@@ -386,11 +346,11 @@ const projects = [
   },
   {
     key: "elpolloloco",
-    tab: { en: "2. Sharkie", de: "2. Sharkie" },
-    title: { en: "Sharkie", de: "Sharkie" },
+    tab: { en: "2. El Pollo Loco", de: "2. El Pollo Loco" },
+    title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     techLine: {
-      en: "Technologies JavaScript HTML CSS",
-      de: "Technologien JavaScript HTML CSS"
+      en: "Technologies HTML JavaScript CSS",
+      de: "Technologien HTML JavaScript CSS"
     },
     duration: { en: "Duration: 5 weeks", de: "Dauer: 5 Wochen" },
     description: {
@@ -421,8 +381,8 @@ const projects = [
     tab: { en: "3. Join", de: "3. Join" },
     title: { en: "Join", de: "Join" },
     techLine: {
-      en: "Technologies JavaScript REST-API Firebase",
-      de: "Technologien JavaScript REST-API Firebase"
+      en: "Technologies JavaScript HTML CSS",
+      de: "Technologien JavaScript HTML CSS"
     },
     duration: { en: "Duration: 6 weeks", de: "Dauer: 6 Wochen" },
     description: {
@@ -446,15 +406,15 @@ const projects = [
     live: "https://join.oguzhan-yavuz.com",
     github: "https://github.com/OguzHanYav/Join-portfolio",
     image: "./assets/img/figma-assets/projects/join project.svg",
-    tech: ["js", "api", "firebase"]
+    tech: ["javascript", "html", "css"]
   },
   {
     key: "ongoing",
     tab: { en: "4. Ongoing Project", de: "4. Laufendes Projekt" },
     title: { en: "Ongoing Project", de: "Laufendes Projekt" },
     techLine: {
-      en: "Technologies TypeScript Git",
-      de: "Technologien TypeScript Git"
+      en: "Technologies Angular TypeScript HTML CSS Vue.js React",
+      de: "Technologien Angular TypeScript HTML CSS Vue.js React"
     },
     duration: { en: "Duration: ongoing", de: "Dauer: fortlaufend" },
     description: {
@@ -478,7 +438,7 @@ const projects = [
     live: "#",
     github: "#",
     image: "./assets/img/figma-assets/projects/comingsoon.svg",
-    tech: ["ts", "git"]
+    tech: ["angular", "ts", "html", "css", "vue", "react"]
   }
 ];
 
@@ -820,7 +780,13 @@ function renderProjectCard() {
   durationMobile.textContent = localizedDuration;
 
   techRow.innerHTML = project.tech
-    .map((tech) => `<span class="tech-badge">${techIcons[tech] || ""}</span>`)
+    .map((tech) => {
+      const src = techIcons[tech];
+      const label = getLocalizedValue(techLabels[tech]) || tech;
+      return src
+        ? `<span class="tech-badge"><img src="${src}" alt="${label}" class="tech-icon-image" /></span>`
+        : `<span class="tech-badge">${label}</span>`;
+    })
     .join("");
 }
 

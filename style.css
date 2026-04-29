@@ -63,6 +63,8 @@ button,
 input,
 textarea {
     font: inherit;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 button {
@@ -87,6 +89,7 @@ button {
 }
 
 .full-screen-section {
+    min-height: 100vh;
     min-height: 100svh;
 }
 
@@ -234,6 +237,7 @@ button {
 .hero-info {
     position: relative;
     min-height: clamp(420px, 62vw, 760px);
+    overflow: visible;
 }
 
 .hero-meta {
@@ -298,6 +302,16 @@ button {
     height: 89px;
     display: block;
     object-fit: contain;
+}
+
+.hero > .scroll-down,
+.hero-inner > .scroll-down,
+.hero .scroll-down:not(.hero-copy .scroll-down) {
+    display: none !important;
+}
+
+.hero-copy .scroll-down {
+    display: inline-flex !important;
 }
 
 .hero-socials {
@@ -635,9 +649,19 @@ button {
 }
 
 .learning-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-body);
     font-size: 0.96rem;
     font-weight: 500;
+}
+
+.learning-icon-image {
+    width: 42px;
+    height: 54px;
+    object-fit: contain;
 }
 
 .learning-text {
@@ -813,14 +837,11 @@ button {
     justify-content: center;
 }
 
-.tech-badge svg {
+.tech-badge .tech-icon-image {
     width: 34px;
     height: 34px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    object-fit: contain;
+    display: block;
 }
 
 #project-image {
@@ -955,11 +976,16 @@ button {
     margin-bottom: 56px;
 }
 
-.scroll-up {
+#contact .section-shell {
+    position: relative;
+}
+
+#contact .scroll-up {
     position: absolute;
-    top: -6px;
+    top: 120px;
     right: 0;
-    margin-top: 0;
+    margin: 0;
+    transform: rotate(180deg);
 }
 
 .contact-grid {
@@ -1318,12 +1344,16 @@ textarea::placeholder {
     }
 
     .burger {
-        width: 20px;
-        height: 16px;
+        width: 30px;
+        height: 32px;
         border: 0;
         background: transparent;
         position: relative;
+        top: 27px;
         z-index: 61;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .burger span {
@@ -1588,7 +1618,7 @@ textarea::placeholder {
         margin-bottom: 28px;
     }
 
-    .scroll-up {
+    #contact .scroll-up {
         position: static;
         display: flex;
         width: 48px;
@@ -1719,24 +1749,28 @@ textarea::placeholder {
     }
 
     .hero {
-        min-height: auto;
-        padding: 8px 0 0;
+        height: calc(100svh - 72px);
+        min-height: calc(100svh - 72px);
+        padding: 0;
+        display: flex;
+        align-items: center;
     }
 
     .hero-inner {
-        min-height: auto;
-        grid-template-columns: 1fr;
-        align-items: center;
-        justify-items: center;
-        gap: 10px;
+        height: 100%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
         width: 100%;
     }
 
     .hero-image-wrap {
         position: relative;
-        width: min(311px, 100%);
-        aspect-ratio: 311 / 326;
-        height: auto;
+        width: 311px;
+        height: 370px;
+        max-width: 100%;
         margin: 0 auto;
         overflow: hidden;
         isolation: isolate;
@@ -1746,9 +1780,10 @@ textarea::placeholder {
         content: "";
         position: absolute;
         inset: 0;
+        width: 100%;
+        height: 100%;
         background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/shape-default.svg");
         transform: none;
-        transition: none;
         z-index: 0;
     }
 
@@ -1760,12 +1795,14 @@ textarea::placeholder {
 
     .hero-image {
         position: absolute;
-        width: 85.85%;
-        left: 7.07%;
+        width: 267px;
+        height: 370px;
+        left: 50%;
         top: 0;
-        height: auto;
-        max-width: none;
+        transform: translateX(-50%);
         object-fit: contain;
+        object-position: center bottom;
+        opacity: 1;
         z-index: 1;
     }
 
@@ -1804,33 +1841,38 @@ textarea::placeholder {
     #hero-name {
         font-family: "Anta", sans-serif;
         font-weight: 400;
-        font-size: 40px;
+        font-style: normal;
+        font-size: 48px;
         line-height: 120%;
         letter-spacing: 0;
         text-align: center;
-        white-space: nowrap;
     }
 
     #hero-role {
-        margin-top: 6px;
+        margin-top: 4px;
         font-family: "Josefin Sans", sans-serif;
         font-weight: 400;
+        font-style: normal;
         font-size: 24px;
         line-height: 120%;
         letter-spacing: 0;
         text-align: center;
-        white-space: nowrap;
     }
 
     .scroll-down {
         width: 30px;
-        height: 54px;
+        height: 72px;
         margin-top: 14px;
     }
 
+    .arrow-icon {
+        height: 72px;
+        width: auto;
+    }
+
     #why-me.content-section {
-        padding-top: 0;
-        margin-top: 16px;
+        padding-top: 32px;
+        margin-top: 0;
     }
 
     .section-title {
@@ -2074,6 +2116,7 @@ textarea::placeholder {
         padding-bottom: 6px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
+        overscroll-behavior-inline: contain;
     }
 
     .testimonial-card {
