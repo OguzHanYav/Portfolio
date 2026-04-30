@@ -682,6 +682,10 @@ button {
     display: none;
 }
 
+.mobile-break {
+    display: none;
+}
+
 /* PROJECTS */
 
 #projects .section-title {
@@ -1614,15 +1618,35 @@ textarea::placeholder {
 
     .project-tabs {
         gap: 12px;
+        align-items: flex-end;
         padding-top: 10px;
         padding-bottom: 12px;
         font-size: 1rem;
         white-space: nowrap;
     }
 
+    .project-tab,
     .project-tab.active {
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 500;
+        height: 42px;
+        min-height: 42px;
+        padding: 10px 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 14px 14px 0 0;
-        padding: 6px 12px 5px;
+    }
+
+    .project-tab {
+        background: transparent;
+        color: var(--accent);
+    }
+
+    .project-tab.active {
+        background: var(--panel-soft);
+        color: var(--text);
     }
 
     .project-panel {
@@ -1992,15 +2016,31 @@ textarea::placeholder {
         display: none;
     }
 
+    .mobile-break {
+        display: inline;
+    }
+
     .skills-grid {
+        display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 16px 10px;
+        justify-items: center;
+        align-items: center;
+        gap: 22px 18px;
+    }
+
+    .skill-card {
+        width: 64px;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .skill-icon-image {
-        width: 85px;
-        height: 100px;
+        width: 56px;
+        height: 66px;
         object-fit: contain;
+        display: block;
     }
 
     .learning-bubble {
@@ -2077,26 +2117,52 @@ textarea::placeholder {
 
     .project-tabs {
         gap: 12px;
+        align-items: flex-end;
         padding-top: 10px;
-        padding-bottom: 12px;
+        padding-bottom: 0;
         font-size: 1rem;
         white-space: nowrap;
+        margin-bottom: 0;
+    }
+
+    .project-tab,
+    .project-tab.active {
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 500;
+        height: 42px;
+        min-height: 42px;
+        padding: 10px 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px 14px 0 0;
+        margin-bottom: 0;
+    }
+
+    .project-tab {
+        background: transparent;
+        color: var(--accent);
     }
 
     .project-tab.active {
-        border-radius: 14px 14px 0 0;
-        padding: 6px 12px 5px;
+        background: var(--panel-soft);
+        color: var(--text);
     }
 
     .project-panel {
         display: flex;
         flex-direction: column;
-        padding: 14px 12px 18px;
+        padding: 16px 12px 20px;
+        margin-top: 0;
+        border-radius: 0 0 12px 12px;
+        background: var(--panel-soft);
     }
 
     .project-mobile-head {
         display: block;
         order: 1;
+        margin-bottom: 12px;
     }
 
     .project-preview {
@@ -2105,11 +2171,15 @@ textarea::placeholder {
 
     .project-copy {
         order: 3;
-        padding-top: 4px;
+        padding-top: 16px;
     }
 
     .project-preview-head {
         display: none;
+    }
+
+    .project-item {
+        margin-bottom: 14px;
     }
 
     .project-item h3 {
@@ -2121,10 +2191,14 @@ textarea::placeholder {
         line-height: 1.35;
     }
 
+    .project-techline-mobile {
+        margin-bottom: 8px;
+    }
+
     #project-image {
         order: 2;
         max-width: 202px;
-        margin: 0 auto;
+        margin: 12px auto;
     }
 
     .project-heading-row {
@@ -2134,7 +2208,7 @@ textarea::placeholder {
     .project-actions {
         order: 4;
         width: 100%;
-        margin-top: 8px;
+        margin-top: 14px;
         justify-content: center;
     }
 
@@ -2172,10 +2246,11 @@ textarea::placeholder {
         max-width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
-        padding-bottom: 6px;
+        padding: 0 0 6px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-inline: contain;
+        justify-content: flex-start;
     }
 
     .testimonial-card {
@@ -2183,11 +2258,15 @@ textarea::placeholder {
         width: 214px;
         max-width: 214px;
         min-width: 0;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
+    }
+
+    .testimonials .testimonial-card:first-child {
+        margin-left: auto;
     }
 
     .testimonials .testimonial-card:last-child {
-        margin-right: 0;
+        margin-right: auto;
     }
 
     .testimonial-card>* {
@@ -2472,13 +2551,17 @@ textarea::placeholder {
     }
 
     .skills-grid {
-        gap: 12px 8px;
+        gap: 14px 10px;
+    }
+
+    .skill-card {
+        width: 58px;
+        height: 72px;
     }
 
     .skill-icon-image {
-        width: 85px;
-        height: 100px;
-        object-fit: contain;
+        width: 50px;
+        height: 60px;
     }
 
     .mobile-menu {
@@ -2490,7 +2573,35 @@ textarea::placeholder {
         flex: 0 0 190px;
     }
 
+    .testimonials .testimonial-card:first-child {
+        margin-left: auto;
+    }
+
+    .testimonials .testimonial-card:last-child {
+        margin-right: auto;
+    }
+
+    .project-tab,
     .project-tab.active {
-        padding: 5px 9px 4px;
+        font-size: 1rem;
+        line-height: 1.2;
+        font-weight: 500;
+        height: 42px;
+        min-height: 42px;
+        padding: 10px 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px 14px 0 0;
+    }
+
+    .project-tab {
+        background: transparent;
+        color: var(--accent);
+    }
+
+    .project-tab.active {
+        background: var(--panel-soft);
+        color: var(--text);
     }
 }
