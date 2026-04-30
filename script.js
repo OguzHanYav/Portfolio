@@ -142,7 +142,7 @@ const translations = {
       emailPlaceholder: "Your Email",
       messageLabel: "Your Message",
       messagePlaceholder: "Your message",
-      privacy: "I've read the privacy policy and agree to the processing of my data as outlined.",
+      privacy: "I've read the [privacy policy] and agree to the processing of my data as outlined.",
       send: "Send",
       success: "Message sent successfully.",
       error: "Something went wrong. Please try again."
@@ -154,7 +154,8 @@ const translations = {
       privacy: "Please accept the privacy policy."
     },
     footer: {
-      legalNotice: "Legal notice"
+      legalNotice: "Legal notice",
+      privacyPolicy: "Privacy Policy"
     },
     legal: {
       backToPortfolio: "Back to portfolio",
@@ -186,6 +187,26 @@ const translations = {
       indemnityText:
         "You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
       contactText: "For any questions or notices, please contact us at office@oguzhan-yavuz.com",
+      dateText: "Date: July 26, 2025"
+    },
+    privacy: {
+      title: "Privacy Policy",
+      overviewTitle: "Overview",
+      overviewText: "This privacy policy describes how your personal data is handled when you visit this portfolio website and use the contact form. We take the protection of your personal data seriously and process it in accordance with applicable data protection regulations.",
+      controllerTitle: "Data Controller",
+      controllerText: "The data controller responsible for this website is: Oguz Han Yavuz, Ernst-Heiss-Gasse 1/2/5, 1110 Wien, Austria. Email: office@oguzhan-yavuz.com",
+      dataCollectedTitle: "Data Collected",
+      dataCollectedText: "When you use the contact form on this website, the following personal data is collected and processed: your name, email address, and the content of your message. This data is processed solely for the purpose of responding to your inquiry.",
+      legalBasisTitle: "Legal Basis",
+      legalBasisText: "The processing of your data is based on your voluntary consent, which you give by checking the privacy policy checkbox and submitting the contact form (Art. 6 para. 1 lit. a GDPR). You may withdraw your consent at any time.",
+      storageTitle: "Data Storage and Retention",
+      storageText: "Your personal data will be stored only for as long as necessary to fulfil the purpose for which it was collected, or as required by law. Once the purpose has been fulfilled, the data will be deleted promptly.",
+      rightsTitle: "Your Rights",
+      rightsText: "You have the right to access, rectify, erase, restrict processing, data portability, and object to the processing of your personal data. To exercise these rights, please contact us at office@oguzhan-yavuz.com.",
+      thirdPartiesTitle: "Third-Party Services",
+      thirdPartiesText: "This website may use third-party services such as fonts (Google Fonts) which may collect technical data (e.g. IP address) to deliver their services. No other tracking, analytics, or advertising technologies are used on this website.",
+      changesTitle: "Changes to This Policy",
+      changesText: "We reserve the right to update this privacy policy at any time. The current version is always available on this page.",
       dateText: "Date: July 26, 2025"
     }
   },
@@ -262,7 +283,7 @@ const translations = {
       emailPlaceholder: "Deine E-Mail",
       messageLabel: "Deine Nachricht",
       messagePlaceholder: "Deine Nachricht",
-      privacy: "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+      privacy: "Ich habe die [Datenschutzerklärung] gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
       send: "Senden",
       success: "Nachricht erfolgreich gesendet.",
       error: "Etwas ist schiefgelaufen. Bitte versuche es erneut."
@@ -274,7 +295,8 @@ const translations = {
       privacy: "Bitte akzeptiere die Datenschutzerklärung."
     },
     footer: {
-      legalNotice: "Impressum"
+      legalNotice: "Impressum",
+      privacyPolicy: "Datenschutz"
     },
     legal: {
       backToPortfolio: "Zurück zum Portfolio",
@@ -306,6 +328,26 @@ const translations = {
       indemnityText:
         "Du verpflichtest dich, uns, die aufgeführten Studierenden, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Verbindlichkeiten (einschließlich angemessener Anwaltskosten) freizustellen, die sich aus deiner Nutzung des Portfolios und/oder deinem Verstoß gegen dieses Impressum ergeben.",
       contactText: "Bei Fragen oder Hinweisen kontaktiere uns bitte unter office@oguzhan-yavuz.com.",
+      dateText: "Datum: 26. Juli 2025"
+    },
+    privacy: {
+      title: "Datenschutzerklärung",
+      overviewTitle: "Übersicht",
+      overviewText: "Diese Datenschutzerklärung beschreibt, wie deine personenbezogenen Daten beim Besuch dieser Portfolio-Website und bei Nutzung des Kontaktformulars behandelt werden. Wir nehmen den Schutz deiner personenbezogenen Daten ernst und verarbeiten sie gemäß den geltenden Datenschutzbestimmungen.",
+      controllerTitle: "Verantwortlicher",
+      controllerText: "Der für diese Website Verantwortliche ist: Oguz Han Yavuz, Ernst-Heiss-Gasse 1/2/5, 1110 Wien, Österreich. E-Mail: office@oguzhan-yavuz.com",
+      dataCollectedTitle: "Erhobene Daten",
+      dataCollectedText: "Bei Nutzung des Kontaktformulars auf dieser Website werden folgende personenbezogene Daten erhoben und verarbeitet: dein Name, deine E-Mail-Adresse und der Inhalt deiner Nachricht. Diese Daten werden ausschließlich zum Zweck der Beantwortung deiner Anfrage verarbeitet.",
+      legalBasisTitle: "Rechtsgrundlage",
+      legalBasisText: "Die Verarbeitung deiner Daten erfolgt auf Grundlage deiner freiwilligen Einwilligung, die du durch das Setzen des Häkchens bei der Datenschutzerklärung und das Absenden des Kontaktformulars erteilst (Art. 6 Abs. 1 lit. a DSGVO). Du kannst deine Einwilligung jederzeit widerrufen.",
+      storageTitle: "Datenspeicherung und Aufbewahrung",
+      storageText: "Deine personenbezogenen Daten werden nur so lange gespeichert, wie es für die Erfüllung des Zwecks erforderlich ist, für den sie erhoben wurden, oder wie gesetzlich vorgeschrieben. Nach Erfüllung des Zwecks werden die Daten umgehend gelöscht.",
+      rightsTitle: "Deine Rechte",
+      rightsText: "Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen die Verarbeitung deiner personenbezogenen Daten. Zur Ausübung dieser Rechte kontaktiere uns bitte unter office@oguzhan-yavuz.com.",
+      thirdPartiesTitle: "Drittanbieter-Dienste",
+      thirdPartiesText: "Diese Website kann Drittanbieter-Dienste wie Schriftarten (Google Fonts) nutzen, die technische Daten (z. B. IP-Adresse) zur Bereitstellung ihrer Dienste erfassen können. Es werden keine weiteren Tracking-, Analyse- oder Werbetechnologien auf dieser Website eingesetzt.",
+      changesTitle: "Änderungen dieser Richtlinie",
+      changesText: "Wir behalten uns das Recht vor, diese Datenschutzerklärung jederzeit zu aktualisieren. Die aktuelle Version ist stets auf dieser Seite verfügbar.",
       dateText: "Datum: 26. Juli 2025"
     }
   }
@@ -339,7 +381,7 @@ const projects = [
       de:
         "Im Team habe ich an zentralen Features gearbeitet, die Umsetzung abgestimmt und zu einer reibungslosen Zusammenarbeit im Projekt beigetragen."
     },
-    live: "https://join.oguzhan-yavuz.com",
+    live: "",
     github: "https://github.com/OguzHanYav/Join-portfolio",
     image: "./assets/img/figma-assets/projects/dabubble.svg",
     tech: ["angular", "ts", "firebase"]
@@ -404,7 +446,7 @@ const projects = [
         "Die Arbeit im Team hat Kommunikation, Code-Review-Routinen und die Aufteilung von Verantwortung über mehrere Features hinweg verbessert."
     },
     live: "https://join.oguzhan-yavuz.com",
-    github: "https://github.com/OguzHanYav/Join-portfolio",
+    github: "https://github.com/OguzHanYav/Join-Public ",
     image: "./assets/img/figma-assets/projects/join project.svg",
     tech: ["javascript", "html", "css"]
   },
@@ -671,6 +713,17 @@ function applyTranslations() {
     }
   });
 
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const value = getTranslation(element.dataset.i18nHtml);
+    if (typeof value === "string") {
+      // Replace [privacy policy] placeholder with actual link
+      const privacyLink = '<a href="./privacy-policy.html" class="privacy-link">' +
+        (currentLanguage === 'de' ? 'Datenschutzerklärung' : 'privacy policy') +
+        '</a>';
+      element.innerHTML = value.replace(/\[(.*?)\]/g, privacyLink);
+    }
+  });
+
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     const value = getTranslation(element.dataset.i18nPlaceholder);
     if (typeof value === "string") {
@@ -772,8 +825,21 @@ function renderProjectCard() {
   team.textContent = getLocalizedValue(project.team);
   image.src = project.image;
   image.alt = `${localizedTitle} ${getTranslation("projects.previewAltSuffix")}`;
-  live.href = project.live;
-  github.href = project.github;
+  if (project.live && project.live !== "#") {
+    live.href = project.live;
+    live.style.display = "";
+  } else {
+    live.style.display = "none";
+  }
+
+  if (project.key === "dabubble") {
+    github.style.display = "none";
+  } else if (project.github && project.github !== "#") {
+    github.href = project.github;
+    github.style.display = "";
+  } else {
+    github.style.display = "none";
+  }
   durationDesktop.textContent = localizedDuration;
   titleMobile.textContent = localizedTitle;
   techLineMobile.textContent = `${getTranslation("projects.technologies")}: ${localizedTechnologies}`;
@@ -857,12 +923,14 @@ document.querySelectorAll(".lang-btn[data-lang]").forEach((button) => {
   });
 });
 
+let formSubmitted = false;
+
 function validateName() {
   const error = document.getElementById("name-error");
   if (!nameInput || !error) return false;
 
   if (nameInput.value.trim().length < 2) {
-    error.textContent = getTranslation("validation.name");
+    if (formSubmitted) error.textContent = getTranslation("validation.name");
     return false;
   }
 
@@ -874,9 +942,10 @@ function validateEmail() {
   const error = document.getElementById("email-error");
   if (!emailInput || !error) return false;
 
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const valid = emailRegex.test(emailInput.value.trim());
   if (!valid) {
-    error.textContent = getTranslation("validation.email");
+    if (formSubmitted) error.textContent = getTranslation("validation.email");
     return false;
   }
 
@@ -889,7 +958,7 @@ function validateMessage() {
   if (!messageInput || !error) return false;
 
   if (messageInput.value.trim().length < 10) {
-    error.textContent = getTranslation("validation.message");
+    if (formSubmitted) error.textContent = getTranslation("validation.message");
     return false;
   }
 
@@ -902,8 +971,10 @@ function validatePrivacy() {
   if (!privacyCheckbox || !error) return false;
 
   if (!privacyCheckbox.checked) {
-    privacyCheckbox.classList.add("is-invalid");
-    error.textContent = getTranslation("validation.privacy");
+    if (formSubmitted) {
+      privacyCheckbox.classList.add("is-invalid");
+      error.textContent = getTranslation("validation.privacy");
+    }
     return false;
   }
 
@@ -913,10 +984,7 @@ function validatePrivacy() {
 }
 
 function updateSubmitState() {
-  if (!submitBtn) return;
-
-  const isValid = validateName() && validateEmail() && validateMessage() && validatePrivacy();
-  submitBtn.disabled = !isValid;
+  if (submitBtn) submitBtn.disabled = false;
 }
 
 async function submitContactRequest() {
@@ -948,39 +1016,78 @@ async function submitContactRequest() {
   }
 }
 
+const DRAFT_KEY = "portfolio-contact-draft";
+
+function saveDraft() {
+  const draft = {
+    name: nameInput?.value || "",
+    email: emailInput?.value || "",
+    message: messageInput?.value || "",
+    privacy: privacyCheckbox?.checked || false
+  };
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch (e) {}
+}
+
+function restoreDraft() {
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if (!raw) return;
+    const draft = JSON.parse(raw);
+    if (nameInput && draft.name) nameInput.value = draft.name;
+    if (emailInput && draft.email) emailInput.value = draft.email;
+    if (messageInput && draft.message) messageInput.value = draft.message;
+    if (privacyCheckbox && draft.privacy) privacyCheckbox.checked = draft.privacy;
+  } catch (e) {}
+}
+
+function clearDraft() {
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+}
+
+restoreDraft();
+
 nameInput?.addEventListener("blur", updateSubmitState);
 emailInput?.addEventListener("blur", updateSubmitState);
 messageInput?.addEventListener("blur", updateSubmitState);
-privacyCheckbox?.addEventListener("change", updateSubmitState);
-nameInput?.addEventListener("input", updateSubmitState);
-emailInput?.addEventListener("input", updateSubmitState);
-messageInput?.addEventListener("input", updateSubmitState);
+privacyCheckbox?.addEventListener("change", () => { saveDraft(); updateSubmitState(); });
+nameInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
+emailInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
+messageInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
 
 document.getElementById("contact-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
+  formSubmitted = true;
 
   const valid = validateName() && validateEmail() && validateMessage() && validatePrivacy();
   if (!submitBtn || !feedback) return;
 
-  submitBtn.disabled = !valid;
   if (!valid) return;
 
   feedback.textContent = "";
-  submitBtn.disabled = true;
+  submitBtn.disabled = false;
 
   try {
     await submitContactRequest();
+    feedback.className = "form-feedback success";
     feedback.dataset.state = "success";
     feedback.textContent = getTranslation("form.success");
     event.target.reset();
+    clearDraft();
+
+    setTimeout(() => {
+      feedback.textContent = "";
+      feedback.className = "form-feedback";
+      feedback.removeAttribute("data-state");
+    }, 5000);
   } catch (error) {
+    feedback.className = "form-feedback error";
     feedback.dataset.state = "error";
     feedback.textContent = getTranslation("form.error");
     submitBtn.disabled = false;
     return;
   }
 
-  submitBtn.disabled = true;
+  submitBtn.disabled = false;
 });
 
 if (typeof reducedMotionQuery.addEventListener === "function") {

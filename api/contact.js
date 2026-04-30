@@ -86,7 +86,10 @@ async function sendMail(record) {
 }
 
 module.exports = async (req, res) => {
+  console.log("[Contact API] Request method:", req.method);
+
   if (req.method !== "POST") {
+    console.warn("[Contact API] Rejected: method not allowed");
     return sendJson(res, 405, { ok: false, error: "Method not allowed" });
   }
 
@@ -102,14 +105,17 @@ module.exports = async (req, res) => {
     const language = payload.language === "de" ? "de" : "en";
 
     if (name.length < 2) {
+      console.warn("[Contact API] Validation failed: name too short");
       return sendJson(res, 400, { ok: false, error: "Invalid name" });
     }
 
     if (!isValidEmail(email)) {
+      console.warn("[Contact API] Validation failed: invalid email");
       return sendJson(res, 400, { ok: false, error: "Invalid email" });
     }
 
     if (message.length < 10) {
+      console.warn("[Contact API] Validation failed: message too short");
       return sendJson(res, 400, { ok: false, error: "Invalid message" });
     }
 
@@ -122,15 +128,21 @@ module.exports = async (req, res) => {
       submitted_at: new Date().toISOString()
     };
 
+    console.log("[Contact API] Saving to Supabase...");
     await saveToSupabase(record);
+    console.log("[Contact API] Supabase save successful");
 
     let mailStatus = { sent: false, reason: "not_attempted" };
     try {
+      console.log("[Contact API] Sending email via Resend...");
       mailStatus = await sendMail(record);
+      console.log("[Contact API] Email result:", mailStatus);
     } catch (error) {
+      console.error("[Contact API] Email send failed:", error.message);
       mailStatus = { sent: false, reason: "send_failed" };
     }
 
+    console.log("[Contact API] Request completed successfully");
     return sendJson(res, 200, {
       ok: true,
       stored: true,
@@ -138,6 +150,7 @@ module.exports = async (req, res) => {
       emailReason: mailStatus.reason || null
     });
   } catch (error) {
+    console.error("[Contact API] Server error:", error.message);
     return sendJson(res, 500, { ok: false, error: "Server error" });
   }
 };

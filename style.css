@@ -25,7 +25,6 @@ html {
     background: var(--panel);
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
     overscroll-behavior: auto;
 }
 
@@ -41,7 +40,6 @@ body {
     color: var(--text);
     font-family: var(--font-body);
     line-height: 1.45;
-    overflow-x: hidden;
     overscroll-behavior: auto;
 }
 
@@ -75,8 +73,6 @@ button {
     background: var(--panel);
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: visible;
 }
 
 .section-shell {
@@ -551,6 +547,7 @@ button {
     min-height: auto;
     align-items: flex-start;
     padding: 104px 0 0;
+    background: var(--panel);
 }
 
 #skills>.section-shell,
@@ -563,10 +560,13 @@ button {
 }
 
 #projects>.section-shell {
-    width: 100%;
-    max-width: none;
+    width: min(calc(100% - var(--section-gutter) * 2), var(--container-max));
+    max-width: var(--container-max);
+    margin: 0 auto;
     min-height: auto;
     justify-content: flex-start;
+    background: transparent;
+    overflow: visible;
 }
 
 .skills-grid {
@@ -576,16 +576,22 @@ button {
 }
 
 .skill-card {
-    text-align: center;
+    width: 85px;
+    height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    opacity: 1;
 }
 
 .skill-icon-image {
-    width: min(84px, 100%);
-    height: auto;
-    display: block;
+    width: 85px;
+    height: 100px;
+    object-fit: contain;
+    transform: rotate(0deg);
+    opacity: 1;
 }
 
 .learning-bubble {
@@ -678,22 +684,19 @@ button {
 
 /* PROJECTS */
 
-#projects .section-title,
-#projects .project-tabs {
-    padding-inline: max(var(--section-gutter), calc((100% - var(--container-max)) / 2));
-    margin-inline: auto;
-    width: 100%;
-}
-
 #projects .section-title {
-    margin-bottom: 18px;
+    background: transparent;
+    margin-bottom: 48px;
+    padding: 0;
 }
 
 .project-tabs {
     display: flex;
-    gap: clamp(16px, 3vw, 44px);
-    padding-top: 8px;
-    padding-bottom: 10px;
+    align-items: flex-end;
+    gap: 44px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
     font-family: var(--font-project);
     font-weight: 500;
     font-size: clamp(1.1rem, 2.1vw, 1.9rem);
@@ -704,30 +707,38 @@ button {
 }
 
 .project-tab {
-    border: 0;
+    font-size: inherit;
+    line-height: 1.2;
+    font-weight: 500;
+    padding: 18px 28px 16px;
     background: transparent;
-    color: inherit;
-    padding: 0;
+    color: var(--accent);
+    border-radius: 26px 26px 0 0;
+    border: 0;
     white-space: nowrap;
 }
 
 .project-tab.active {
+    background: var(--panel-soft);
     color: var(--text);
-    background: rgba(44, 56, 66, 0.98);
-    border-radius: 26px 26px 0 0;
-    padding: 9px 22px 8px;
+    font-size: inherit;
+    line-height: 1.2;
+    font-weight: 500;
+    padding: 18px 28px 16px;
 }
 
 .project-panel {
     background: var(--panel-soft);
-    padding: 26px 26px 30px;
+    border-radius: 0 0 16px 16px;
+    padding: 34px 56px 44px;
+    width: 100%;
+    margin: 0;
+    transform: none;
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(320px, 470px);
     gap: 24px;
     justify-content: center;
     align-items: center;
-    border-radius: 0 0 16px 16px;
-    width: 100%;
 }
 
 .project-mobile-head {
@@ -1128,11 +1139,25 @@ textarea::placeholder {
     outline-offset: 2px;
 }
 
+.privacy-link {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.privacy-link:hover {
+    color: var(--accent-strong);
+}
+
+.checkbox-text a {
+    pointer-events: auto;
+}
+
 .error-space {
     min-height: 18px;
     padding-top: 4px;
-    font-size: 0.52rem;
+    font-size: 1rem;
     color: #f9a8a8;
+    line-height: 1.3;
 }
 
 .form-actions {
@@ -1146,10 +1171,34 @@ textarea::placeholder {
 }
 
 .form-feedback {
-    min-height: 18px;
-    margin-top: 8px;
-    font-size: 0.66rem;
-    color: var(--accent);
+    min-height: 24px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text);
+    background: transparent;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form-feedback:empty {
+    display: none;
+}
+
+.form-feedback.success {
+    background: transparent;
+    color: var(--accent-strong);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+}
+
+.form-feedback.error {
+    background: rgba(244, 67, 54, 0.2);
+    color: #ef9a9a;
+    border: 1px solid rgba(244, 67, 54, 0.4);
 }
 
 /* FOOTER */
@@ -1181,6 +1230,13 @@ textarea::placeholder {
     margin-bottom: 6px;
 }
 
+.footer-copy a:hover {
+    color: #f8f5ec;
+    background: transparent;
+    text-decoration: none;
+    transform: none;
+}
+
 .footer-logo {
     justify-self: center;
 }
@@ -1209,7 +1265,9 @@ textarea::placeholder {
 }
 
 .legal-back {
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .legal-title {
@@ -1222,15 +1280,15 @@ textarea::placeholder {
 }
 
 .legal-block h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 .legal-block p,
 .legal-block li {
-    font-size: 0.68rem;
+    font-size: 1rem;
     color: var(--muted);
     line-height: 1.6;
 }
@@ -1541,7 +1599,9 @@ textarea::placeholder {
     }
 
     .skill-icon-image {
-        width: 58px;
+        width: 85px;
+        height: 100px;
+        object-fit: contain;
     }
 
     .learning-bubble {
@@ -1593,7 +1653,7 @@ textarea::placeholder {
     }
 
     .project-item p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .project-duration {
@@ -1629,7 +1689,7 @@ textarea::placeholder {
 
     .contact-copy,
     .contact-info {
-        font-size: 0.86rem;
+        font-size: 1rem;
     }
 
     .contact-grid {
@@ -1733,19 +1793,16 @@ textarea::placeholder {
     .site-frame {
         width: 100%;
         max-width: 100%;
-        overflow-x: hidden;
     }
 
     .section-shell {
         width: min(calc(100% - 28px), 640px);
         max-width: 100%;
-        overflow-x: hidden;
     }
 
     .content-section {
         padding-top: 20px;
         max-width: 100%;
-        overflow-x: hidden;
     }
 
     .hero {
@@ -1913,7 +1970,7 @@ textarea::placeholder {
     }
 
     .why-highlight-text {
-        font-size: 0.94rem;
+        font-size: 1rem;
         line-height: 1.45;
     }
 
@@ -1927,7 +1984,7 @@ textarea::placeholder {
     }
 
     .why-copy p {
-        font-size: 0.82rem;
+        font-size: 1rem;
         line-height: 1.55;
     }
 
@@ -1941,7 +1998,9 @@ textarea::placeholder {
     }
 
     .skill-icon-image {
-        width: 54px;
+        width: 85px;
+        height: 100px;
+        object-fit: contain;
     }
 
     .learning-bubble {
@@ -2002,7 +2061,7 @@ textarea::placeholder {
         grid-column: 1;
         grid-row: 2;
         max-width: none;
-        font-size: 0.76rem;
+        font-size: 1rem;
         line-height: 1.36;
         color: var(--text);
         margin: 0;
@@ -2058,7 +2117,7 @@ textarea::placeholder {
     }
 
     .project-item p {
-        font-size: 0.84rem;
+        font-size: 1rem;
         line-height: 1.35;
     }
 
@@ -2084,7 +2143,7 @@ textarea::placeholder {
         min-width: 90px;
         min-height: 34px;
         padding: 7px 16px;
-        font-size: 0.72rem;
+        font-size: 1rem;
     }
 
     .team-title {
@@ -2143,7 +2202,7 @@ textarea::placeholder {
     .testimonial-card p,
     .testimonial-card a,
     .testimonial-role {
-        font-size: 0.8rem;
+        font-size: 1rem;
         line-height: 1.32;
     }
 
@@ -2153,7 +2212,7 @@ textarea::placeholder {
 
     .contact-copy,
     .contact-info {
-        font-size: 0.82rem;
+        font-size: 1rem;
     }
 
     .contact-icon-image {
@@ -2178,7 +2237,7 @@ textarea::placeholder {
     .checkbox-row,
     .error-space,
     .form-feedback {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .send-btn {
@@ -2232,7 +2291,7 @@ textarea::placeholder {
         justify-content: space-evenly;
         gap: 12px;
         margin-top: 6px;
-        font-size: 0.78rem;
+        font-size: 1rem;
         line-height: 1.2;
         text-align: left;
     }
@@ -2279,14 +2338,14 @@ textarea::placeholder {
     }
 
     .legal-block h2 {
-        font-size: 0.84rem;
-        margin-bottom: 4px;
+        font-size: 1rem;
+        margin-bottom: 6px;
     }
 
     .legal-block p,
     .legal-block li {
-        font-size: 0.54rem;
-        line-height: 1.45;
+        font-size: 1rem;
+        line-height: 1.55;
     }
 }
 
@@ -2297,7 +2356,6 @@ textarea::placeholder {
     html,
     body,
     .site-frame {
-        overflow-x: hidden;
         max-width: 100%;
     }
 
@@ -2316,7 +2374,6 @@ textarea::placeholder {
     .section-shell {
         width: min(calc(100% - 20px), 100%);
         max-width: 100%;
-        overflow-x: clip;
     }
 
     .hero-image-wrap {
@@ -2382,7 +2439,7 @@ textarea::placeholder {
     }
 
     .why-highlight-text {
-        font-size: 0.88rem;
+        font-size: 1rem;
     }
 
     .team-title-lead {
@@ -2395,7 +2452,7 @@ textarea::placeholder {
     }
 
     .project-meta-line {
-        font-size: 0.82rem;
+        font-size: 1rem;
     }
 
     .learning-bubble {
@@ -2419,7 +2476,9 @@ textarea::placeholder {
     }
 
     .skill-icon-image {
-        width: 48px;
+        width: 85px;
+        height: 100px;
+        object-fit: contain;
     }
 
     .mobile-menu {
