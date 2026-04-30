@@ -1,2 +1,12 @@
 .vercel
+ HEAD
 .env*.local
+ bbc9068 (Hover effects edit)
+.DS_Store
+node_modules
+.env
+.DS_Store
+node_modules
+.env
+.env*.local
+.vercel

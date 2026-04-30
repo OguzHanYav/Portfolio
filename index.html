@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oguz Han Yavuz | Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anta&family=Josefin+Sans:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="portfolio-page" id="top" data-page="portfolio" data-title-en="Oguz Han Yavuz | Frontend Developer"
+    data-title-de="Oguz Han Yavuz | Frontend Entwickler">
+    <div class="site-frame">
+        <header class="mobile-header">
+            <a href="#top" class="brand-logo brand-logo-mobile" aria-label="Oguz Han Yavuz developer">
+                <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" aria-hidden="true" />
+                <span class="brand-copy">
+                    <span class="brand-name">O.Yavuz</span>
+                    <span class="brand-role">developer</span>
+                </span>
+            </a>
+
+            <button class="burger" id="burger" type="button" aria-label="Open navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#why-me" class="mobile-link" data-i18n="nav.whyMe">Why me</a>
+                <a href="#skills" class="mobile-link" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" class="mobile-link" data-i18n="nav.projects">Projects</a>
+                <a href="#contact" class="mobile-link" data-i18n="nav.contact">Contact</a>
+                <div class="mobile-lang">
+                    <button type="button" class="lang-btn" data-lang="de">DE</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </nav>
+        </div>
+
+        <main>
+            <section class="hero full-screen-section">
+                <div class="hero-inner section-shell">
+                    <div class="hero-image-wrap">
+                        <img src="./assets/img/shape-profile.png" alt="" class="hero-shape" aria-hidden="true" />
+                        <img src="./assets/img/profile.png" alt="Oguz Han Yavuz" class="hero-image" />
+                    </div>
+
+                    <div class="hero-info">
+                        <div class="hero-meta">
+                            <div class="hero-brand brand-logo" aria-hidden="true">
+                                <img src="./assets/img/Logo icon.svg" alt="" class="brand-icon" />
+                                <span class="brand-copy">
+                                    <span class="brand-name">O.Yavuz</span>
+                                    <span class="brand-role">developer</span>
+                                </span>
+                            </div>
+
+                            <aside class="hero-socials" aria-label="Social links">
+                                <a href="#" aria-label="Email">
+                                    <img src="./assets/img/Email button.svg" alt="" class="social-icon"
+                                        aria-hidden="true" />
+                                </a>
+                                <a href="#" aria-label="GitHub">
+                                    <img src="./assets/img/github.svg" alt="" class="social-icon" aria-hidden="true" />
+                                </a>
+                                <a href="#" aria-label="LinkedIn">
+                                    <img src="./assets/img/in.svg" alt="" class="social-icon" aria-hidden="true" />
+                                </a>
+                            </aside>
+                        </div>
+
+                        <div class="hero-copy">
+                            <h1 id="hero-name">Oguz Han Yavuz</h1>
+                            <p id="hero-role" data-i18n="hero.role">FRONTEND DEVELOPER</p>
+
+                            <a href="#why-me" class="scroll-down" aria-label="Scroll down"
+                                data-i18n-aria-label="hero.scrollDown">
+                                <img src="./assets/img/Arrow down.svg" alt="" class="arrow-icon" aria-hidden="true" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="nav-strip">
+                <div class="section-shell nav-strip-inner">
+                    <a href="#top" class="brand-logo" aria-label="Oguz Han Yavuz developer">
+                        <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
+                        <span class="brand-copy">
+                            <span class="brand-name">O.Yavuz</span>
+                            <span class="brand-role">developer</span>
+                        </span>
+                    </a>
+
+                    <nav class="desktop-nav">
+                        <a href="#why-me" data-i18n="nav.whyMe">Why me</a>
+                        <a href="#skills" data-i18n="nav.skills">Skills</a>
+                        <a href="#projects" data-i18n="nav.projects">Projects</a>
+                        <a href="#contact" data-i18n="nav.contact">Contact</a>
+                    </nav>
+
+                    <div class="lang-switch">
+                        <button type="button" class="lang-btn" data-lang="de">DE</button>
+                        <button type="button" class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </div>
+            </div>
+
+            <section id="why-me" class="content-section">
+                <div class="section-shell why-grid">
+                    <h2 class="section-title" data-i18n="why.title">Why me</h2>
+
+                    <div class="why-location">
+                        <div class="location-badge">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 21s-5-5.32-5-9.44A5 5 0 0 1 17 11.56C17 15.68 12 21 12 21Z" />
+                                <circle cx="12" cy="11" r="1.8" />
+                            </svg>
+                        </div>
+                        <p data-i18n="why.location">I am located in Munich.</p>
+                    </div>
+
+                    <div class="why-copy">
+                        <p data-i18n="why.copy">
+                            Why are you passionate about coding? You can include some key traits like
+                            analytical thinking, creativity, persistence and collaboration.
+                            A problem-solving mindset is always nice to have.
+                        </p>
+                        <a href="#contact" class="outline-btn" data-i18n="shared.letsTalk">Let's talk</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="content-section full-screen-section">
+                <div class="section-shell">
+                    <h2 class="section-title" data-i18n="skills.title">My Skills</h2>
+
+                    <div class="skills-layout">
+                        <div class="skills-grid" id="skills-container"></div>
+
+                        <aside class="learning-bubble">
+                            <p class="learning-title" data-i18n="skills.learningTitle">I am currently learning</p>
+                            <div class="learning-icons">
+                                <span class="learning-pill">Vue.js</span>
+                                <span class="learning-pill">React</span>
+                            </div>
+                            <p class="learning-text" data-i18n="skills.learningText">
+                                Show that you are motivated to continuously improve your skills,
+                                implement innovative solutions and stay abreast of new technologies.
+                            </p>
+                            <a href="#contact" class="primary-btn mobile-only-inline" data-i18n="shared.letsTalk">Let's
+                                talk</a>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="content-section full-screen-section">
+                <div class="section-shell">
+                    <h2 class="section-title" data-i18n="projects.title">My Projects</h2>
+                    <div class="project-tabs" id="project-tabs"></div>
+
+                    <article class="project-panel">
+                        <div class="project-mobile-head">
+                            <h3 id="project-title-mobile">DA Bubble</h3>
+                            <p id="project-techline-mobile" class="project-meta-line"></p>
+                            <p id="project-duration-mobile" class="project-meta-line"></p>
+                        </div>
+
+                        <div class="project-copy">
+                            <div class="project-item">
+                                <span class="project-dot"></span>
+                                <div>
+                                    <div class="project-heading-row">
+                                        <h3 data-i18n="projects.aboutHeading">About the project</h3>
+                                        <span class="project-duration" id="project-duration-desktop"></span>
+                                    </div>
+                                    <p id="project-description"></p>
+                                </div>
+                            </div>
+
+                            <div class="project-item">
+                                <span class="project-dot"></span>
+                                <div>
+                                    <h3 data-i18n="projects.processHeading">How I have organised my work process</h3>
+                                    <p id="project-process"></p>
+                                </div>
+                            </div>
+
+                            <div class="project-item">
+                                <span class="project-dot"></span>
+                                <div>
+                                    <h3 data-i18n="projects.teamHeading">My group work experience</h3>
+                                    <p id="project-team"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-preview">
+                            <div class="project-preview-head">
+                                <span class="project-preview-label"
+                                    data-i18n="projects.technologies">Technologies</span>
+                                <div class="tech-row" id="project-tech"></div>
+                            </div>
+                            <img id="project-image" src="./assets/img/project-dabubble.svg" alt="Project preview" />
+                            <div class="project-actions">
+                                <a id="project-live" class="primary-btn" href="#" target="_blank"
+                                    rel="noopener noreferrer" data-i18n="projects.liveTest">Live Test</a>
+                                <a id="project-github" class="outline-btn" href="#" target="_blank"
+                                    rel="noopener noreferrer" data-i18n="projects.github">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-shell">
+                    <p class="team-title" data-i18n="testimonials.title">Need a teamplayer? Here’s what my colleagues
+                        say about me</p>
+
+                    <div class="testimonials">
+                        <article class="testimonial-card">
+                            <h3>Sahra Mueller</h3>
+                            <p class="testimonial-role" data-i18n="testimonials.sahra.role">Project DA Bubble</p>
+                            <p data-i18n="testimonials.sahra.quote">
+                                "Oguz Han had to develop, format and deliver content in collaboration
+                                with the team members. She is a reliable and friendly person."
+                            </p>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
+                        </article>
+
+                        <article class="testimonial-card">
+                            <h3>James Rugman</h3>
+                            <p class="testimonial-role" data-i18n="testimonials.james.role">Project Join</p>
+                            <p data-i18n="testimonials.james.quote">
+                                "Oguz Han is a reliable and friendly person. Works in a structured way
+                                and writes a clear code. I recommend her as a colleague."
+                            </p>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
+                        </article>
+
+                        <article class="testimonial-card">
+                            <h3>Evelyn Marx</h3>
+                            <p class="testimonial-role" data-i18n="testimonials.evelyn.role">Project El Pollo Loco</p>
+                            <p data-i18n="testimonials.evelyn.quote">
+                                "She is a trustworthy teamplayer and can cope with the stress of
+                                deadlines. Structured work and clean code."
+                            </p>
+                            <a href="#" data-i18n="testimonials.linkedin">Linked In Profile</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="content-section contact-section full-screen-section">
+                <div class="section-shell">
+                    <div class="contact-title-row">
+                        <h2 class="section-title" data-i18n="contact.title">Contact me</h2>
+                        <a href="#top" class="scroll-up" aria-label="Back to top"
+                            data-i18n-aria-label="contact.backToTop">
+                            <img src="./assets/img/arrow up.svg" alt="" class="arrow-icon" aria-hidden="true" />
+                        </a>
+                    </div>
+
+                    <div class="contact-grid">
+                        <div class="contact-copy">
+                            <p data-i18n="contact.copy">
+                                Encourage people to contact you and describe what you are interested in.
+                                Show that you will add value to their projects through your work.
+                                Example: Feel free to get in touch with job offers or opportunities such as...
+                            </p>
+                            <p class="contact-cta" data-i18n="contact.cta">Let us work together!</p>
+                        </div>
+
+                        <div class="contact-info">
+                            <p>
+                                <img src="./assets/img/figma-web/icon _email_.svg" alt="" class="contact-icon-image"
+                                    aria-hidden="true" />
+                                E-mail: office@oguzhan-yavuz.com
+                            </p>
+                            <p>
+                                <img src="./assets/img/figma-assets/contact/phone.svg" alt="" class="contact-icon-image"
+                                    aria-hidden="true" />
+                                Tel: 0660 154 51 56
+                            </p>
+                        </div>
+                    </div>
+
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <label class="field">
+                                <span class="field-label" data-i18n="form.nameLabel">Your name</span>
+                                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name"
+                                    data-i18n-placeholder="form.namePlaceholder" />
+                                <span class="error-space" id="name-error"></span>
+                            </label>
+
+                            <label class="field">
+                                <span class="field-label" data-i18n="form.emailLabel">Your Email</span>
+                                <input type="email" id="email" name="email" placeholder="Your Email"
+                                    autocomplete="email" data-i18n-placeholder="form.emailPlaceholder" />
+                                <span class="error-space" id="email-error"></span>
+                            </label>
+                        </div>
+
+                        <label class="field">
+                            <span class="field-label" data-i18n="form.messageLabel">Your Message</span>
+                            <textarea id="message" name="message" placeholder="Your message"
+                                data-i18n-placeholder="form.messagePlaceholder"></textarea>
+                            <span class="error-space" id="message-error"></span>
+                        </label>
+
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="privacy" name="privacy" />
+                            <span class="checkbox-icon" aria-hidden="true"></span>
+                            <span data-i18n="form.privacy">I've read the privacy policy and agree to the processing of
+                                my data as outlined.</span>
+                        </label>
+                        <span class="error-space" id="privacy-error"></span>
+
+                        <div class="form-actions">
+                            <button type="submit" id="submit-btn" class="outline-btn send-btn" disabled
+                                data-i18n="form.send">Send</button>
+                        </div>
+
+                        <p id="form-feedback" class="form-feedback"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="section-shell footer-inner">
+                <div class="footer-copy">
+                    <a href="./legal-notice.html" data-i18n="footer.legalNotice">Legal notice</a>
+                    <p>© Oguz Han Yavuz 2024</p>
+                </div>
+
+                <a href="#top" class="brand-logo footer-logo" aria-label="Oguz Han Yavuz developer">
+                    <img src="./assets/img/Logo icon2.svg" alt="" class="brand-icon" aria-hidden="true" />
+                    <span class="brand-copy">
+                        <span class="brand-name">O.Yavuz</span>
+                        <span class="brand-role">developer</span>
+                    </span>
+                </a>
+
+                <div class="footer-socials">
+
+                    <a href="#" aria-label="GitHub">
+                        <img src="./assets/img/figma-web/Portfolio-sm/Property 1=dark.svg" alt="" class="social-icon"
+                            aria-hidden="true" />
+                    </a>
+                    <a href="#" aria-label="Email">
+                        <img src="./assets/img/figma-web/Portfolio-sm2/Property 1=dark.svg" alt="" class="social-icon"
+                            aria-hidden="true" />
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <img src="./assets/img/figma-web/Linkedin button.svg" alt="" class="social-icon"
+                            aria-hidden="true" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
