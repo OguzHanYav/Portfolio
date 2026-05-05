@@ -966,6 +966,34 @@ function closeMobileMenu() {
   burger.setAttribute("aria-expanded", "false");
 }
 
+function initFooterSocialIconHover() {
+  document.querySelectorAll(".footer-socials img[data-hover-src]").forEach((icon) => {
+    const defaultSrc = icon.dataset.defaultSrc || icon.getAttribute("src");
+    const hoverSrc = icon.dataset.hoverSrc;
+    const trigger = icon.closest("a") || icon;
+
+    if (!defaultSrc || !hoverSrc) return;
+
+    icon.dataset.defaultSrc = defaultSrc;
+
+    trigger.addEventListener("mouseenter", () => {
+      icon.src = hoverSrc;
+    });
+
+    trigger.addEventListener("mouseleave", () => {
+      icon.src = defaultSrc;
+    });
+
+    trigger.addEventListener("focusin", () => {
+      icon.src = hoverSrc;
+    });
+
+    trigger.addEventListener("focusout", () => {
+      icon.src = defaultSrc;
+    });
+  });
+}
+
 if (burger && mobileMenu) {
   burger.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.toggle("open");
@@ -1200,4 +1228,5 @@ if (typeof projectTabsViewportQuery.addEventListener === "function") {
 }
 
 renderSkills();
+initFooterSocialIconHover();
 setLanguage(currentLanguage);

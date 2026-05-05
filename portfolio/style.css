@@ -342,17 +342,20 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
     background: transparent;
     color: var(--accent);
-    border-radius: 50%;
+    transition: background-color 0.2s ease;
 }
 
-.hero-socials a:hover {
-    background: white;
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+    background: var(--accent);
 }
 
-.hero-socials a:hover img {
-    filter: brightness(0);
+.hero-socials a:hover img,
+.hero-socials a:focus-visible img {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(13%) saturate(720%) hue-rotate(164deg) brightness(92%) contrast(88%);
 }
 
 .hero-socials a img,
@@ -464,8 +467,9 @@ button {
     width: 74px;
     min-width: 74px;
     height: 64px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .why-highlight-icon {
@@ -501,7 +505,7 @@ button {
     font-family: var(--font-body);
     font-size: clamp(1.35rem, 1.85vw, 1.95rem);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1;
     letter-spacing: 0.02em;
     color: var(--text);
     white-space: nowrap;
@@ -531,8 +535,9 @@ button {
 .why-highlight-text::after {
     content: "";
     width: 3px;
-    height: 1.35em;
+    height: 1.1em;
     margin-left: 6px;
+    align-self: center;
     flex: 0 0 3px;
     border-radius: 999px;
     background: var(--text);
@@ -573,8 +578,8 @@ button {
 .skills-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
-    gap: clamp(32px, 6vw, 88px);
-    align-items: start;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
 }
 
 #skills,
@@ -585,10 +590,20 @@ button {
     padding: 120px 0 56px;
 }
 
+#skills {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 88px 0 40px;
+}
+
+#skills .section-title {
+    margin-bottom: 56px;
+}
+
 #projects {
     min-height: auto;
     align-items: flex-start;
-    padding: 104px 0 0;
+    padding: 72px 0 0;
     background: var(--panel);
 }
 
@@ -598,6 +613,11 @@ button {
     min-height: calc(100svh - 150px);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+}
+
+#skills>.section-shell {
+    min-height: calc(100svh - 144px);
     justify-content: flex-start;
 }
 
@@ -614,12 +634,12 @@ button {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(90px, 1fr));
-    gap: 42px 28px;
+    gap: 32px 18px;
 }
 
 .skill-card {
-    width: 85px;
-    height: 100px;
+    width: 78px;
+    height: 92px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -629,8 +649,8 @@ button {
 }
 
 .skill-icon-image {
-    width: 85px;
-    height: 100px;
+    width: 78px;
+    height: 92px;
     object-fit: contain;
     transform: rotate(0deg);
     opacity: 1;
@@ -1390,6 +1410,7 @@ textarea::placeholder {
     background: transparent;
     border-radius: 6px;
     color: var(--panel);
+    transition: color 0.2s ease;
 }
 
 .footer-socials a img,
@@ -1500,6 +1521,18 @@ textarea::placeholder {
     #contact {
         padding: 96px 0 48px;
     }
+
+    #skills {
+        padding: 88px 0 40px;
+    }
+
+    #skills>.section-shell {
+        min-height: calc(100svh - 116px);
+    }
+
+    #projects {
+        padding: 64px 0 0;
+    }
 }
 
 /* LAPTOP ~1200px */
@@ -1529,7 +1562,7 @@ textarea::placeholder {
     }
 
     .skills-grid {
-        gap: 28px 20px;
+        gap: 32px 18px;
     }
 
     .learning-bubble {
@@ -1542,6 +1575,22 @@ textarea::placeholder {
 
     .contact-grid {
         gap: 36px;
+    }
+}
+
+@media (min-width: 992px) {
+    .skills-layout {
+        grid-template-columns: max-content minmax(300px, 420px);
+        justify-content: center;
+        gap: clamp(28px, 3vw, 44px);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, 78px);
+        justify-content: center;
+        justify-items: center;
+        row-gap: 24px;
+        column-gap: clamp(44px, 3.5vw, 64px);
     }
 }
 
@@ -1761,10 +1810,25 @@ textarea::placeholder {
         padding: 40px 0;
     }
 
+    #skills {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 40px 0 24px;
+    }
+
+    #projects {
+        padding: 32px 0 40px;
+    }
+
     #skills>.section-shell,
     #projects>.section-shell,
     #contact>.section-shell {
         min-height: auto;
+    }
+
+    #skills>.section-shell {
+        min-height: calc(100svh - 64px);
+        justify-content: center;
     }
 
     .why-grid,
@@ -1799,8 +1863,8 @@ textarea::placeholder {
     }
 
     .skill-icon-image {
-        width: 85px;
-        height: 100px;
+        width: 78px;
+        height: 92px;
         object-fit: contain;
     }
 
@@ -2025,6 +2089,18 @@ textarea::placeholder {
         max-width: 100%;
     }
 
+    #skills {
+        padding: 32px 0 20px;
+    }
+
+    #skills>.section-shell {
+        min-height: calc(100svh - 52px);
+    }
+
+    #projects {
+        padding-top: 28px;
+    }
+
     .hero {
         height: calc(100svh - 72px);
         min-height: calc(100svh - 72px);
@@ -2157,12 +2233,20 @@ textarea::placeholder {
         margin-bottom: 26px;
     }
 
+    #skills .section-title {
+        margin-bottom: 26px;
+    }
+
     .why-grid,
     .skills-layout,
     .contact-grid,
     .form-row,
     .project-panel {
         grid-template-columns: 1fr;
+    }
+
+    .skills-layout {
+        gap: 32px;
     }
 
     .why-grid .section-title {
@@ -2191,7 +2275,7 @@ textarea::placeholder {
 
     .why-highlight-text {
         font-size: 1rem;
-        line-height: 1.45;
+        line-height: 1;
     }
 
     .why-highlight-copy {
