@@ -409,6 +409,7 @@ button {
 .why-highlight {
     display: grid;
     grid-template-columns: 74px minmax(0, 1fr);
+    align-items: center;
     column-gap: 18px;
     width: min(100%, 480px);
     min-height: 96px;
@@ -461,6 +462,12 @@ button {
     color: var(--text);
     white-space: nowrap;
     min-width: 26ch;
+}
+
+@media (max-width: 767px) {
+    .why-highlight-text {
+        min-width: 0;
+    }
 }
 
 .why-highlight-prefix {
@@ -1341,204 +1348,7 @@ textarea::placeholder {
     list-style-position: inside;
 }
 
-/* RESTORED HOVER EFFECTS */
-
-.primary-btn,
-.outline-btn {
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.primary-btn:hover {
-    background: #cfcac2;
-    border-color: #cfcac2;
-    color: var(--panel);
-}
-
-.outline-btn:hover {
-    background: rgba(137, 188, 217, 0.12);
-    border-color: var(--accent);
-    color: var(--text);
-}
-
-.scroll-down,
-.scroll-up {
-    background: transparent;
-    color: var(--accent);
-    border-radius: 999px;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.scroll-down:hover,
-.scroll-down:focus-visible,
-.scroll-up:hover,
-.scroll-up:focus-visible {
-    background: rgba(137, 188, 217, 0.12);
-    border-color: var(--accent);
-    color: var(--text);
-}
-
-.hero-socials a {
-    border-radius: 50%;
-    background: transparent;
-    color: var(--accent);
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.hero-socials a:hover,
-.hero-socials a:focus-visible {
-    background: var(--accent);
-}
-
-.hero-socials a:hover img,
-.hero-socials a:focus-visible img {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(13%) saturate(720%) hue-rotate(164deg) brightness(92%) contrast(88%);
-}
-
-/* HERO SOCIAL ICON IMAGE HOVER ONLY */
-
-.hero-socials a img {
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.hero-socials a:hover,
-.hero-socials a:focus-visible {
-    background: transparent;
-}
-
-.hero-socials a:hover img,
-.hero-socials a:focus-visible img {
-    filter: none;
-    transform: translateY(-1px);
-}
-
-.hero-socials a[href^="mailto:"]:hover img,
-.hero-socials a[href^="mailto:"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 2=Hover blue.svg");
-}
-
-.hero-socials a[href*="github"]:hover img,
-.hero-socials a[href*="github"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 1=hover blue.svg");
-}
-
-.hero-socials a[href*="linkedin"]:hover img,
-.hero-socials a[href*="linkedin"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 3=hover blue.svg");
-}
-
-/* NAVBAR HOVER / ACTIVE SHAPE */
-
-.desktop-nav a,
-.lang-btn {
-    position: relative;
-    z-index: 1;
-}
-
-.desktop-nav a::before,
-.lang-btn::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: center / contain no-repeat url("./assets/img/figma-assets/navbar/Ellipse 24.svg");
-    transform: translate(-50%, -50%) scale(0.85);
-    opacity: 0;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.desktop-nav a::before {
-    width: 92px;
-    height: 64px;
-}
-
-.lang-btn::before {
-    width: 40px;
-    height: 30px;
-}
-
-.desktop-nav a.active::before,
-.desktop-nav a:active::before,
-.lang-btn.active::before,
-.lang-btn:active::before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.desktop-nav a {
-    transition: color 0.2s ease;
-}
-
-.desktop-nav a:hover,
-.desktop-nav a:focus-visible,
-.desktop-nav a.active {
-    color: #f8f5ec;
-}
-
-.lang-btn {
-    border-radius: 999px;
-    background: transparent;
-    transition: color 0.2s ease;
-}
-
-.lang-btn:hover,
-.lang-btn:focus-visible,
-.lang-btn.active {
-    background: transparent;
-    color: #f8f5ec;
-}
-
-.project-tab {
-    transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.project-tab:hover,
-.project-tab:focus-visible {
-    color: var(--text);
-}
-
-.project-actions .outline-btn:hover {
-    background: rgba(137, 188, 217, 0.12);
-    color: var(--accent);
-}
-
-.testimonial-card a {
-    transition: color 0.2s ease;
-}
-
-.testimonial-card a:hover {
-    color: #f8f5ec;
-}
-
-.contact-info p {
-    transition: color 0.2s ease, filter 0.2s ease;
-}
-
-.contact-info p:hover {
-    color: var(--accent);
-    filter: brightness(0) saturate(100%) invert(72%) sepia(19%) saturate(792%) hue-rotate(164deg) brightness(92%) contrast(87%);
-}
-
-.contact-info a {
-    transition: color 0.2s ease;
-}
-
-.contact-info a:hover {
-    color: var(--accent);
-}
-
-.privacy-link:hover {
-    color: #f8f5ec;
-}
-
-.send-btn:hover:not(:disabled) {
-    background: var(--accent-strong);
-    border-color: var(--accent-strong);
-    color: var(--panel);
-}
-
-/* MEDIA QUERIES */
+/* LARGE DESKTOP ~1900px */
 
 @media (min-width: 1680px) {
     :root {
@@ -2095,6 +1905,8 @@ textarea::placeholder {
     }
 }
 
+/* LAPTOP ~1200px */
+
 @media (max-width: 1280px) {
     :root {
         --container-max: 1120px;
@@ -2136,6 +1948,7 @@ textarea::placeholder {
     }
 }
 
+/* TABLET */
 @media (min-width: 992px) {
     .legal-back {
         display: none;
@@ -2310,8 +2123,9 @@ textarea::placeholder {
     .hero-image-wrap {
         width: min(420px, 72vw);
         margin: 0 auto;
-        overflow: hidden;
+          overflow: hidden;
     }
+
 
     .hero-image-wrap:hover::before {
         background-image: url("./assets/img/figma-assets/testimonials/shape-default.svg");
@@ -2387,11 +2201,10 @@ textarea::placeholder {
     .why-location {
         margin-left: 0;
         justify-content: center;
-        width: 100%;
     }
 
     .why-highlight {
-        margin: 0 auto;
+        width: min(100%, 560px);
     }
 
     .why-copy {
@@ -2685,42 +2498,11 @@ textarea::placeholder {
         line-height: 1.28;
         text-align: center;
     }
-
-    .hero-image-wrap {
-        overflow: hidden;
-
-        -webkit-mask-image: url("./assets/img/figma-assets/testimonials/shape-default.svg");
-        mask-image: url("./assets/img/figma-assets/testimonials/shape-default.svg");
-        -webkit-mask-size: 100% 100%;
-        mask-size: 100% 100%;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-    }
-
-    .hero-image-wrap::before {
-        background-image: url("./assets/img/figma-assets/testimonials/shape-default.svg");
-        transform: none;
-        filter: none;
-        transition: none;
-    }
-
-    .hero-image-wrap:hover::before,
-    .hero-image-wrap:focus-visible::before,
-    .hero-image-wrap:active::before {
-        background-image: url("./assets/img/figma-assets/testimonials/shape-default.svg");
-        transform: none;
-        filter: none;
-        transition: none;
-    }
 }
 
-@media (max-width: 767px) {
-    .why-highlight-text {
-        min-width: 0;
-    }
+/* MOBILE */
 
+@media (max-width: 767px) {
     :root {
         --section-gutter: 14px;
     }
@@ -2803,6 +2585,7 @@ textarea::placeholder {
         opacity: 1;
         z-index: 1;
     }
+
 
     .hero-info {
         width: 100%;
@@ -2893,25 +2676,15 @@ textarea::placeholder {
     .why-location {
         margin-left: 0;
         justify-content: center;
-        width: 100%;
     }
 
     .why-highlight {
-        width: fit-content;
-        max-width: 100%;
+        width: 100%;
         min-height: 88px;
-        margin: 0 auto;
-        padding: 14px 16px;
-        display: grid;
         grid-template-columns: 60px minmax(0, 1fr);
+        padding: 14px 16px;
         column-gap: 14px;
-        justify-content: center;
         border-radius: 24px;
-    }
-
-    .why-highlight-copy {
-        min-height: 52px;
-        justify-content: center;
     }
 
     .why-highlight-icon-shell {
@@ -2923,6 +2696,10 @@ textarea::placeholder {
     .why-highlight-text {
         font-size: 1rem;
         line-height: 1.45;
+    }
+
+    .why-highlight-copy {
+        min-height: 52px;
     }
 
     .why-copy {
@@ -3408,15 +3185,9 @@ textarea::placeholder {
         margin: 12px auto;
         font-size: 1.25rem;
     }
-
-    .skills-grid .skill-card:nth-child(9) {
-        grid-column: 2;
-    }
-
-    .skills-grid .skill-card:nth-child(10) {
-        grid-column: 3;
-    }
 }
+
+/* SMALL MOBILE ~390px bis 320px */
 
 @media (max-width: 390px) {
 
@@ -3610,6 +3381,8 @@ textarea::placeholder {
         scroll-padding-top: 100px;
     }
 }
+
+/* EXTRA SMALL MOBILE 320px */
 
 @media (max-width: 320px) {
     :root {
@@ -3925,8 +3698,8 @@ textarea::placeholder {
     }
 
     .learning-bubble {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -3942,11 +3715,11 @@ textarea::placeholder {
     }
 
     .learning-bubble::before {
-        display: block;
+        display: block !important;
     }
 
     .learning-title {
-        grid-column: auto;
+        grid-column: auto !important;
         max-width: 210px;
         font-size: 0.78rem;
         line-height: 1.15;
@@ -3955,8 +3728,8 @@ textarea::placeholder {
     }
 
     .learning-text {
-        grid-column: auto;
-        grid-row: auto;
+        grid-column: auto !important;
+        grid-row: auto !important;
         max-width: 190px;
         font-size: 0.72rem;
         line-height: 1.22;
@@ -3965,7 +3738,7 @@ textarea::placeholder {
     }
 
     .learning-icons {
-        display: flex;
+        display: flex !important;
         justify-content: center;
         align-items: center;
         gap: 14px;
@@ -3973,11 +3746,11 @@ textarea::placeholder {
     }
 
     .learning-icons-desktop {
-        display: flex;
+        display: flex !important;
     }
 
     .learning-visual-mobile {
-        display: none;
+        display: none !important;
     }
 
     html {
@@ -3990,12 +3763,256 @@ textarea::placeholder {
     #contact {
         scroll-margin-top: 20px;
     }
+}
 
+/* MOBILE SKILLS LAST ROW CENTER FIX */
+
+@media (max-width: 767px) {
     .skills-grid .skill-card:nth-child(9) {
         grid-column: 2;
     }
 
     .skills-grid .skill-card:nth-child(10) {
         grid-column: 3;
+    }
+}
+
+@media (max-width: 320px) {
+    .skills-grid .skill-card:nth-child(9) {
+        grid-column: 2;
+    }
+
+    .skills-grid .skill-card:nth-child(10) {
+        grid-column: 3;
+    }
+}
+
+
+/* RESTORED HOVER EFFECTS */
+
+.primary-btn,
+.outline-btn {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: #cfcac2;
+    border-color: #cfcac2;
+    color: var(--panel);
+}
+
+.outline-btn:hover {
+    background: rgba(137, 188, 217, 0.12);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.scroll-down,
+.scroll-up {
+    background: transparent;
+    color: var(--accent);
+    border-radius: 999px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.scroll-down:hover,
+.scroll-down:focus-visible,
+.scroll-up:hover,
+.scroll-up:focus-visible {
+    background: rgba(137, 188, 217, 0.12);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.hero-socials a {
+    border-radius: 50%;
+    background: transparent;
+    color: var(--accent);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+    background: var(--accent);
+}
+
+.hero-socials a:hover img,
+.hero-socials a:focus-visible img {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(13%) saturate(720%) hue-rotate(164deg) brightness(92%) contrast(88%);
+}
+
+/* HERO SOCIAL ICON IMAGE HOVER ONLY */
+
+.hero-socials a img {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+    background: transparent;
+}
+
+.hero-socials a:hover img,
+.hero-socials a:focus-visible img {
+    filter: none;
+    transform: translateY(-1px);
+}
+
+.hero-socials a[href^="mailto:"]:hover img,
+.hero-socials a[href^="mailto:"]:focus-visible img {
+    content: url("./assets/img/figma-assets/Hero/Property 2=Hover blue.svg");
+}
+
+.hero-socials a[href*="github"]:hover img,
+.hero-socials a[href*="github"]:focus-visible img {
+    content: url("./assets/img/figma-assets/Hero/Property 1=hover blue.svg");
+}
+
+.hero-socials a[href*="linkedin"]:hover img,
+.hero-socials a[href*="linkedin"]:focus-visible img {
+    content: url("./assets/img/figma-assets/Hero/Property 3=hover blue.svg");
+}
+
+/* NAVBAR HOVER / ACTIVE SHAPE */
+
+.desktop-nav a,
+.lang-btn {
+    position: relative;
+    z-index: 1;
+}
+
+.desktop-nav a::before,
+.lang-btn::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: center / contain no-repeat url("./assets/img/figma-assets/navbar/Ellipse 24.svg");
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.desktop-nav a::before {
+    width: 92px;
+    height: 64px;
+}
+
+.lang-btn::before {
+    width: 40px;
+    height: 30px;
+}
+
+.desktop-nav a.active::before,
+.desktop-nav a:active::before,
+.lang-btn.active::before,
+.lang-btn:active::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.desktop-nav a {
+    transition: color 0.2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a:focus-visible,
+.desktop-nav a.active {
+    color: #f8f5ec;
+}
+
+.lang-btn {
+    border-radius: 999px;
+    background: transparent;
+    transition: color 0.2s ease;
+}
+
+.lang-btn:hover,
+.lang-btn:focus-visible,
+.lang-btn.active {
+    background: transparent;
+    color: #f8f5ec;
+}
+
+.project-tab {
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.project-tab:hover,
+.project-tab:focus-visible {
+    color: var(--text);
+}
+
+.project-actions .outline-btn:hover {
+    background: rgba(137, 188, 217, 0.12);
+    color: var(--accent);
+}
+
+.testimonial-card a {
+    transition: color 0.2s ease;
+}
+
+.testimonial-card a:hover {
+    color: #f8f5ec;
+}
+
+.contact-info p {
+    transition: color 0.2s ease, filter 0.2s ease;
+}
+
+.contact-info p:hover {
+    color: var(--accent);
+    filter: brightness(0) saturate(100%) invert(72%) sepia(19%) saturate(792%) hue-rotate(164deg) brightness(92%) contrast(87%);
+}
+
+.contact-info a {
+    transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+    color: var(--accent);
+}
+
+.privacy-link:hover {
+    color: #f8f5ec;
+}
+
+.send-btn:hover:not(:disabled) {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+    color: var(--panel);
+}
+/* FINAL HERO SHAPE MOBILE/TABLET FIX */
+
+@media (max-width: 991px) {
+    .hero-image-wrap {
+        overflow: hidden !important;
+
+        -webkit-mask-image: url("./assets/img/figma-assets/testimonials/shape-default.svg") !important;
+        mask-image: url("./assets/img/figma-assets/testimonials/shape-default.svg") !important;
+        -webkit-mask-size: 100% 100% !important;
+        mask-size: 100% 100% !important;
+        -webkit-mask-repeat: no-repeat !important;
+        mask-repeat: no-repeat !important;
+        -webkit-mask-position: center !important;
+        mask-position: center !important;
+    }
+
+    .hero-image-wrap::before {
+        background-image: url("./assets/img/figma-assets/testimonials/shape-default.svg") !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .hero-image-wrap:hover::before,
+    .hero-image-wrap:focus-visible::before,
+    .hero-image-wrap:active::before {
+        background-image: url("./assets/img/figma-assets/testimonials/shape-default.svg") !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
     }
 }
