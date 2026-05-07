@@ -457,8 +457,8 @@ const projects = [
     tab: { en: "4. Ongoing Project", de: "4. Laufendes Projekt" },
     title: { en: "Ongoing Project", de: "Laufendes Projekt" },
     techLine: {
-      en: "Technologies Angular TypeScript HTML CSS Vue.js React",
-      de: "Technologien Angular TypeScript HTML CSS Vue.js React"
+      en: "Technologies Angular TypeScript HTML CSS",
+      de: "Technologien Angular TypeScript HTML CSS"
     },
     duration: { en: "Duration: ongoing", de: "Dauer: fortlaufend" },
     description: {
@@ -482,7 +482,7 @@ const projects = [
     live: "#",
     github: "#",
     image: "./assets/img/figma-assets/projects/comingsoon.svg",
-    tech: ["angular", "ts", "html", "css", "vue", "react"]
+    tech: ["angular", "ts", "html", "css"]
   }
 ];
 

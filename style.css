@@ -759,8 +759,8 @@ button {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 470px;
-    min-height: 280px;
+    max-width: 468px;
+    min-height: 322px;
     background: #f8f5ec;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1581,7 +1581,7 @@ textarea::placeholder {
         --footer-height: 260px;
     }
 
-    /* HERO - bleibt wie aktuell */
+    /* HERO  */
 
     .hero {
         min-height: calc(100vh - var(--nav-height));
@@ -2144,7 +2144,7 @@ textarea::placeholder {
 
 @media (max-width: 991px) {
     html {
-        scroll-padding-top: 52px;
+        scroll-padding-top: 60px;
     }
 
     :root {
@@ -2308,7 +2308,7 @@ textarea::placeholder {
     }
 
     .hero-image-wrap {
-        width: min(420px, 72vw);
+        width: min(500px, 72vw);
         margin: 0 auto;
         overflow: hidden;
     }
@@ -2717,6 +2717,10 @@ textarea::placeholder {
 }
 
 @media (max-width: 767px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
     .why-highlight-text {
         min-width: 0;
     }
@@ -2762,8 +2766,8 @@ textarea::placeholder {
 
     .hero-image-wrap {
         position: relative;
-        width: 311px;
-        height: 370px;
+        width: min(450px, 100%);
+        height: 500px;
         max-width: 100%;
         margin: 0 auto;
         overflow: hidden;
@@ -2790,19 +2794,19 @@ textarea::placeholder {
         z-index: 0;
     }
 
-    .hero-image {
-        position: absolute;
-        width: 267px;
-        height: 370px;
-        left: 50%;
-        top: 0;
-        bottom: auto;
-        transform: translateX(-50%);
-        object-fit: contain;
-        object-position: center bottom;
-        opacity: 1;
-        z-index: 1;
-    }
+  .hero-image {
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    left: 50%;
+    top: 0;
+    bottom: auto;
+    transform: translateX(-50%);
+    object-fit: contain;
+    object-position: center bottom;
+    opacity: 1;
+    z-index: 1;
+}
 
     .hero-info {
         width: 100%;
@@ -2948,22 +2952,13 @@ textarea::placeholder {
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
         align-items: center;
-        gap: 22px 18px;
-    }
-
-    .skill-card {
-        width: 64px;
-        height: 78px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        gap: 6px;
     }
 
     .skill-icon-image {
-        width: 56px;
-        height: 66px;
+        width: 80px;
+        height: 90px;
         object-fit: contain;
-        display: block;
     }
 
     .learning-bubble {
@@ -3028,6 +3023,7 @@ textarea::placeholder {
         line-height: 1.36;
         color: var(--text);
         margin: 0;
+        text-align: unset;
     }
 
     .mobile-only-inline {
@@ -3120,7 +3116,6 @@ textarea::placeholder {
 
     #project-image {
         order: 2;
-        max-width: 202px;
         margin: 12px auto;
     }
 
@@ -3403,11 +3398,11 @@ textarea::placeholder {
 
     .project-coming-soon {
         order: 2;
-        max-width: 202px;
-        min-height: 180px;
         margin: 12px auto;
-        font-size: 1.25rem;
+        aspect-ratio: 468 / 322;
     }
+
+
 
     .skills-grid .skill-card:nth-child(9) {
         grid-column: 2;
