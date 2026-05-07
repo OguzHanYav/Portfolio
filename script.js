@@ -106,7 +106,8 @@ const translations = {
       technologies: "Technologies",
       liveTest: "Live Test",
       github: "GitHub",
-      previewAltSuffix: "preview"
+      previewAltSuffix: "preview",
+      comingSoon: "Coming soon..."
     },
     testimonials: {
       titleLead: "Need a teamplayer?",
@@ -247,7 +248,8 @@ const translations = {
       technologies: "Technologien",
       liveTest: "Live Test",
       github: "GitHub",
-      previewAltSuffix: "Vorschau"
+      previewAltSuffix: "Vorschau",
+      comingSoon: "Demnächst..."
     },
     testimonials: {
       titleLead: "Brauchst du einen Teamplayer?",
@@ -568,17 +570,17 @@ function initWhyHighlightSpans() {
 
   if (!prefixSpan || !spaceSpan || !restSpan) {
     whyHighlightText.innerHTML = "";
-    
+
     prefixSpan = document.createElement("span");
     prefixSpan.className = "why-highlight-prefix";
-    
+
     spaceSpan = document.createElement("span");
     spaceSpan.className = "why-highlight-space";
     spaceSpan.textContent = " ";
-    
+
     restSpan = document.createElement("span");
     restSpan.className = "why-highlight-rest";
-    
+
     whyHighlightText.appendChild(prefixSpan);
     whyHighlightText.appendChild(spaceSpan);
     whyHighlightText.appendChild(restSpan);
@@ -603,7 +605,7 @@ function setWhyHighlightPrefix() {
 
   const { prefixSpan, spaceSpan, restSpan } = spans;
   const prefix = getWhyHighlightPrefix();
-  
+
   prefixSpan.textContent = prefix;
   spaceSpan.textContent = " ";
   restSpan.textContent = "";
@@ -704,6 +706,30 @@ function updateLanguageButtons() {
     button.setAttribute("aria-pressed", String(button.dataset.lang === currentLanguage));
   });
 }
+function updateNavActiveLink(activeLink = null) {
+  const targetHash = activeLink?.getAttribute("href")?.split("#")[1];
+
+  document.querySelectorAll(".desktop-nav a, .mobile-nav .mobile-link").forEach((link) => {
+    const linkHash = link.getAttribute("href")?.split("#")[1];
+    link.classList.toggle("active", Boolean(targetHash && linkHash === targetHash));
+  });
+}
+document.querySelectorAll(".lang-btn[data-lang]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+    closeMobileMenu();
+  });
+});
+document.querySelectorAll(".desktop-nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    updateNavActiveLink(link);
+  });
+});
+document.querySelectorAll(".mobile-nav .mobile-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    updateNavActiveLink(link);
+  });
+});
 
 function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -823,7 +849,31 @@ function renderProjectCard() {
   description.textContent = getLocalizedValue(project.description);
   process.textContent = getLocalizedValue(project.process);
   team.textContent = getLocalizedValue(project.team);
-  image.src = project.image;
+  if (project.key === "ongoing") {
+    image.src = "";
+    image.style.display = "none";
+
+    let comingSoonEl = document.getElementById("project-coming-soon");
+
+    if (!comingSoonEl) {
+      comingSoonEl = document.createElement("div");
+      comingSoonEl.id = "project-coming-soon";
+      comingSoonEl.className = "project-coming-soon";
+      image.parentNode.insertBefore(comingSoonEl, image.nextSibling);
+    }
+
+    comingSoonEl.textContent = getTranslation("projects.comingSoon");
+    comingSoonEl.style.display = "";
+  } else {
+    image.src = project.image;
+    image.style.display = "";
+
+    const comingSoonEl = document.getElementById("project-coming-soon");
+    if (comingSoonEl) {
+      comingSoonEl.style.display = "none";
+    }
+  }
+
   image.alt = `${localizedTitle} ${getTranslation("projects.previewAltSuffix")}`;
   if (project.live && project.live !== "#") {
     live.href = project.live;
@@ -832,7 +882,7 @@ function renderProjectCard() {
     live.style.display = "none";
   }
 
-  if (project.key === "dabubble") {
+  if (project.key === "dabubble" || project.key === "ongoing") {
     github.style.display = "none";
   } else if (project.github && project.github !== "#") {
     github.href = project.github;
@@ -925,12 +975,36 @@ document.querySelectorAll(".lang-btn[data-lang]").forEach((button) => {
 
 let formSubmitted = false;
 
-function validateName() {
+const contactTouched = {
+  name: false,
+  email: false,
+  message: false,
+  privacy: false
+};
+
+function isNameValid() {
+  return nameInput?.value.trim().length >= 2;
+}
+
+function isEmailValid() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  return emailRegex.test(emailInput?.value.trim() || "");
+}
+
+function isMessageValid() {
+  return messageInput?.value.trim().length >= 10;
+}
+
+function isPrivacyValid() {
+  return Boolean(privacyCheckbox?.checked);
+}
+
+function validateName(showError = false) {
   const error = document.getElementById("name-error");
   if (!nameInput || !error) return false;
 
-  if (nameInput.value.trim().length < 2) {
-    if (formSubmitted) error.textContent = getTranslation("validation.name");
+  if (!isNameValid()) {
+    error.textContent = showError ? getTranslation("validation.name") : "";
     return false;
   }
 
@@ -938,14 +1012,12 @@ function validateName() {
   return true;
 }
 
-function validateEmail() {
+function validateEmail(showError = false) {
   const error = document.getElementById("email-error");
   if (!emailInput || !error) return false;
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  const valid = emailRegex.test(emailInput.value.trim());
-  if (!valid) {
-    if (formSubmitted) error.textContent = getTranslation("validation.email");
+  if (!isEmailValid()) {
+    error.textContent = showError ? getTranslation("validation.email") : "";
     return false;
   }
 
@@ -953,12 +1025,12 @@ function validateEmail() {
   return true;
 }
 
-function validateMessage() {
+function validateMessage(showError = false) {
   const error = document.getElementById("message-error");
   if (!messageInput || !error) return false;
 
-  if (messageInput.value.trim().length < 10) {
-    if (formSubmitted) error.textContent = getTranslation("validation.message");
+  if (!isMessageValid()) {
+    error.textContent = showError ? getTranslation("validation.message") : "";
     return false;
   }
 
@@ -966,15 +1038,13 @@ function validateMessage() {
   return true;
 }
 
-function validatePrivacy() {
+function validatePrivacy(showError = false) {
   const error = document.getElementById("privacy-error");
   if (!privacyCheckbox || !error) return false;
 
-  if (!privacyCheckbox.checked) {
-    if (formSubmitted) {
-      privacyCheckbox.classList.add("is-invalid");
-      error.textContent = getTranslation("validation.privacy");
-    }
+  if (!isPrivacyValid()) {
+    privacyCheckbox.classList.toggle("is-invalid", showError);
+    error.textContent = showError ? getTranslation("validation.privacy") : "";
     return false;
   }
 
@@ -983,121 +1053,97 @@ function validatePrivacy() {
   return true;
 }
 
+function validateContactForm(showErrors = false) {
+  const nameValid = validateName(showErrors || contactTouched.name || formSubmitted);
+  const emailValid = validateEmail(showErrors || contactTouched.email || formSubmitted);
+  const messageValid = validateMessage(showErrors || contactTouched.message || formSubmitted);
+  const privacyValid = validatePrivacy(showErrors || contactTouched.privacy || formSubmitted);
+
+  return nameValid && emailValid && messageValid && privacyValid;
+}
+
 function updateSubmitState() {
-  if (submitBtn) submitBtn.disabled = false;
+  if (!submitBtn) return;
+  submitBtn.disabled = !validateContactForm(false);
 }
 
-async function submitContactRequest() {
-  const payload = {
-    name: nameInput?.value.trim() || "",
-    email: emailInput?.value.trim() || "",
-    message: messageInput?.value.trim() || "",
-    language: currentLanguage
-  };
-
-  const response = await fetch(CONTACT_API_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    },
-    body: JSON.stringify(payload)
-  });
-
-  let body = {};
-  try {
-    body = await response.json();
-  } catch (error) {
-    body = {};
-  }
-
-  if (!response.ok || !body.ok) {
-    throw new Error(body.error || "Request failed");
-  }
+function handleContactInput(field) {
+  contactTouched[field] = true;
+  saveDraft();
+  validateContactForm(false);
+  updateSubmitState();
 }
 
-const DRAFT_KEY = "portfolio-contact-draft";
+nameInput?.addEventListener("input", () => handleContactInput("name"));
+emailInput?.addEventListener("input", () => handleContactInput("email"));
+messageInput?.addEventListener("input", () => handleContactInput("message"));
 
-function saveDraft() {
-  const draft = {
-    name: nameInput?.value || "",
-    email: emailInput?.value || "",
-    message: messageInput?.value || "",
-    privacy: privacyCheckbox?.checked || false
-  };
-  try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch (e) {}
-}
+nameInput?.addEventListener("blur", () => {
+  contactTouched.name = true;
+  validateName(true);
+  updateSubmitState();
+});
 
-function restoreDraft() {
-  try {
-    const raw = localStorage.getItem(DRAFT_KEY);
-    if (!raw) return;
-    const draft = JSON.parse(raw);
-    if (nameInput && draft.name) nameInput.value = draft.name;
-    if (emailInput && draft.email) emailInput.value = draft.email;
-    if (messageInput && draft.message) messageInput.value = draft.message;
-    if (privacyCheckbox && draft.privacy) privacyCheckbox.checked = draft.privacy;
-  } catch (e) {}
-}
+emailInput?.addEventListener("blur", () => {
+  contactTouched.email = true;
+  validateEmail(true);
+  updateSubmitState();
+});
 
-function clearDraft() {
-  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
-}
+messageInput?.addEventListener("blur", () => {
+  contactTouched.message = true;
+  validateMessage(true);
+  updateSubmitState();
+});
 
-restoreDraft();
-
-nameInput?.addEventListener("blur", updateSubmitState);
-emailInput?.addEventListener("blur", updateSubmitState);
-messageInput?.addEventListener("blur", updateSubmitState);
-privacyCheckbox?.addEventListener("change", () => { saveDraft(); updateSubmitState(); });
-nameInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
-emailInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
-messageInput?.addEventListener("input", () => { saveDraft(); updateSubmitState(); });
+privacyCheckbox?.addEventListener("change", () => {
+  contactTouched.privacy = true;
+  saveDraft();
+  validatePrivacy(true);
+  updateSubmitState();
+});
 
 document.getElementById("contact-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   formSubmitted = true;
 
-  const valid = validateName() && validateEmail() && validateMessage() && validatePrivacy();
-  if (!submitBtn || !feedback) return;
-
-  if (!valid) return;
+  const valid = validateContactForm(true);
+  if (!submitBtn || !feedback || !valid) return;
 
   feedback.textContent = "";
-  submitBtn.disabled = false;
+  submitBtn.disabled = true;
 
   try {
     await submitContactRequest();
+
     feedback.className = "form-feedback success";
     feedback.dataset.state = "success";
     feedback.textContent = getTranslation("form.success");
+
     event.target.reset();
     clearDraft();
+
+    formSubmitted = false;
+    contactTouched.name = false;
+    contactTouched.email = false;
+    contactTouched.message = false;
+    contactTouched.privacy = false;
+
+    updateSubmitState();
 
     setTimeout(() => {
       feedback.textContent = "";
       feedback.className = "form-feedback";
       feedback.removeAttribute("data-state");
-    }, 5000);
+    }, 7000);
   } catch (error) {
     feedback.className = "form-feedback error";
     feedback.dataset.state = "error";
     feedback.textContent = getTranslation("form.error");
-    submitBtn.disabled = false;
-    return;
+    updateSubmitState();
   }
-
-  submitBtn.disabled = false;
 });
 
-if (typeof reducedMotionQuery.addEventListener === "function") {
-  reducedMotionQuery.addEventListener("change", startWhyHighlightLoop);
-}
-
-const projectTabsViewportQuery = window.matchMedia("(max-width: 767px)");
-if (typeof projectTabsViewportQuery.addEventListener === "function") {
-  projectTabsViewportQuery.addEventListener("change", renderProjectTabs);
-}
-
+updateSubmitState();
 renderSkills();
 setLanguage(currentLanguage);
