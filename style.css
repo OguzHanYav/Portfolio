@@ -995,6 +995,7 @@ button {
     text-decoration: underline;
     color: var(--accent);
 }
+
 /* HIDE TESTIMONIAL LINKEDIN LINKS */
 
 .testimonial-card a {
@@ -2414,6 +2415,82 @@ textarea::placeholder {
     .legal-back {
         display: inline-flex;
     }
+
+    .mobile-nav .mobile-link {
+        color: var(--panel);
+        transition: color 0.2s ease;
+    }
+
+    .mobile-nav .mobile-link:hover,
+    .mobile-nav .mobile-link:focus {
+        color: #f8f5ec;
+        background: transparent;
+    }
+
+    .mobile-lang .lang-btn {
+        color: var(--panel);
+        opacity: 0.7;
+        transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .mobile-lang .lang-btn:hover,
+    .mobile-lang .lang-btn:focus {
+        color: #f8f5ec;
+        opacity: 1;
+    }
+
+    .mobile-lang .lang-btn.active {
+        color: #f8f5ec;
+        opacity: 1;
+    }
+
+    .learning-bubble {
+        width: min(100%, 360px);
+        max-width: 360px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 54px 46px;
+        margin: 20px auto 0;
+        overflow: visible;
+    }
+
+    .learning-bubble::before {
+        display: block;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/Ellipse 25.svg");
+        z-index: -1;
+    }
+
+    .learning-title {
+        font-size: 1rem;
+        line-height: 1.15;
+        margin-bottom: 14px;
+        text-align: center;
+    }
+
+    .learning-icons {
+        gap: 18px;
+        margin-bottom: 14px;
+    }
+
+    .learning-icon-image {
+        width: 38px;
+        height: 48px;
+    }
+
+    .learning-text {
+        max-width: 250px;
+        font-size: 0.94rem;
+        line-height: 1.28;
+        text-align: center;
+    }
 }
 
 /* MOBILE */
@@ -3288,6 +3365,400 @@ textarea::placeholder {
     }
 }
 
+/* EXTRA SMALL MOBILE 320px */
+
+@media (max-width: 320px) {
+    :root {
+        --section-gutter: 10px;
+    }
+
+    .section-shell {
+        width: min(calc(100% - 20px), 300px);
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 22px;
+    }
+
+    .mobile-header {
+        padding: 10px 12px 0;
+    }
+
+    .brand-icon {
+        width: 48px;
+        height: 32px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .brand-role {
+        font-size: 12px;
+    }
+
+    .burger {
+        width: 26px;
+        height: 28px;
+        top: 24px;
+    }
+
+    .mobile-menu {
+        width: min(188px, calc(100vw - 18px));
+        right: 6px;
+        padding: 30px 20px 24px;
+    }
+
+    .mobile-nav {
+        gap: 10px;
+        font-size: 0.92rem;
+    }
+
+    .mobile-lang {
+        gap: 6px;
+    }
+
+    .hero-image-wrap {
+        width: 286px;
+        height: 310px;
+    }
+
+    .hero-image-wrap::before {
+        height: 310px;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 346px;
+    }
+
+    #hero-name {
+        font-size: 31px;
+    }
+
+    #hero-role {
+        font-size: 16px;
+    }
+
+    .scroll-down {
+        width: 26px;
+        height: 64px;
+        margin-top: 8px;
+    }
+
+    .arrow-icon {
+        height: 64px;
+    }
+
+    .why-highlight {
+        min-height: 78px;
+        grid-template-columns: 48px minmax(0, 1fr);
+        padding: 12px;
+        column-gap: 10px;
+    }
+
+    .why-highlight-icon-shell {
+        width: 48px;
+        min-width: 48px;
+        height: 44px;
+    }
+
+    .why-highlight-text {
+        font-size: 0.9rem;
+        line-height: 1.35;
+    }
+
+    .why-copy p {
+        font-size: 0.92rem;
+        line-height: 1.45;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px 8px;
+    }
+
+    .skill-card {
+        width: 52px;
+        height: 64px;
+    }
+
+    .skill-icon-image {
+        width: 46px;
+        height: 56px;
+    }
+
+    .learning-bubble {
+        width: 250px;
+        max-width: 250px;
+        min-height: 250px;
+        aspect-ratio: 1 / 1;
+        padding: 34px 26px;
+        margin: 16px auto 0;
+    }
+
+    .learning-bubble::before {
+        display: block;
+        inset: 0;
+        background: center / 100% 100% no-repeat url("./assets/img/figma-assets/testimonials/Ellipse 25.svg");
+    }
+
+    .learning-title {
+        font-size: 0.78rem;
+        line-height: 1.12;
+        margin-bottom: 8px;
+    }
+
+    .learning-icons {
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    .learning-icon-image {
+        width: 28px;
+        height: 36px;
+    }
+
+    .learning-pill {
+        font-size: 0.72rem;
+        gap: 4px;
+    }
+
+    .learning-text {
+        max-width: 176px;
+        font-size: 0.74rem;
+        line-height: 1.18;
+    }
+
+    .learning-visual-mobile {
+        display: none;
+    }
+
+    .project-tabs {
+        gap: 8px;
+        font-size: 0.88rem;
+    }
+
+    .project-tab,
+    .project-tab.active {
+        height: 38px;
+        min-height: 38px;
+        padding: 8px 9px;
+        font-size: 0.88rem;
+    }
+
+    .project-panel {
+        padding: 14px 10px 18px;
+    }
+
+    .project-mobile-head h3 {
+        font-size: 1.45rem;
+    }
+
+    .project-meta-line {
+        font-size: 0.88rem;
+        line-height: 1.25;
+    }
+
+    .project-item {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .project-dot {
+        width: 10px;
+        height: 10px;
+        margin-top: 5px;
+    }
+
+    .project-item h3,
+    .project-item p {
+        font-size: 0.9rem;
+    }
+
+    #project-image,
+    .project-coming-soon {
+        max-width: 188px;
+    }
+
+    .project-coming-soon {
+        min-height: 158px;
+        font-size: 1rem;
+    }
+
+    .project-actions {
+        gap: 10px;
+    }
+
+    .project-actions .primary-btn,
+    .project-actions .outline-btn {
+        min-width: 78px;
+        min-height: 30px;
+        padding: 6px 12px;
+        font-size: 0.86rem;
+    }
+
+    .team-title-lead {
+        font-size: 1.55rem;
+    }
+
+    .team-title-rest {
+        max-width: 220px;
+        font-size: 0.84rem;
+    }
+
+    .testimonial-card {
+        flex-basis: 224px;
+        width: 224px;
+        max-width: 224px;
+        min-height: 242px;
+        padding: 34px 26px;
+    }
+
+    .testimonial-card>* {
+        max-width: 148px;
+    }
+
+    .testimonial-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-role,
+    .testimonial-card p {
+        font-size: 0.78rem;
+        line-height: 1.2;
+    }
+
+    .contact-copy,
+    .contact-info,
+    input,
+    textarea,
+    .checkbox-row,
+    .error-space,
+    .form-feedback {
+        font-size: 0.9rem;
+    }
+
+    .contact-grid {
+        gap: 18px;
+    }
+
+    input,
+    textarea {
+        padding: 9px 12px;
+    }
+
+    textarea {
+        min-height: 92px;
+    }
+
+    .send-btn {
+        min-width: 58px;
+        min-height: 26px;
+        padding: 5px 12px;
+        font-size: 0.86rem;
+    }
+
+    .site-footer {
+        min-height: 172px;
+        padding-block: 18px 12px;
+    }
+
+    .footer-copy {
+        font-size: 0.86rem;
+        gap: 8px;
+    }
+
+    .footer-socials {
+        gap: 12px;
+    }
+
+    .footer-socials a,
+    .social-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .learning-bubble {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        width: 280px;
+        max-width: 280px;
+        min-height: 280px;
+        aspect-ratio: 1 / 1;
+
+        padding: 46px 42px;
+        margin: 16px auto 0;
+        border-radius: 50%;
+    }
+
+    .learning-bubble::before {
+        display: block !important;
+    }
+
+    .learning-title {
+        grid-column: auto !important;
+        max-width: 210px;
+        font-size: 0.78rem;
+        line-height: 1.15;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .learning-text {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        max-width: 190px;
+        font-size: 0.72rem;
+        line-height: 1.22;
+        text-align: center;
+        margin: 0;
+    }
+
+    .learning-icons {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+    }
+
+    .learning-icons-desktop {
+        display: flex !important;
+    }
+
+    .learning-visual-mobile {
+        display: none !important;
+    }
+}
+
+/* MOBILE SKILLS LAST ROW CENTER FIX */
+
+@media (max-width: 767px) {
+    .skills-grid .skill-card:nth-child(9) {
+        grid-column: 2;
+    }
+
+    .skills-grid .skill-card:nth-child(10) {
+        grid-column: 3;
+    }
+}
+
+@media (max-width: 320px) {
+    .skills-grid .skill-card:nth-child(9) {
+        grid-column: 2;
+    }
+
+    .skills-grid .skill-card:nth-child(10) {
+        grid-column: 3;
+    }
+}
+
 /* RESTORED HOVER EFFECTS */
 
 .primary-btn,
@@ -3483,34 +3954,4 @@ textarea::placeholder {
     background: var(--accent-strong);
     border-color: var(--accent-strong);
     color: var(--panel);
-}
-
-@media (max-width: 991px) {
-    .mobile-nav .mobile-link {
-        color: var(--panel);
-        transition: color 0.2s ease;
-    }
-
-    .mobile-nav .mobile-link:hover,
-    .mobile-nav .mobile-link:focus {
-        color: #f8f5ec;
-        background: transparent;
-    }
-
-    .mobile-lang .lang-btn {
-        color: var(--panel);
-        opacity: 0.7;
-        transition: color 0.2s ease, opacity 0.2s ease;
-    }
-
-    .mobile-lang .lang-btn:hover,
-    .mobile-lang .lang-btn:focus {
-        color: #f8f5ec;
-        opacity: 1;
-    }
-
-    .mobile-lang .lang-btn.active {
-        color: #f8f5ec;
-        opacity: 1;
-    }
 }
