@@ -709,7 +709,7 @@ function updateLanguageButtons() {
 function updateNavActiveLink(activeLink = null) {
   const targetHash = activeLink?.getAttribute("href")?.split("#")[1];
 
-  document.querySelectorAll(".desktop-nav a, .mobile-nav .mobile-link").forEach((link) => {
+  document.querySelectorAll(".desktop-nav a").forEach((link) => {
     const linkHash = link.getAttribute("href")?.split("#")[1];
     link.classList.toggle("active", Boolean(targetHash && linkHash === targetHash));
   });
@@ -786,7 +786,7 @@ function renderProjectTabs() {
 
   tabsContainer.innerHTML = projects
     .map((project, index) => {
-      const tabLabel = window.matchMedia("(max-width: 767px)").matches
+      const tabLabel = window.matchMedia("(max-width: 991px)").matches
         ? `${index + 1}. Project`
         : getLocalizedValue(project.tab);
       const activeClass = index === currentProjectIndex ? "active" : "";
@@ -1143,7 +1143,13 @@ document.getElementById("contact-form")?.addEventListener("submit", async (event
     updateSubmitState();
   }
 });
+const projectTabsMediaQuery = window.matchMedia("(max-width: 991px)");
+
+projectTabsMediaQuery.addEventListener("change", () => {
+  renderProjectTabs();
+});
 
 updateSubmitState();
 renderSkills();
 setLanguage(currentLanguage);
+

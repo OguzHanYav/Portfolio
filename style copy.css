@@ -4016,3 +4016,532 @@ textarea::placeholder {
         transition: none !important;
     }
 }
+
+
+
+
+
+
+-----------
+
+@media (min-width: 2560px) {
+    :root {
+        --container-max: 2880px;
+        --section-gutter: 96px;
+        --nav-height: 120px;
+        --footer-height: 260px;
+    }
+
+    /* HERO  */
+
+    .hero {
+        min-height: calc(100vh - var(--nav-height));
+        padding: 0;
+        align-items: end;
+    }
+
+    .hero-inner {
+        min-height: calc(100vh - var(--nav-height));
+        grid-template-columns: minmax(1100px, 1fr) minmax(1100px, 1fr);
+        gap: 120px;
+        align-items: end;
+    }
+
+    .hero-image-wrap {
+        width: min(100%, 1520px);
+    }
+
+    .hero-image {
+        left: 14%;
+        width: 72%;
+    }
+
+    .hero-info {
+        min-height: 1440px;
+    }
+
+    .hero-meta {
+        top: 120px;
+    }
+
+    .hero-copy {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #hero-name {
+        font-size: 12.4rem;
+        line-height: 0.95;
+    }
+
+    #hero-role {
+        margin-top: 32px;
+        font-size: 6rem;
+    }
+
+    .hero-brand .brand-icon {
+        width: 112px;
+        height: 76px;
+    }
+
+    .hero-brand .brand-name {
+        font-size: 40px;
+    }
+
+    .hero-brand .brand-role {
+        font-size: 32px;
+    }
+
+    .hero-socials {
+        gap: 32px;
+    }
+
+    .hero-socials a,
+    .footer-socials a {
+        width: 60px;
+        height: 60px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .scroll-down {
+        margin-top: 140px;
+    }
+
+    .arrow-icon {
+        width: 76px;
+        height: 178px;
+    }
+
+    /* NAVBAR */
+
+    .nav-strip {
+        min-height: var(--nav-height);
+    }
+
+    .nav-strip-inner {
+        width: 100%;
+        max-width: none;
+        grid-template-columns: 320px 1fr 320px;
+        padding: 0 96px;
+        gap: 40px;
+    }
+
+    .nav-strip .brand-logo {
+        justify-self: start;
+        align-items: flex-start;
+    }
+
+    .nav-strip .brand-icon {
+        width: 112px;
+        height: 76px;
+    }
+
+    .nav-strip .brand-name {
+        font-size: 32px;
+    }
+
+    .nav-strip .brand-role {
+        font-size: 24px;
+    }
+
+    .desktop-nav {
+        gap: 96px;
+        font-size: 2rem;
+    }
+
+    .lang-btn {
+        font-size: 1.4rem;
+    }
+
+    /* ALLGEMEIN */
+
+    .section-title {
+        font-size: 7.8rem;
+        margin-bottom: 160px;
+    }
+
+    .primary-btn,
+    .outline-btn {
+        min-width: 260px;
+        min-height: 84px;
+        padding: 22px 52px;
+        font-size: 1.9rem;
+    }
+
+    /* SECTIONS */
+
+    #skills,
+    #projects,
+    #contact {
+        min-height: calc(100vh - var(--nav-height));
+        padding: 220px 0 160px;
+        align-items: flex-start;
+    }
+
+    #skills>.section-shell,
+    #projects>.section-shell,
+    #contact>.section-shell {
+        min-height: auto;
+    }
+
+    /* SKILLS */
+
+    .skills-layout {
+        grid-template-columns: minmax(0, 1fr) 760px;
+        gap: 220px;
+        align-items: start;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+        gap: 120px 100px;
+    }
+
+    .skill-card {
+        width: 220px;
+        height: 260px;
+        gap: 20px;
+    }
+
+    .skill-icon-image {
+        width: 220px;
+        height: 260px;
+    }
+
+    .learning-bubble {
+        max-width: 760px;
+        padding: 110px;
+        margin-top: 0;
+    }
+
+    .learning-title {
+        font-size: 2.4rem;
+        margin-bottom: 34px;
+    }
+
+    .learning-icons {
+        gap: 44px;
+        margin-bottom: 34px;
+    }
+
+    .learning-pill {
+        font-size: 1.9rem;
+        gap: 14px;
+    }
+
+    .learning-icon-image {
+        width: 92px;
+        height: 118px;
+    }
+
+    .learning-text {
+        max-width: 560px;
+        font-size: 1.9rem;
+        line-height: 1.45;
+    }
+
+    /* PROJECTS */
+    #projects {
+        padding-top: 120px;
+    }
+
+    #projects .section-title {
+        margin-bottom: 160px;
+    }
+
+    .project-tabs {
+        gap: 72px;
+        font-size: 3rem;
+    }
+
+    .project-tab,
+    .project-tab.active {
+        padding: 32px 48px 28px;
+        border-radius: 42px 42px 0 0;
+    }
+
+    .project-panel {
+        padding: 70px 96px 84px;
+        border-radius: 0 0 28px 28px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(720px, 900px);
+        gap: 80px;
+    }
+
+    .project-item {
+        gap: 30px;
+        margin-bottom: 54px;
+    }
+
+    .project-dot {
+        width: 26px;
+        height: 26px;
+        margin-top: 16px;
+    }
+
+    .project-item h3 {
+        font-size: 3.4rem;
+    }
+
+    .project-duration {
+        font-size: 1.8rem;
+    }
+
+    .project-item p {
+        max-width: 1100px;
+        font-size: 2rem;
+        line-height: 1.45;
+        margin-top: 14px;
+    }
+
+    .project-preview-label,
+    .project-meta-line {
+        font-size: 1.8rem;
+    }
+
+    .project-preview-head {
+        gap: 18px;
+        margin-bottom: 32px;
+    }
+
+    .tech-row {
+        gap: 26px;
+    }
+
+    .tech-badge {
+        width: 72px;
+        height: 72px;
+    }
+
+    .tech-badge .tech-icon-image {
+        width: 62px;
+        height: 62px;
+    }
+
+    #project-image {
+        max-width: 900px;
+        border-radius: 28px;
+    }
+
+    .project-actions {
+        gap: 32px;
+        margin-top: 36px;
+    }
+
+    /* TESTIMONIALS / TEAM */
+
+    .team-title {
+        max-width: 1500px;
+        margin-bottom: 80px;
+        gap: 20px;
+    }
+
+    .team-title-lead {
+        font-size: 5.8rem;
+    }
+
+    .team-title-rest {
+        font-size: 2.8rem;
+    }
+
+    .testimonials {
+        gap: 48px;
+    }
+
+    .testimonial-card {
+        padding: 90px 70px;
+    }
+
+    .testimonial-card>* {
+        max-width: 440px;
+    }
+
+    .testimonial-card h3 {
+        font-size: 3rem;
+    }
+
+    .testimonial-role {
+        font-size: 1.8rem;
+        margin-top: 12px;
+    }
+
+    .testimonial-card p,
+    .testimonial-card a {
+        font-size: 1.8rem;
+        line-height: 1.45;
+        margin-top: 24px;
+    }
+
+    /* CONTACT */
+
+    #contact {
+        padding-top: 220px;
+    }
+
+    .contact-title-row {
+        margin-bottom: 120px;
+    }
+
+    #contact .scroll-up {
+        top: 220px;
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(720px, 1fr);
+        gap: 120px;
+        margin-bottom: 60px;
+    }
+
+    .contact-copy,
+    .contact-info {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    .contact-copy {
+        max-width: 780px;
+    }
+
+    .contact-info {
+        max-width: 680px;
+    }
+
+    .contact-cta {
+        margin-top: 44px;
+        font-size: 2.2rem;
+    }
+
+    .contact-info p {
+        gap: 24px;
+        margin-bottom: 30px;
+    }
+
+    .contact-icon-image {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .form-row {
+        gap: 44px;
+    }
+
+    .field-label {
+        margin-bottom: 16px;
+        font-size: 1.6rem;
+    }
+
+    input,
+    textarea {
+        padding: 26px 34px;
+        font-size: 1.8rem;
+        border-radius: 999px;
+    }
+
+    textarea {
+        min-height: 260px;
+        border-radius: 28px;
+    }
+
+    .checkbox-row,
+    .error-space,
+    .form-feedback {
+        font-size: 1.6rem;
+    }
+
+    .checkbox-row {
+        gap: 22px;
+        margin-top: 28px;
+    }
+
+    .checkbox-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .form-actions {
+        margin-top: 28px;
+    }
+
+    .form-feedback {
+        min-height: 48px;
+        margin-top: 32px;
+        padding: 24px 32px;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+        min-height: var(--footer-height);
+        margin-top: 96px;
+    }
+
+    .footer-inner {
+        gap: 40px;
+    }
+
+    .footer-copy {
+        font-size: 1.7rem;
+    }
+
+    .footer-socials {
+        gap: 28px;
+    }
+
+    .site-footer .brand-icon {
+        width: 112px;
+        height: 76px;
+    }
+
+    .site-footer .brand-name {
+        font-size: 36px;
+    }
+
+    .site-footer .brand-role {
+        font-size: 28px;
+    }
+
+    /* WHY ME */
+
+    .why-grid {
+        grid-template-columns: minmax(900px, 1fr) minmax(900px, 1fr);
+        gap: 160px;
+    }
+
+    .why-location {
+        margin-left: 220px;
+        margin-top: 60px;
+    }
+
+    .why-highlight {
+        grid-template-columns: 140px minmax(0, 1fr);
+        width: min(100%, 900px);
+        min-height: 180px;
+        padding: 34px 44px;
+    }
+
+    .why-highlight-icon-shell {
+        width: 140px;
+        min-width: 140px;
+        height: 120px;
+    }
+
+    .why-highlight-text {
+        font-size: 3rem;
+    }
+
+    .why-copy {
+        max-width: 720px;
+        margin-top: 40px;
+    }
+
+    .why-copy p {
+        font-size: 2rem;
+        line-height: 1.5;
+        margin-bottom: 56px;
+    }
+}
