@@ -811,7 +811,10 @@ function renderProjectTabs() {
 function renderProjectCard() {
   const project = projects[currentProjectIndex];
   if (!project) return;
-
+  document.querySelector(".project-preview")?.classList.toggle(
+    "is-coming-soon",
+    project.key === "ongoing"
+  );
   const description = document.getElementById("project-description");
   const process = document.getElementById("project-process");
   const team = document.getElementById("project-team");
@@ -849,29 +852,12 @@ function renderProjectCard() {
   description.textContent = getLocalizedValue(project.description);
   process.textContent = getLocalizedValue(project.process);
   team.textContent = getLocalizedValue(project.team);
-  if (project.key === "ongoing") {
-    image.src = "";
-    image.style.display = "none";
+  image.src = project.image;
+  image.style.display = "";
 
-    let comingSoonEl = document.getElementById("project-coming-soon");
-
-    if (!comingSoonEl) {
-      comingSoonEl = document.createElement("div");
-      comingSoonEl.id = "project-coming-soon";
-      comingSoonEl.className = "project-coming-soon";
-      image.parentNode.insertBefore(comingSoonEl, image.nextSibling);
-    }
-
-    comingSoonEl.textContent = getTranslation("projects.comingSoon");
-    comingSoonEl.style.display = "";
-  } else {
-    image.src = project.image;
-    image.style.display = "";
-
-    const comingSoonEl = document.getElementById("project-coming-soon");
-    if (comingSoonEl) {
-      comingSoonEl.style.display = "none";
-    }
+  const comingSoonEl = document.getElementById("project-coming-soon");
+  if (comingSoonEl) {
+    comingSoonEl.remove();
   }
 
   image.alt = `${localizedTitle} ${getTranslation("projects.previewAltSuffix")}`;

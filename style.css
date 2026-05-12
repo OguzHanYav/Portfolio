@@ -679,6 +679,28 @@ button {
 }
 
 /* PROJECTS */
+.project-preview {
+    position: relative;
+}
+
+#project-image {
+    position: relative;
+    z-index: 1;
+}
+
+.project-preview.is-coming-soon::after {
+    content: "Coming soon...";
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 32px);
+    transform: translate(-50%, -50%);
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 2;
+}
 
 #projects .section-title {
     background: transparent;
@@ -753,23 +775,6 @@ button {
 
 .project-copy {
     padding-top: 0;
-}
-
-.project-coming-soon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 468px;
-    min-height: 322px;
-    background: #f8f5ec;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    font-family: var(--font-body);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-align: center;
 }
 
 .project-item {
@@ -1654,6 +1659,7 @@ textarea::placeholder {
         transform: translateY(-36%);
     }
 }
+
 @media (min-width: 992px) and (max-width: 1280px) and (min-height: 900px) {
     .hero {
         min-height: auto;
@@ -1676,7 +1682,8 @@ textarea::placeholder {
     .hero-copy {
         transform: translateY(-36%);
     }
-      #skills,
+
+    #skills,
     #projects,
     #contact {
         min-height: auto;
@@ -1684,9 +1691,9 @@ textarea::placeholder {
         padding-bottom: 56px;
     }
 
-    #skills > .section-shell,
-    #projects > .section-shell,
-    #contact > .section-shell {
+    #skills>.section-shell,
+    #projects>.section-shell,
+    #contact>.section-shell {
         min-height: auto;
     }
 
@@ -1694,6 +1701,7 @@ textarea::placeholder {
         padding-top: 72px;
     }
 }
+
 @media (min-width: 992px) and (max-height: 760px) {
     .hero {
         min-height: calc(100svh - var(--nav-height));
@@ -1726,6 +1734,7 @@ textarea::placeholder {
         display: none;
     }
 }
+
 @media (max-width: 991px) {
     html {
         scroll-padding-top: 70px;
@@ -1884,7 +1893,7 @@ textarea::placeholder {
         display: flex;
     }
 
-    .mobile-menu.open ~ main .hero-image-wrap {
+    .mobile-menu.open~main .hero-image-wrap {
         opacity: 0;
     }
 
@@ -1995,9 +2004,9 @@ textarea::placeholder {
         padding: 40px 0;
     }
 
-    #skills > .section-shell,
-    #projects > .section-shell,
-    #contact > .section-shell {
+    #skills>.section-shell,
+    #projects>.section-shell,
+    #contact>.section-shell {
         min-height: auto;
     }
 
@@ -2127,6 +2136,16 @@ textarea::placeholder {
     .project-mobile-head {
         display: block;
         order: 1;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 40px;
+        text-align: left;
+        align-self: stretch;
+    }
+
+    .project-mobile-head h3,
+    .project-mobile-head p {
+        text-align: left;
     }
 
     .project-preview {
@@ -2164,7 +2183,7 @@ textarea::placeholder {
         padding: 34px 24px;
     }
 
-    .testimonial-card > * {
+    .testimonial-card>* {
         max-width: 170px;
     }
 
@@ -2401,8 +2420,12 @@ textarea::placeholder {
     }
 
     .project-preview {
-        display: contents;
+        display: flex;
+        position: relative;
     }
+    .project-preview.is-coming-soon::after {
+    top: 50%;
+}
 
     #project-image {
         order: 2;
@@ -2524,11 +2547,6 @@ textarea::placeholder {
         max-width: 240px;
         min-height: 258px;
         padding: 38px 30px;
-    }
-
-    .project-coming-soon {
-        aspect-ratio: 336 / 231;
-        min-height: unset;
     }
 }
 
@@ -2676,6 +2694,7 @@ html {
 }
 
 @media (max-width: 991px) {
+
     #why-title,
     #skills-title,
     #projects-title,
