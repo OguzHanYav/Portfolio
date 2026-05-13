@@ -1419,17 +1419,17 @@ textarea::placeholder {
 
 .hero-socials a[href^="mailto:"]:hover img,
 .hero-socials a[href^="mailto:"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 2=Hover blue.svg");
+    content: url("./assets/img/figma-assets/Hero/email-hover-blue.svg");
 }
 
 .hero-socials a[href*="github"]:hover img,
 .hero-socials a[href*="github"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 1=hover blue.svg");
+    content: url("./assets/img/figma-assets/Hero/github-hover-blue.svg");
 }
 
 .hero-socials a[href*="linkedin"]:hover img,
 .hero-socials a[href*="linkedin"]:focus-visible img {
-    content: url("./assets/img/figma-assets/Hero/Property 3=hover blue.svg");
+    content: url("./assets/img/figma-assets/Hero/linkedin-hover-blue.svg");
 }
 
 /* NAVBAR HOVER / ACTIVE SHAPE */
