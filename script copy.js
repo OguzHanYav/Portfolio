@@ -773,8 +773,7 @@ function renderSkills() {
     .map(
       (skill) => `
         <article class="skill-card">
-          <img src="${skill.iconPath}" alt="" class="skill-icon-image" loading="lazy" aria-hidden="true" />
-          <span class="skill-label">${escapeHtml(skill.label)}</span>
+          <img src="${skill.iconPath}" alt="${skill.label}" class="skill-icon-image" loading="lazy" />
         </article>
       `
     )
@@ -969,103 +968,13 @@ const contactTouched = {
   privacy: false
 };
 
-const CONTACT_DRAFT_STORAGE_KEY = "portfolio-contact-draft";
-
-function getContactDraft() {
-  try {
-    const rawDraft = localStorage.getItem(CONTACT_DRAFT_STORAGE_KEY);
-    return rawDraft ? JSON.parse(rawDraft) : null;
-  } catch (error) {
-    return null;
-  }
-}
-
-function saveDraft() {
-  if (!nameInput || !emailInput || !messageInput || !privacyCheckbox) return;
-
-  const draft = {
-    name: nameInput.value,
-    email: emailInput.value,
-    message: messageInput.value,
-    privacy: privacyCheckbox.checked
-  };
-
-  try {
-    localStorage.setItem(CONTACT_DRAFT_STORAGE_KEY, JSON.stringify(draft));
-  } catch (error) {
-    // localStorage can fail in private browsing. The form must still work.
-  }
-}
-
-function restoreDraft() {
-  const draft = getContactDraft();
-  if (!draft) return;
-
-  if (nameInput) nameInput.value = draft.name || "";
-  if (emailInput) emailInput.value = draft.email || "";
-  if (messageInput) messageInput.value = draft.message || "";
-  if (privacyCheckbox) privacyCheckbox.checked = Boolean(draft.privacy);
-}
-
-function clearDraft() {
-  try {
-    localStorage.removeItem(CONTACT_DRAFT_STORAGE_KEY);
-  } catch (error) {
-    // Ignore storage cleanup errors.
-  }
-}
-
-async function submitContactRequest() {
-  if (!nameInput || !emailInput || !messageInput || !privacyCheckbox) {
-    throw new Error("Contact form is incomplete.");
-  }
-
-  const payload = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    message: messageInput.value.trim(),
-    privacy: privacyCheckbox.checked,
-    language: currentLanguage
-  };
-
-  const response = await fetch(CONTACT_API_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    throw new Error(`Contact request failed with status ${response.status}`);
-  }
-
-  return response;
-}
-
-
 function isNameValid() {
   return nameInput?.value.trim().length >= 2;
 }
 
 function isEmailValid() {
-  const value = emailInput?.value.trim() || "";
-  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,24}$/;
-  if (!emailRegex.test(value)) return false;
-
-  const domain = value.split("@")[1] || "";
-  const parts = domain.split(".");
-  if (parts.length < 2 || parts.some((part) => part.length < 2)) return false;
-
-  const knownSecondLevelTlds = new Set(["co", "com", "net", "org", "ac", "gov", "edu"]);
-  const topLevel = parts.at(-1);
-  const beforeTopLevel = parts.at(-2);
-
-  if (topLevel && beforeTopLevel && topLevel === beforeTopLevel && !knownSecondLevelTlds.has(beforeTopLevel)) {
-    return false;
-  }
-
-  return true;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  return emailRegex.test(emailInput?.value.trim() || "");
 }
 
 function isMessageValid() {
@@ -1141,24 +1050,7 @@ function validateContactForm(showErrors = false) {
 
 function updateSubmitState() {
   if (!submitBtn) return;
-
-  const nameValid = isNameValid();
-  const emailValid = isEmailValid();
-  const messageValid = isMessageValid();
-  const privacyValid = isPrivacyValid();
-  const ready = nameValid && emailValid && messageValid && privacyValid;
-
-  // Der Button wird erst aktiv, wenn wirklich alles gültig ist.
-  submitBtn.disabled = !ready;
-  submitBtn.classList.toggle("is-ready", ready);
-  submitBtn.classList.toggle("is-empty", !ready);
-
-  // Wenn nur noch die Datenschutzerklärung fehlt, bekommt der User sofort den Hinweis,
-  // obwohl der Button weiterhin deaktiviert bleibt.
-  if (nameValid && emailValid && messageValid && !privacyValid) {
-    contactTouched.privacy = true;
-    validatePrivacy(true);
-  }
+  submitBtn.disabled = !validateContactForm(false);
 }
 
 function handleContactInput(field) {
@@ -1202,15 +1094,7 @@ document.getElementById("contact-form")?.addEventListener("submit", async (event
   formSubmitted = true;
 
   const valid = validateContactForm(true);
-  if (!submitBtn || !feedback) return;
-
-  if (!valid) {
-    feedback.className = "form-feedback error";
-    feedback.dataset.state = "error";
-    feedback.textContent = getTranslation("form.error");
-    updateSubmitState();
-    return;
-  }
+  if (!submitBtn || !feedback || !valid) return;
 
   feedback.textContent = "";
   submitBtn.disabled = true;
@@ -1251,7 +1135,6 @@ projectTabsMediaQuery.addEventListener("change", () => {
   renderProjectTabs();
 });
 
-restoreDraft();
 updateSubmitState();
 renderSkills();
 setLanguage(currentLanguage);
