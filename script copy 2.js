@@ -24,7 +24,7 @@ const skills = [
   },
   {
     label: "REST-API",
-    iconPath: "./assets/img/figma-assets/skills/api.svg"
+    iconPath: "./assets/img/figma-assets/skills/Api.svg"
   },
   {
     label: "Firebase",
@@ -518,11 +518,6 @@ const whyHighlightIcon = document.getElementById("why-highlight-icon");
 const whyHighlightText = document.getElementById("why-highlight-text");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-function positionMobileMenuOverHeroImage() {
-  // Mobile menu is positioned inside .hero-image-wrap and scrolls with the hero.
-}
-
-
 function getTranslation(path, language = currentLanguage) {
   return path.split(".").reduce((value, segment) => value?.[segment], translations[language]);
 }
@@ -928,24 +923,21 @@ function setLanguage(language) {
 function closeMobileMenu() {
   if (!burger || !mobileMenu) return;
 
-  mobileMenu.classList.remove("open");
-  document.body.classList.remove("mobile-menu-open");
-  burger.classList.remove("open");
-  burger.setAttribute("aria-expanded", "false");
+  setMobileMenuState(false);
+}
+
+function setMobileMenuState(isOpen) {
+  if (!burger || !mobileMenu) return;
+
+  mobileMenu.classList.toggle("open", isOpen);
+  burger.classList.toggle("open", isOpen);
+  burger.setAttribute("aria-expanded", String(isOpen));
+  document.body.classList.toggle("mobile-menu-open", isOpen);
 }
 
 if (burger && mobileMenu) {
   burger.addEventListener("click", () => {
-    const isOpen = !mobileMenu.classList.contains("open");
-
-    if (isOpen) {
-      positionMobileMenuOverHeroImage();
-    }
-
-    mobileMenu.classList.toggle("open", isOpen);
-    document.body.classList.toggle("mobile-menu-open", isOpen);
-    burger.classList.toggle("open", isOpen);
-    burger.setAttribute("aria-expanded", String(isOpen));
+    setMobileMenuState(!mobileMenu.classList.contains("open"));
   });
 
   mobileMenu.querySelectorAll("a").forEach((link) => {
@@ -966,12 +958,6 @@ if (burger && mobileMenu) {
 
     closeMobileMenu();
   });
-
-  window.addEventListener("resize", () => {
-    if (mobileMenu.classList.contains("open")) {
-      positionMobileMenuOverHeroImage();
-    }
-  });
 }
 
 document.querySelectorAll(".lang-btn[data-lang]").forEach((button) => {
@@ -990,13 +976,103 @@ const contactTouched = {
   privacy: false
 };
 
+const CONTACT_DRAFT_STORAGE_KEY = "portfolio-contact-draft";
+
+function getContactDraft() {
+  try {
+    const rawDraft = localStorage.getItem(CONTACT_DRAFT_STORAGE_KEY);
+    return rawDraft ? JSON.parse(rawDraft) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function saveDraft() {
+  if (!nameInput || !emailInput || !messageInput || !privacyCheckbox) return;
+
+  const draft = {
+    name: nameInput.value,
+    email: emailInput.value,
+    message: messageInput.value,
+    privacy: privacyCheckbox.checked
+  };
+
+  try {
+    localStorage.setItem(CONTACT_DRAFT_STORAGE_KEY, JSON.stringify(draft));
+  } catch (error) {
+    // localStorage can fail in private browsing. The form must still work.
+  }
+}
+
+function restoreDraft() {
+  const draft = getContactDraft();
+  if (!draft) return;
+
+  if (nameInput) nameInput.value = draft.name || "";
+  if (emailInput) emailInput.value = draft.email || "";
+  if (messageInput) messageInput.value = draft.message || "";
+  if (privacyCheckbox) privacyCheckbox.checked = Boolean(draft.privacy);
+}
+
+function clearDraft() {
+  try {
+    localStorage.removeItem(CONTACT_DRAFT_STORAGE_KEY);
+  } catch (error) {
+    // Ignore storage cleanup errors.
+  }
+}
+
+async function submitContactRequest() {
+  if (!nameInput || !emailInput || !messageInput || !privacyCheckbox) {
+    throw new Error("Contact form is incomplete.");
+  }
+
+  const payload = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim(),
+    privacy: privacyCheckbox.checked,
+    language: currentLanguage
+  };
+
+  const response = await fetch(CONTACT_API_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error(`Contact request failed with status ${response.status}`);
+  }
+
+  return response;
+}
+
+
 function isNameValid() {
   return nameInput?.value.trim().length >= 2;
 }
 
 function isEmailValid() {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  return emailRegex.test(emailInput?.value.trim() || "");
+  const value = emailInput?.value.trim() || "";
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,24}$/;
+  if (!emailRegex.test(value)) return false;
+
+  const domain = value.split("@")[1] || "";
+  const parts = domain.split(".");
+  if (parts.length < 2 || parts.some((part) => part.length < 2)) return false;
+
+  const knownSecondLevelTlds = new Set(["co", "com", "net", "org", "ac", "gov", "edu"]);
+  const topLevel = parts.at(-1);
+  const beforeTopLevel = parts.at(-2);
+
+  if (topLevel && beforeTopLevel && topLevel === beforeTopLevel && !knownSecondLevelTlds.has(beforeTopLevel)) {
+    return false;
+  }
+
+  return true;
 }
 
 function isMessageValid() {
@@ -1070,35 +1146,32 @@ function validateContactForm(showErrors = false) {
   return nameValid && emailValid && messageValid && privacyValid;
 }
 
-function areRequiredTextFieldsValid() {
-  return isNameValid() && isEmailValid() && isMessageValid();
-}
-
-function shouldShowPrivacyErrorBeforeSubmit() {
-  return areRequiredTextFieldsValid() && !isPrivacyValid();
-}
-
 function updateSubmitState() {
   if (!submitBtn) return;
 
-  submitBtn.disabled = !(areRequiredTextFieldsValid() && isPrivacyValid());
+  const nameValid = isNameValid();
+  const emailValid = isEmailValid();
+  const messageValid = isMessageValid();
+  const privacyValid = isPrivacyValid();
+  const ready = nameValid && emailValid && messageValid && privacyValid;
 
-  if (shouldShowPrivacyErrorBeforeSubmit()) {
+  // Der Button wird erst aktiv, wenn wirklich alles gültig ist.
+  submitBtn.disabled = !ready;
+  submitBtn.classList.toggle("is-ready", ready);
+  submitBtn.classList.toggle("is-empty", !ready);
+
+  // Wenn nur noch die Datenschutzerklärung fehlt, bekommt der User sofort den Hinweis,
+  // obwohl der Button weiterhin deaktiviert bleibt.
+  if (nameValid && emailValid && messageValid && !privacyValid) {
     contactTouched.privacy = true;
     validatePrivacy(true);
-  } else if (isPrivacyValid()) {
-    validatePrivacy(false);
   }
 }
 
 function handleContactInput(field) {
   contactTouched[field] = true;
   saveDraft();
-
-  if (field === "name") validateName(true);
-  if (field === "email") validateEmail(true);
-  if (field === "message") validateMessage(true);
-
+  validateContactForm(false);
   updateSubmitState();
 }
 
@@ -1136,7 +1209,15 @@ document.getElementById("contact-form")?.addEventListener("submit", async (event
   formSubmitted = true;
 
   const valid = validateContactForm(true);
-  if (!submitBtn || !feedback || !valid) return;
+  if (!submitBtn || !feedback) return;
+
+  if (!valid) {
+    feedback.className = "form-feedback error";
+    feedback.dataset.state = "error";
+    feedback.textContent = getTranslation("form.error");
+    updateSubmitState();
+    return;
+  }
 
   feedback.textContent = "";
   submitBtn.disabled = true;
@@ -1177,54 +1258,7 @@ projectTabsMediaQuery.addEventListener("change", () => {
   renderProjectTabs();
 });
 
+restoreDraft();
 updateSubmitState();
 renderSkills();
 setLanguage(currentLanguage);
-
-
-/* v6 safety helpers: restore missing non-validation functions */
-function saveDraft() {
-  const form = document.getElementById("contact-form");
-  if (!form || typeof localStorage === "undefined") return;
-
-  const draft = {
-    name: document.getElementById("name")?.value || "",
-    email: document.getElementById("email")?.value || "",
-    message: document.getElementById("message")?.value || "",
-    privacy: Boolean(document.getElementById("privacy")?.checked)
-  };
-
-  localStorage.setItem("portfolio-contact-draft", JSON.stringify(draft));
-}
-
-function clearDraft() {
-  if (typeof localStorage === "undefined") return;
-  localStorage.removeItem("portfolio-contact-draft");
-}
-
-async function submitContactRequest() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  const isLocalStaticPreview = ["localhost", "127.0.0.1", "0.0.0.0"].includes(window.location.hostname);
-
-  if (isLocalStaticPreview) {
-    return;
-  }
-
-  const payload = {
-    name: document.getElementById("name")?.value.trim() || "",
-    email: document.getElementById("email")?.value.trim() || "",
-    message: document.getElementById("message")?.value.trim() || ""
-  };
-
-  const response = await fetch(CONTACT_API_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    throw new Error("Contact request failed");
-  }
-}
