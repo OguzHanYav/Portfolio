@@ -3230,3 +3230,204 @@ body.legal-page .legal-frame {
         width: 100%;
     }
 }
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+
+/* Ausgangszustand für Animationen */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Sichtbarer Zustand */
+.scroll-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Individuelle Übergangsverzögerungen für Skills */
+.skill-card {
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-card.scroll-hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.skill-card.scroll-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Testimonials mit leichter Verzögerung */
+.testimonial-card {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.testimonial-card.scroll-hidden {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.testimonial-card.scroll-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Section-Titel Animation */
+.section-title.scroll-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.section-title.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Why-Highlight spezifisch */
+.why-highlight.scroll-hidden {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.why-highlight.scroll-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Why-Copy */
+.why-copy.scroll-hidden {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.why-copy.scroll-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Learning Bubble */
+.learning-bubble.scroll-hidden {
+    opacity: 0;
+    transform: scale(0.92);
+}
+
+.learning-bubble.scroll-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Project Panel */
+.project-panel.scroll-hidden {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.project-panel.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Contact Elemente */
+.contact-copy.scroll-hidden,
+.contact-info.scroll-hidden,
+.contact-form.scroll-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.contact-copy.scroll-visible,
+.contact-info.scroll-visible,
+.contact-form.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+    z-index: 1000;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 8px rgba(137, 188, 217, 0.5);
+}
+
+/* ============================================
+   AKTIVE NAVIGATION HIGHLIGHTING
+   ============================================ */
+.desktop-nav a.active,
+.mobile-link.active {
+    color: #f8f5ec !important;
+    position: relative;
+}
+
+.desktop-nav a.active::before,
+.mobile-link.active::before {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Mobile aktive Links */
+.mobile-link.active {
+    color: #f8f5ec !important;
+}
+
+/* ============================================
+   SMOOTH SCROLL ENHANCEMENT
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 104px;
+}
+
+/* ============================================
+   REDUCED MOTION RESPEKT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-hidden,
+    .scroll-visible,
+    .skill-card,
+    .testimonial-card,
+    .section-title,
+    .why-highlight,
+    .why-copy,
+    .learning-bubble,
+    .project-panel,
+    .contact-copy,
+    .contact-info,
+    .contact-form {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .scroll-progress-bar {
+        display: none;
+    }
+    
+    .hero-image,
+    .hero-image-wrap {
+        transform: none !important;
+    }
+}
+
+/* ============================================
+   PARALLAX KONTAINER OPTIMIERUNG
+   ============================================ */
+.hero-image-wrap {
+    will-change: transform;
+}
+
+.hero-image {
+    will-change: transform;
+}

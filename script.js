@@ -1228,3 +1228,97 @@ async function submitContactRequest() {
     throw new Error("Contact request failed");
   }
 }
+// ============================================
+// SCROLL ANIMATIONS & ACTIVE NAVIGATION
+// ============================================
+
+(function initScrollEffects() {
+    // Alle zu animierenden Elemente auswählen
+    const animatedElements = document.querySelectorAll(
+        '.section-title, .why-highlight, .why-copy, .skill-card, .learning-bubble, ' +
+        '.project-panel, .testimonial-card, .contact-copy, .contact-info, .contact-form'
+    );
+    
+    // Observer für Scroll-Animationen
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-visible');
+                // Optional: Beobachten nach dem ersten Erscheinen beenden
+                // fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,        // Element wird sichtbar bei 15% Sichtbarkeit
+        rootMargin: '0px 0px -50px 0px'  // Leichter Versatz für besseres Timing
+    });
+    
+    // CSS-Klassen für Animation vorbereiten und beobachten
+    animatedElements.forEach(el => {
+        el.classList.add('scroll-hidden');
+        fadeObserver.observe(el);
+    });
+    
+    // Spezielle Behandlung für Skills-Grid (jede Karte einzeln)
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.03}s`;
+    });
+    
+    // Spezielle Behandlung für Testimonials
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    testimonials.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // ============================================
+    // ACTIVE NAVIGATION HIGHLIGHTING
+    // ============================================
+    
+    const sections = [
+        { id: 'why-title', navSelector: '.desktop-nav a[href="#why-title"], .mobile-link[href="#why-title"]' },
+        { id: 'skills-title', navSelector: '.desktop-nav a[href="#skills-title"], .mobile-link[href="#skills-title"]' },
+        { id: 'projects-title', navSelector: '.desktop-nav a[href="#projects-title"], .mobile-link[href="#projects-title"]' },
+        { id: 'contact-title', navSelector: '.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]' }
+    ];
+    
+    function updateActiveNavLink() {
+        const scrollPosition = window.scrollY + 150; // Offset für Nav-Höhe
+        
+        for (const section of sections) {
+            const element = document.getElementById(section.id);
+            if (element) {
+                const offsetTop = element.offsetTop;
+                const offsetBottom = offsetTop + element.offsetHeight;
+                
+                if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                    // Aktive Klasse hinzufügen
+                    document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    document.querySelectorAll(section.navSelector).forEach(link => {
+                        link.classList.add('active');
+                    });
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Scroll-Event für aktive Navigation (mit throttle für Performance)
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateActiveNavLink();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Initial ausführen
+    updateActiveNavLink();
+    
+})();
