@@ -1,0 +1,139 @@
+/* ============================================
+   LEGAL PAGES
+   ============================================ */
+.legal-page {
+    background: var(--panel) !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+.legal-page .legal-frame {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    min-height: 100vh;
+    background: var(--panel) !important;
+}
+
+.legal-page .legal-main {
+    background: var(--panel) !important;
+    flex: 1 0 auto;
+    padding: 48px 0 64px;
+}
+
+.legal-page .legal-nav,
+.legal-page .site-footer {
+    width: 100%;
+}
+
+.legal-page .site-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.legal-page .footer-links a[href*="privacy-policy"] {
+    display: none !important;
+}
+
+.legal-frame {
+    width: min(calc(100% - 96px), 1440px);
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+}
+
+.legal-page .legal-nav {
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    flex-shrink: 0;
+    box-shadow: none;
+}
+
+.legal-main {
+    padding: 26px 0 0;
+}
+
+.legal-content {
+    width: min(calc(100% - 150px), 770px);
+    margin: 0 auto;
+    padding-bottom: 54px;
+}
+
+.legal-page .legal-content {
+    width: min(calc(100% - 150px), 1120px);
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+
+.legal-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 992px) {
+    .legal-back {
+        display: none;
+    }
+}
+
+.legal-title {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.legal-page .legal-title {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.legal-block {
+    margin-bottom: 18px;
+}
+
+.legal-block h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.legal-block p,
+.legal-block li {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.legal-block ul {
+    list-style-position: inside;
+}
+
+/* FIX: LEGAL PAGES - STICKY NAVIGATION */
+body.legal-page .nav-strip {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background: var(--accent) !important;
+    margin-top: 0 !important;
+}
+
+body.legal-page .legal-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background: var(--accent) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+}
+
+body.legal-page .legal-frame {
+    overflow: visible !important;
+}
+
+.legal-page .legal-main {
+    padding-top: 0 !important;
+}

@@ -1,0 +1,24 @@
+/* ============================================
+   GLOBALE VARIABLEN
+   ============================================ */
+:root {
+    --body-bg: #eeeeef;
+    --panel: #262e34;
+    --panel-soft: #2b363e;
+    --panel-circle: #2a343d;
+    --accent: #89bcd9;
+    --accent-strong: #aed9f3;
+    --text: #f4efe6;
+    --muted: rgba(244, 239, 230, 0.88);
+    --muted-soft: rgba(244, 239, 230, 0.72);
+    --border: rgba(137, 188, 217, 0.9);
+    --line: rgba(137, 188, 217, 0.18);
+    --font-display: "Anta", sans-serif;
+    --font-body: "Josefin Sans", sans-serif;
+    --font-project: "Josefin Sans", sans-serif;
+    --nav-height: 104px;
+    --footer-height: 156px;
+    --mobile-header-offset: 96px;
+    --container-max: 1440px;
+    --section-gutter: 48px;
+}

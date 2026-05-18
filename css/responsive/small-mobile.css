@@ -1,0 +1,225 @@
+/* ============================================
+   SMALL MOBILE MEDIA QUERIES (≤390px, ≤320px)
+   ============================================ */
+
+/* Kleine Mobile (≤390px) */
+@media (max-width: 390px) {
+    #why-title,
+    #skills-title,
+    #projects-title,
+    #contact-title {
+        scroll-margin-top: 12px !important;
+    }
+
+    html {
+        scroll-padding-top: 60px !important;
+    }
+
+    .section-shell {
+        width: min(calc(100% - 20px), 100%);
+        max-width: 100%;
+    }
+
+    .hero-image-wrap {
+        width: min(76vw, 40svh, 326px);
+    }
+
+    .mobile-menu {
+        width: min(84vw, 326px);
+    }
+
+    #hero-name {
+        font-size: 31px;
+    }
+
+    #hero-role {
+        font-size: 18px;
+    }
+
+    .scroll-down {
+        margin-top: 10px;
+    }
+
+    .why-highlight {
+        padding: 14px;
+    }
+
+    .why-highlight-icon-shell {
+        width: 56px;
+        min-width: 56px;
+    }
+
+    .skills-grid {
+        gap: 14px 8px !important;
+        max-width: 320px;
+    }
+
+    .skill-card {
+        min-height: 74px !important;
+    }
+
+    .skill-icon-shell {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+    }
+
+    .skill-icon-image {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .skill-label {
+        font-size: 0.68rem !important;
+    }
+
+    .learning-bubble {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 42px 30px !important;
+    }
+
+    .testimonial-card {
+        flex-basis: 240px;
+        width: 240px;
+        max-width: 240px;
+        min-height: 258px;
+        padding: 38px 30px;
+    }
+}
+
+/* Sehr kleine Geräte (≤320px) */
+@media (max-width: 320px) {
+    #why-title,
+    #skills-title,
+    #projects-title,
+    #contact-title {
+        scroll-margin-top: 10px !important;
+    }
+
+    :root {
+        --section-gutter: 10px;
+    }
+
+    .section-shell {
+        width: min(calc(100% - 20px), 300px);
+    }
+
+    .mobile-header {
+        padding: 10px 12px 0;
+    }
+
+    .brand-icon {
+        width: 48px;
+        height: 32px;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .brand-role {
+        font-size: 16px;
+    }
+
+    .burger {
+        width: 26px;
+        height: 28px;
+        top: 24px;
+    }
+
+    .hero-image-wrap {
+        width: min(74vw, 38svh, 286px);
+    }
+
+    .mobile-menu {
+        width: min(86vw, 286px);
+        padding: 42px 32px;
+    }
+
+    .mobile-nav {
+        gap: 10px;
+        font-size: 1rem;
+    }
+
+    #hero-name {
+        font-size: 30px;
+    }
+
+    #hero-role {
+        font-size: 18px;
+    }
+
+    .scroll-down {
+        width: 26px;
+        height: 64px;
+        margin-top: 8px;
+    }
+
+    .arrow-icon {
+        height: 64px;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 22px;
+    }
+
+    .why-highlight {
+        min-height: 78px;
+        grid-template-columns: 48px minmax(0, 1fr);
+        padding: 12px;
+        column-gap: 10px;
+    }
+
+    .why-highlight-icon-shell {
+        width: 48px;
+        min-width: 48px;
+        height: 44px;
+    }
+
+    .why-highlight-text {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
+
+    .why-copy p {
+        font-size: 1rem;
+        line-height: 1.45;
+    }
+
+    .skills-grid {
+        gap: 12px 6px !important;
+        max-width: 292px;
+    }
+
+    .skill-icon-shell {
+        width: 32px !important;
+        height: 32px !important;
+        flex-basis: 32px !important;
+    }
+
+    .skill-icon-image {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .skill-label {
+        font-size: 0.62rem !important;
+    }
+
+    .learning-bubble {
+        grid-template-columns: minmax(0, 1fr) 108px;
+        gap: 12px 8px;
+    }
+
+    .learning-title {
+        font-size: 1rem;
+    }
+
+    .learning-text {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
+}

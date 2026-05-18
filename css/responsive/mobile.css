@@ -1,0 +1,294 @@
+/* ============================================
+   MOBILE MEDIA QUERIES (≤767px)
+   ============================================ */
+@media (max-width: 767px) {
+    :root {
+        --section-gutter: 14px;
+    }
+
+    #why-title,
+    #skills-title,
+    #projects-title,
+    #contact-title {
+        scroll-margin-top: 15px !important;
+    }
+
+    html {
+        scroll-padding-top: 70px !important;
+    }
+
+    html,
+    body,
+    .site-frame {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body,
+    body *:not(.section-title):not(#hero-name):not(#hero-role) {
+        font-size: max(1rem, 1em);
+    }
+
+    .section-shell {
+        width: min(calc(100% - 28px), 640px);
+        max-width: 100%;
+    }
+
+    .hero-image-wrap {
+        width: min(78vw, 42svh, 450px);
+    }
+
+    .mobile-menu {
+        width: min(84vw, 450px);
+    }
+
+    .content-section {
+        padding: 48px 0;
+        max-width: 100%;
+    }
+
+    #why-me.content-section {
+        padding-top: 56px;
+        margin-top: 0;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 10vw, 2.55rem);
+        margin-bottom: 26px;
+    }
+
+    .why-highlight {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 88px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        display: grid;
+        grid-template-columns: 60px minmax(0, 1fr);
+        column-gap: 14px;
+        justify-content: center;
+        border-radius: 24px;
+    }
+
+    .why-highlight-copy {
+        min-height: 52px;
+        justify-content: center;
+    }
+
+    .why-highlight-icon-shell {
+        width: 60px;
+        min-width: 60px;
+        height: 52px;
+    }
+
+    .why-highlight-text {
+        min-width: 0;
+        font-size: 1.05rem;
+        line-height: 1.45;
+    }
+
+    .why-copy p {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .why-copy .outline-btn {
+        display: none;
+    }
+
+    .mobile-break {
+        display: inline;
+    }
+
+    .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 16px 10px !important;
+        justify-content: center !important;
+        justify-items: center !important;
+        align-items: start !important;
+        width: 100%;
+        max-width: 340px;
+        margin-inline: auto;
+    }
+
+    .skill-card {
+        min-height: 78px !important;
+        gap: 5px !important;
+    }
+
+    .skill-icon-shell {
+        width: 40px !important;
+        height: 40px !important;
+        flex-basis: 40px !important;
+    }
+
+    .skill-icon-image {
+        width: 38px !important;
+        height: 38px !important;
+        object-fit: contain;
+    }
+
+    .skill-label {
+        max-width: 9ch;
+        font-size: 0.72rem !important;
+        line-height: 1.05 !important;
+        font-weight: 500;
+    }
+
+    .skills-grid .skill-card:nth-child(9) {
+        grid-column: 2;
+    }
+
+    .skills-grid .skill-card:nth-child(10) {
+        grid-column: 3;
+    }
+
+    .learning-bubble {
+        width: min(100%, 360px) !important;
+        max-width: 360px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        aspect-ratio: 1 / 1 !important;
+        text-align: center !important;
+        padding: 48px 36px !important;
+        margin: 18px auto 0 !important;
+        overflow: visible !important;
+    }
+
+    .learning-bubble::before {
+        display: block;
+    }
+
+    .learning-title {
+        text-align: center;
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+        color: var(--text);
+    }
+
+    .learning-title-desktop {
+        display: none;
+    }
+
+    .learning-title-mobile {
+        display: inline;
+    }
+
+    .learning-icons {
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+
+    .learning-icon-image {
+        width: 38px !important;
+        height: 38px !important;
+        object-fit: contain;
+    }
+
+    .learning-text {
+        max-width: 260px;
+        font-size: 1rem;
+        line-height: 1.36;
+        color: var(--muted-soft);
+        margin: 0;
+        text-align: center;
+    }
+
+    .mobile-only-inline {
+        display: inline-flex;
+        grid-column: 1 / -1;
+        justify-self: center;
+        align-self: center;
+        margin-top: 12px;
+    }
+
+    .project-panel {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 12px 20px;
+    }
+
+    .project-preview {
+        display: flex;
+        position: relative;
+    }
+
+    .project-preview.is-coming-soon::after {
+        top: 50%;
+    }
+
+    #project-image {
+        order: 2;
+        margin: 12px auto;
+    }
+
+    .project-copy {
+        order: 3;
+        padding-top: 16px;
+    }
+
+    .project-actions {
+        order: 4;
+        width: 100%;
+        margin-top: 14px;
+        justify-content: center;
+    }
+
+    .team-title {
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 24px;
+        text-align: left;
+    }
+
+    .testimonials {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 18px;
+        width: calc(100vw - 28px);
+        max-width: calc(100vw - 28px);
+        margin-inline: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 0 0 8px;
+    }
+
+    .testimonials::-webkit-scrollbar {
+        display: none;
+    }
+
+    .testimonial-card {
+        flex: 0 0 min(82vw, 320px);
+        width: min(82vw, 320px);
+        max-width: min(82vw, 320px);
+        min-height: min(82vw, 320px);
+        aspect-ratio: 1 / 1;
+        scroll-snap-align: start;
+        justify-self: auto;
+        padding: 42px 34px;
+    }
+
+    .site-footer {
+        min-height: 188px;
+        padding-block: 20px 14px;
+    }
+
+    .legal-page .legal-main {
+        padding: 84px 0 48px;
+    }
+
+    .legal-page .legal-content {
+        width: min(calc(100% - 32px), 760px);
+    }
+}

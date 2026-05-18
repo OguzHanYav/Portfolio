@@ -1,0 +1,26 @@
+/* ============================================
+   MAIN CSS - ZENTRALER IMPORT
+   ============================================ */
+
+/* Base */
+@import url("./base/variables.css");
+@import url("./base/reset.css");
+@import url("./base/typography.css");
+
+/* Components */
+@import url("./components/brand-logo.css");
+@import url("./components/scroll.css");
+@import url("./components/legal.css");
+
+/* Layout */
+@import url("./layout/header.css");
+@import url("./layout/hero.css");
+@import url("./layout/sections.css");
+@import url("./layout/contact.css");
+@import url("./layout/footer.css");
+
+/* Responsive (Media Queries) */
+@import url("./responsive/desktop.css");
+@import url("./responsive/tablet.css");
+@import url("./responsive/mobile.css");
+@import url("./responsive/small-mobile.css");

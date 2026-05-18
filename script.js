@@ -1233,142 +1233,182 @@ async function submitContactRequest() {
 // ============================================
 
 (function initScrollEffects() {
-  // Alle zu animierenden Elemente auswählen
-  const animatedElements = document.querySelectorAll(
-    '.section-title, .why-highlight, .why-copy, .skill-card, .learning-bubble, ' +
-    '.project-panel, .testimonial-card, .contact-copy, .contact-info, .contact-form'
-  );
+    // Alle zu animierenden Elemente auswählen
+    const animatedElements = document.querySelectorAll(
+        '.section-title, .why-highlight, .why-copy, .skill-card, .learning-bubble, ' +
+        '.project-panel, .testimonial-card, .contact-copy, .contact-info, .contact-form'
+    );
 
-  // Observer für Scroll-Animationen
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('scroll-visible');
-      }
+    // Observer für Scroll-Animationen
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-visible');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
 
-  // CSS-Klassen für Animation vorbereiten und beobachten
-  animatedElements.forEach(el => {
-    el.classList.add('scroll-hidden');
-    fadeObserver.observe(el);
-  });
+    // CSS-Klassen für Animation vorbereiten und beobachten
+    animatedElements.forEach(el => {
+        el.classList.add('scroll-hidden');
+        fadeObserver.observe(el);
+    });
 
-  // Spezielle Behandlung für Skills-Grid (jede Karte einzeln)
-  const skillCards = document.querySelectorAll('.skill-card');
-  skillCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.03}s`;
-  });
+    // Spezielle Behandlung für Skills-Grid (jede Karte einzeln)
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.03}s`;
+    });
 
-  // Spezielle Behandlung für Testimonials
-  const testimonials = document.querySelectorAll('.testimonial-card');
-  testimonials.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
-  });
+    // Spezielle Behandlung für Testimonials
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    testimonials.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
 
-  // ============================================
-  // ACTIVE NAVIGATION HIGHLIGHTING - KORRIGIERT
-  // ============================================
+    // ============================================
+    // ACTIVE NAVIGATION HIGHLIGHTING
+    // ============================================
 
-  // Definiere die Sektionen mit korrekten IDs
-  const sections = [
-    { id: 'hero', navSelector: '.desktop-nav a[href="#top"], .mobile-link[href="#top"]', isHero: true },
-    { id: 'why-title', navSelector: '.desktop-nav a[href="#why-title"], .mobile-link[href="#why-title"]' },
-    { id: 'skills-title', navSelector: '.desktop-nav a[href="#skills-title"], .mobile-link[href="#skills-title"]' },
-    { id: 'projects-title', navSelector: '.desktop-nav a[href="#projects-title"], .mobile-link[href="#projects-title"]' },
-    { id: 'contact-title', navSelector: '.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]' }
-  ];
+    const sections = [
+        { id: 'why-title', navSelector: '.desktop-nav a[href="#why-title"], .mobile-link[href="#why-title"]' },
+        { id: 'skills-title', navSelector: '.desktop-nav a[href="#skills-title"], .mobile-link[href="#skills-title"]' },
+        { id: 'projects-title', navSelector: '.desktop-nav a[href="#projects-title"], .mobile-link[href="#projects-title"]' },
+        { id: 'contact-title', navSelector: '.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]' }
+    ];
 
-  // Hole die Hero-Sektion (die ganze Hero- Section)
-  const heroSection = document.querySelector('.hero');
+    const heroSection = document.querySelector('.hero');
 
-  function updateActiveNavLink() {
-    const scrollPosition = window.scrollY + 200; // Offset für Nav-Höhe
-    const windowHeight = window.innerHeight;
+    function updateActiveNavLink() {
+        const scrollPosition = window.scrollY + 150;
+        const heroBottom = heroSection?.offsetHeight || 600;
 
-    // Prüfe zuerst, ob wir im Hero-Bereich sind (oben auf der Seite)
-    const isInHero = scrollPosition < (heroSection?.offsetHeight || 600) - 100;
-
-    if (isInHero) {
-      // Hero-Bereich: KEIN Link aktiv
-      document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      return;
-    }
-
-    // Sonst: Prüfe alle anderen Sektionen
-    let activeFound = false;
-
-    for (const section of sections) {
-      if (section.isHero) continue; // Hero überspringen
-
-      const element = document.getElementById(section.id);
-      if (element) {
-        const offsetTop = element.offsetTop;
-        const offsetBottom = offsetTop + element.offsetHeight;
-
-        // Füge einen kleinen Puffer hinzu für besseres Verhalten
-        if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetBottom - 50) {
-          // Entferne aktive Klasse von allen
-          document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
-            link.classList.remove('active');
-          });
-
-          // Füge aktive Klasse zu den korrekten Links hinzu
-          document.querySelectorAll(section.navSelector).forEach(link => {
-            link.classList.add('active');
-          });
-          activeFound = true;
-          break;
+        // Hero-Bereich: Kein Link aktiv
+        if (scrollPosition < heroBottom - 100) {
+            document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            return;
         }
-      }
-    }
 
-    // Falls keine Sektion gefunden wurde (z.B. zwischen Sektionen oder ganz unten)
-    if (!activeFound && !isInHero) {
-      // Prüfe ob wir ganz unten auf der Seite sind (Contact-Bereich)
-      const contactElement = document.getElementById('contact-title');
-      if (contactElement) {
-        const contactTop = contactElement.offsetTop;
-        const scrollBottom = window.scrollY + windowHeight;
-        const pageHeight = document.documentElement.scrollHeight;
+        let activeFound = false;
 
-        // Wenn wir fast am Ende der Seite sind, aktiviere Contact
-        if (scrollBottom >= pageHeight - 200) {
-          document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
-            link.classList.remove('active');
-          });
-          document.querySelectorAll('.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]').forEach(link => {
-            link.classList.add('active');
-          });
+        for (const section of sections) {
+            const element = document.getElementById(section.id);
+            if (element) {
+                const offsetTop = element.offsetTop;
+                const offsetBottom = offsetTop + element.offsetHeight;
+
+                if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetBottom - 50) {
+                    document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    document.querySelectorAll(section.navSelector).forEach(link => {
+                        link.classList.add('active');
+                    });
+                    activeFound = true;
+                    break;
+                }
+            }
         }
-      }
-    }
-  }
 
-  // Scroll-Event für aktive Navigation (mit throttle für Performance)
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
+        // Contact aktivieren wenn am Ende der Seite
+        if (!activeFound) {
+            const scrollBottom = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            if (scrollBottom >= pageHeight - 200) {
+                document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelectorAll('.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]').forEach(link => {
+                    link.classList.add('active');
+                });
+            }
+        }
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateActiveNavLink();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    setTimeout(() => {
         updateActiveNavLink();
-        ticking = false;
-      });
-      ticking = true;
+    }, 100);
+
+    window.addEventListener('resize', () => {
+        updateActiveNavLink();
+    });
+
+})();
+
+// ============================================
+// MOBILE SCROLL FIX - Präzises Scrollen zu Sektionen
+// ============================================
+
+(function fixMobileScrolling() {
+    // Alle Navigations-Links abfangen
+    const allNavLinks = document.querySelectorAll('.mobile-link, .scroll-down, .scroll-up');
+    
+    // Funktion zum Berechnen des korrekten Offsets
+    function getScrollOffset() {
+        const isMobile = window.innerWidth <= 991;
+        
+        if (isMobile) {
+            // Mobile: Nur 20px Abstand vom oberen Rand
+            return 70;
+        } else {
+            // Desktop: Normale Nav-Höhe
+            const navStrip = document.querySelector('.nav-strip');
+            return navStrip?.offsetHeight || 104;
+        }
     }
-  });
-
-  // Initial ausführen (nach kurzer Verzögerung, damit DOM fertig ist)
-  setTimeout(() => {
-    updateActiveNavLink();
-  }, 100);
-
-  // Auch bei Resize aktualisieren
-  window.addEventListener('resize', () => {
-    updateActiveNavLink();
-  });
+    
+    // Alle Links mit Hash (#) abfangen
+    allNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            // Event-Listener hinzufügen
+            link.addEventListener('click', (e) => {
+                const targetId = href.substring(1);
+                if (!targetId) return;
+                
+                // Spezialfall für Hero (top)
+                if (targetId === 'top' || targetId === '') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    history.pushState(null, null, '#top');
+                    return;
+                }
+                
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const offset = getScrollOffset();
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    history.pushState(null, null, href);
+                }
+            });
+        }
+    });
 })();

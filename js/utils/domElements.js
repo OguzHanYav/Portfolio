@@ -1,0 +1,12 @@
+export const burger = document.getElementById("burger");
+export const mobileMenu = document.getElementById("mobileMenu");
+export const nameInput = document.getElementById("name");
+export const emailInput = document.getElementById("email");
+export const messageInput = document.getElementById("message");
+export const privacyCheckbox = document.getElementById("privacy");
+export const submitBtn = document.getElementById("submit-btn");
+export const feedback = document.getElementById("form-feedback");
+export const whyHighlight = document.getElementById("why-highlight");
+export const whyHighlightIcon = document.getElementById("why-highlight-icon");
+export const whyHighlightText = document.getElementById("why-highlight-text");
+export const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
