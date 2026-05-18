@@ -56,7 +56,7 @@ body.portfolio-page {
     flex-direction: column;
 }
 
-body.portfolio-page > main {
+body.portfolio-page>main {
     flex: 1 0 auto;
 }
 
@@ -94,7 +94,7 @@ button {
     flex-direction: column;
 }
 
-.site-frame > main {
+.site-frame>main {
     flex: 1 0 auto;
 }
 
@@ -174,6 +174,11 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.brand-logo:hover .brand-icon {
+    transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transform: scaleX(1.12);
 }
 
 .brand-icon {
@@ -354,8 +359,8 @@ button {
     object-fit: contain;
 }
 
-.hero > .scroll-down,
-.hero-inner > .scroll-down,
+.hero>.scroll-down,
+.hero-inner>.scroll-down,
 .hero .scroll-down:not(.hero-copy .scroll-down) {
     display: none !important;
 }
@@ -371,6 +376,7 @@ button {
     flex-direction: column;
     gap: 16px;
     flex-shrink: 0;
+    z-index: 23;
 }
 
 .hero-socials a,
@@ -633,8 +639,16 @@ button {
 }
 
 @keyframes why-caret-blink {
-    0%, 45% { opacity: 1; }
-    46%, 100% { opacity: 0; }
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
 }
 
 .why-highlight-prefix {
@@ -678,7 +692,7 @@ button {
     justify-content: center;
 }
 
-#skills > .section-shell {
+#skills>.section-shell {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -774,7 +788,7 @@ button {
     filter: brightness(1.03);
 }
 
-.learning-bubble > * {
+.learning-bubble>* {
     position: relative;
     z-index: 1;
 }
@@ -849,7 +863,7 @@ button {
     background: var(--panel);
 }
 
-#projects > .section-shell {
+#projects>.section-shell {
     width: min(calc(100% - var(--section-gutter) * 2), var(--container-max));
     max-width: var(--container-max);
     margin: 0 auto;
@@ -1138,7 +1152,7 @@ button {
     filter: brightness(1.03);
 }
 
-.testimonial-card > * {
+.testimonial-card>* {
     position: relative;
     z-index: 1;
     max-width: 252px;
@@ -1345,15 +1359,15 @@ textarea::placeholder {
     background-image: url("./assets/img/figma-assets/contact/checkbox-hover.svg");
 }
 
-.checkbox-row input:checked + .checkbox-icon {
+.checkbox-row input:checked+.checkbox-icon {
     background-image: url("./assets/img/figma-assets/contact/checkbox-checked.svg");
 }
 
-.checkbox-row input.is-invalid + .checkbox-icon {
+.checkbox-row input.is-invalid+.checkbox-icon {
     background-image: url("./assets/img/figma-assets/contact/checkbox-error.svg");
 }
 
-.checkbox-row input:focus-visible + .checkbox-icon {
+.checkbox-row input:focus-visible+.checkbox-icon {
     outline: 1px solid rgba(145, 196, 230, 0.75);
     outline-offset: 2px;
 }
@@ -1605,6 +1619,7 @@ textarea::placeholder {
 
 .legal-page .legal-title {
     margin-bottom: 40px;
+    margin-top: 40px;
     text-align: left;
 }
 
@@ -1668,6 +1683,7 @@ body.legal-page .legal-frame {
 }
 
 @media (max-width: 991px) {
+
     #why-title,
     #skills-title,
     #projects-title,
@@ -1945,9 +1961,17 @@ body.legal-page .legal-frame {
         transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease;
     }
 
-    .burger span:nth-child(1) { top: 0; }
-    .burger span:nth-child(2) { top: 7px; }
-    .burger span:nth-child(3) { top: 14px; }
+    .burger span:nth-child(1) {
+        top: 0;
+    }
+
+    .burger span:nth-child(2) {
+        top: 7px;
+    }
+
+    .burger span:nth-child(3) {
+        top: 14px;
+    }
 
     .burger.open span:nth-child(1) {
         top: 7px;
@@ -2377,7 +2401,7 @@ body.legal-page .legal-frame {
         padding: 34px 24px;
     }
 
-    .testimonial-card > * {
+    .testimonial-card>* {
         max-width: 170px;
     }
 
@@ -2459,12 +2483,15 @@ body.legal-page .legal-frame {
         --section-gutter: 14px;
     }
 
-    html, body, .site-frame {
+    html,
+    body,
+    .site-frame {
         width: 100%;
         max-width: 100%;
     }
 
-    body, body *:not(.section-title):not(#hero-name):not(#hero-role) {
+    body,
+    body *:not(.section-title):not(#hero-name):not(#hero-role) {
         font-size: max(1rem, 1em);
     }
 
@@ -3230,6 +3257,7 @@ body.legal-page .legal-frame {
         width: 100%;
     }
 }
+
 /* ============================================
    SCROLL ANIMATIONS
    ============================================ */
@@ -3394,6 +3422,7 @@ html {
    REDUCED MOTION RESPEKT
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
+
     .scroll-hidden,
     .scroll-visible,
     .skill-card,
@@ -3410,11 +3439,11 @@ html {
         opacity: 1 !important;
         transform: none !important;
     }
-    
+
     .scroll-progress-bar {
         display: none;
     }
-    
+
     .hero-image,
     .hero-image-wrap {
         transform: none !important;

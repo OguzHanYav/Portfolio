@@ -116,17 +116,17 @@ const translations = {
       sahra: {
         role: "Project DA Bubble",
         quote:
-          '"Oguz Han had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person."'
+          '"Oguz Han had to develop, format and deliver content in collaboration with the team members. He is a reliable and friendly person."'
       },
       james: {
         role: "Project Join",
         quote:
-          '"Oguz Han is a reliable and friendly person. Works in a structured way and writes a clear code. I recommend her as a colleague."'
+          '"Oguz Han is a reliable and friendly person. Works in a structured way and writes a clear code. I recommend him as a colleague."'
       },
       evelyn: {
         role: "Project Sharkie",
         quote:
-          '"She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clean code."'
+          '"He is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clean code."'
       }
     },
     contact: {
@@ -258,17 +258,17 @@ const translations = {
       sahra: {
         role: "Projekt DA Bubble",
         quote:
-          '"Oguz Han hat Inhalte gemeinsam mit dem Team entwickelt, aufbereitet und umgesetzt. Sie ist eine zuverlässige und freundliche Person."'
+          '"Oguz Han hat Inhalte gemeinsam mit dem Team entwickelt, aufbereitet und umgesetzt. Er ist eine zuverlässige und freundliche Person."'
       },
       james: {
         role: "Projekt Join",
         quote:
-          '"Oguz Han ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle sie als Kollegin weiter."'
+          '"Oguz Han ist eine zuverlässige und freundliche Person. Er arbeitet strukturiert und schreibt klaren Code. Ich empfehle ihn als Kollege weiter."'
       },
       evelyn: {
         role: "Projekt Sharkie",
         quote:
-          '"Sie ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
+          '"Er ist ein vertrauenswürdiger Teamplayer und kann gut mit dem Druck von Deadlines umgehen. Strukturiertes Arbeiten und sauberer Code."'
       }
     },
     contact: {
@@ -356,41 +356,41 @@ const translations = {
 };
 
 const projects = [
-  {
-    key: "dabubble",
-    tab: { en: "1. DA Bubble", de: "1. DA Bubble" },
-    title: { en: "DA Bubble", de: "DA Bubble" },
-    techLine: {
-      en: "Technologies Angular TypeScript Firebase",
-      de: "Technologien Angular TypeScript Firebase"
-    },
-    duration: { en: "Duration: 3 weeks", de: "Dauer: 3 Wochen" },
-    description: {
-      en:
-        "This app is a Slack clone. It improves team communication and collaboration with an intuitive interface, real-time messaging and clearly structured channels.",
-      de:
-        "Diese App ist ein Slack-Klon. Sie verbessert Teamkommunikation und Zusammenarbeit durch eine intuitive Oberflaeche, Echtzeit-Nachrichten und klar strukturierte Kanaele."
-    },
-    process: {
-      en:
-        "The project was split into reusable modules and components. Clear naming, documentation and testing helped keep the code base clean and maintainable.",
-      de:
-        "Das Projekt wurde in wiederverwendbare Module und Komponenten aufgeteilt. Klare Benennung, Dokumentation und Tests haben geholfen, die Codebasis sauber und wartbar zu halten."
-    },
-    team: {
-      en:
-        "In the team, I contributed to core features, coordinated implementation details and supported smooth collaboration across the project.",
-      de:
-        "Im Team habe ich an zentralen Features gearbeitet, die Umsetzung abgestimmt und zu einer reibungslosen Zusammenarbeit im Projekt beigetragen."
-    },
-    live: "",
-    github: "https://github.com/OguzHanYav/Join-portfolio",
-    image: "./assets/img/figma-assets/projects/dabubble.svg",
-    tech: ["angular", "ts", "firebase"]
-  },
+  // {
+  //   key: "dabubble",
+  //   tab: { en: "1. DA Bubble", de: "1. DA Bubble" },
+  //   title: { en: "DA Bubble", de: "DA Bubble" },
+  //   techLine: {
+  //     en: "Technologies Angular TypeScript Firebase",
+  //     de: "Technologien Angular TypeScript Firebase"
+  //   },
+  //   duration: { en: "Duration: 3 weeks", de: "Dauer: 3 Wochen" },
+  //   description: {
+  //     en:
+  //       "This app is a Slack clone. It improves team communication and collaboration with an intuitive interface, real-time messaging and clearly structured channels.",
+  //     de:
+  //       "Diese App ist ein Slack-Klon. Sie verbessert Teamkommunikation und Zusammenarbeit durch eine intuitive Oberflaeche, Echtzeit-Nachrichten und klar strukturierte Kanaele."
+  //   },
+  //   process: {
+  //     en:
+  //       "The project was split into reusable modules and components. Clear naming, documentation and testing helped keep the code base clean and maintainable.",
+  //     de:
+  //       "Das Projekt wurde in wiederverwendbare Module und Komponenten aufgeteilt. Klare Benennung, Dokumentation und Tests haben geholfen, die Codebasis sauber und wartbar zu halten."
+  //   },
+  //   team: {
+  //     en:
+  //       "In the team, I contributed to core features, coordinated implementation details and supported smooth collaboration across the project.",
+  //     de:
+  //       "Im Team habe ich an zentralen Features gearbeitet, die Umsetzung abgestimmt und zu einer reibungslosen Zusammenarbeit im Projekt beigetragen."
+  //   },
+  //   live: "",
+  //   github: "https://github.com/OguzHanYav/Join-portfolio",
+  //   image: "./assets/img/figma-assets/projects/dabubble.svg",
+  //   tech: ["angular", "ts", "firebase"]
+  // },
   {
     key: "elpolloloco",
-    tab: { en: "2. El Pollo Loco", de: "2. El Pollo Loco" },
+    tab: { en: "1. El Pollo Loco", de: "1. El Pollo Loco" },
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     techLine: {
       en: "Technologies HTML JavaScript CSS",
@@ -422,7 +422,7 @@ const projects = [
   },
   {
     key: "join",
-    tab: { en: "3. Join", de: "3. Join" },
+    tab: { en: "2. Join", de: "2. Join" },
     title: { en: "Join", de: "Join" },
     techLine: {
       en: "Technologies JavaScript HTML CSS",
@@ -451,39 +451,39 @@ const projects = [
     github: "https://github.com/OguzHanYav/Join-Public ",
     image: "./assets/img/figma-assets/projects/join project.svg",
     tech: ["javascript", "html", "css"]
-  },
-  {
-    key: "ongoing",
-    tab: { en: "4. Ongoing Project", de: "4. Laufendes Projekt" },
-    title: { en: "Ongoing Project", de: "Laufendes Projekt" },
-    techLine: {
-      en: "Technologies Angular TypeScript HTML CSS",
-      de: "Technologien Angular TypeScript HTML CSS"
-    },
-    duration: { en: "Duration: ongoing", de: "Dauer: fortlaufend" },
-    description: {
-      en:
-        "A current learning project where modern frontend patterns, accessibility and component structure continue to be refined.",
-      de:
-        "Ein aktuelles Lernprojekt, in dem moderne Frontend-Muster, Barrierefreiheit und Komponentenstrukturen weiter verfeinert werden."
-    },
-    process: {
-      en:
-        "The process is centred around continuous iteration, prototyping and polishing the interaction design for desktop and mobile.",
-      de:
-        "Der Prozess ist auf kontinuierliche Iteration, Prototyping und die Verfeinerung des Interaktionsdesigns für Desktop und Mobile ausgerichtet."
-    },
-    team: {
-      en:
-        "It supports stronger collaboration habits, clearer planning and better communication of progress.",
-      de:
-        "Es unterstützt stärkere Kollaborationsgewohnheiten, klarere Planung und eine bessere Kommunikation von Fortschritten."
-    },
-    live: "#",
-    github: "#",
-    image: "./assets/img/figma-assets/projects/comingsoon.svg",
-    tech: ["angular", "ts", "html", "css"]
   }
+  // {
+  //   key: "ongoing",
+  //   tab: { en: "4. Ongoing Project", de: "4. Laufendes Projekt" },
+  //   title: { en: "Ongoing Project", de: "Laufendes Projekt" },
+  //   techLine: {
+  //     en: "Technologies Angular TypeScript HTML CSS",
+  //     de: "Technologien Angular TypeScript HTML CSS"
+  //   },
+  //   duration: { en: "Duration: ongoing", de: "Dauer: fortlaufend" },
+  //   description: {
+  //     en:
+  //       "A current learning project where modern frontend patterns, accessibility and component structure continue to be refined.",
+  //     de:
+  //       "Ein aktuelles Lernprojekt, in dem moderne Frontend-Muster, Barrierefreiheit und Komponentenstrukturen weiter verfeinert werden."
+  //   },
+  //   process: {
+  //     en:
+  //       "The process is centred around continuous iteration, prototyping and polishing the interaction design for desktop and mobile.",
+  //     de:
+  //       "Der Prozess ist auf kontinuierliche Iteration, Prototyping und die Verfeinerung des Interaktionsdesigns für Desktop und Mobile ausgerichtet."
+  //   },
+  //   team: {
+  //     en:
+  //       "It supports stronger collaboration habits, clearer planning and better communication of progress.",
+  //     de:
+  //       "Es unterstützt stärkere Kollaborationsgewohnheiten, klarere Planung und eine bessere Kommunikation von Fortschritten."
+  //   },
+  //   live: "#",
+  //   github: "#",
+  //   image: "./assets/img/figma-assets/projects/comingsoon.svg",
+  //   tech: ["angular", "ts", "html", "css"]
+  // }
 ];
 
 const whyHighlights = [
@@ -1233,92 +1233,142 @@ async function submitContactRequest() {
 // ============================================
 
 (function initScrollEffects() {
-    // Alle zu animierenden Elemente auswählen
-    const animatedElements = document.querySelectorAll(
-        '.section-title, .why-highlight, .why-copy, .skill-card, .learning-bubble, ' +
-        '.project-panel, .testimonial-card, .contact-copy, .contact-info, .contact-form'
-    );
-    
-    // Observer für Scroll-Animationen
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('scroll-visible');
-                // Optional: Beobachten nach dem ersten Erscheinen beenden
-                // fadeObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15,        // Element wird sichtbar bei 15% Sichtbarkeit
-        rootMargin: '0px 0px -50px 0px'  // Leichter Versatz für besseres Timing
+  // Alle zu animierenden Elemente auswählen
+  const animatedElements = document.querySelectorAll(
+    '.section-title, .why-highlight, .why-copy, .skill-card, .learning-bubble, ' +
+    '.project-panel, .testimonial-card, .contact-copy, .contact-info, .contact-form'
+  );
+
+  // Observer für Scroll-Animationen
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scroll-visible');
+      }
     });
-    
-    // CSS-Klassen für Animation vorbereiten und beobachten
-    animatedElements.forEach(el => {
-        el.classList.add('scroll-hidden');
-        fadeObserver.observe(el);
-    });
-    
-    // Spezielle Behandlung für Skills-Grid (jede Karte einzeln)
-    const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach((card, index) => {
-        card.style.transitionDelay = `${index * 0.03}s`;
-    });
-    
-    // Spezielle Behandlung für Testimonials
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    testimonials.forEach((card, index) => {
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
-    
-    // ============================================
-    // ACTIVE NAVIGATION HIGHLIGHTING
-    // ============================================
-    
-    const sections = [
-        { id: 'why-title', navSelector: '.desktop-nav a[href="#why-title"], .mobile-link[href="#why-title"]' },
-        { id: 'skills-title', navSelector: '.desktop-nav a[href="#skills-title"], .mobile-link[href="#skills-title"]' },
-        { id: 'projects-title', navSelector: '.desktop-nav a[href="#projects-title"], .mobile-link[href="#projects-title"]' },
-        { id: 'contact-title', navSelector: '.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]' }
-    ];
-    
-    function updateActiveNavLink() {
-        const scrollPosition = window.scrollY + 150; // Offset für Nav-Höhe
-        
-        for (const section of sections) {
-            const element = document.getElementById(section.id);
-            if (element) {
-                const offsetTop = element.offsetTop;
-                const offsetBottom = offsetTop + element.offsetHeight;
-                
-                if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-                    // Aktive Klasse hinzufügen
-                    document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    document.querySelectorAll(section.navSelector).forEach(link => {
-                        link.classList.add('active');
-                    });
-                    break;
-                }
-            }
-        }
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // CSS-Klassen für Animation vorbereiten und beobachten
+  animatedElements.forEach(el => {
+    el.classList.add('scroll-hidden');
+    fadeObserver.observe(el);
+  });
+
+  // Spezielle Behandlung für Skills-Grid (jede Karte einzeln)
+  const skillCards = document.querySelectorAll('.skill-card');
+  skillCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.03}s`;
+  });
+
+  // Spezielle Behandlung für Testimonials
+  const testimonials = document.querySelectorAll('.testimonial-card');
+  testimonials.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+  });
+
+  // ============================================
+  // ACTIVE NAVIGATION HIGHLIGHTING - KORRIGIERT
+  // ============================================
+
+  // Definiere die Sektionen mit korrekten IDs
+  const sections = [
+    { id: 'hero', navSelector: '.desktop-nav a[href="#top"], .mobile-link[href="#top"]', isHero: true },
+    { id: 'why-title', navSelector: '.desktop-nav a[href="#why-title"], .mobile-link[href="#why-title"]' },
+    { id: 'skills-title', navSelector: '.desktop-nav a[href="#skills-title"], .mobile-link[href="#skills-title"]' },
+    { id: 'projects-title', navSelector: '.desktop-nav a[href="#projects-title"], .mobile-link[href="#projects-title"]' },
+    { id: 'contact-title', navSelector: '.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]' }
+  ];
+
+  // Hole die Hero-Sektion (die ganze Hero- Section)
+  const heroSection = document.querySelector('.hero');
+
+  function updateActiveNavLink() {
+    const scrollPosition = window.scrollY + 200; // Offset für Nav-Höhe
+    const windowHeight = window.innerHeight;
+
+    // Prüfe zuerst, ob wir im Hero-Bereich sind (oben auf der Seite)
+    const isInHero = scrollPosition < (heroSection?.offsetHeight || 600) - 100;
+
+    if (isInHero) {
+      // Hero-Bereich: KEIN Link aktiv
+      document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      return;
     }
-    
-    // Scroll-Event für aktive Navigation (mit throttle für Performance)
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                updateActiveNavLink();
-                ticking = false;
-            });
-            ticking = true;
+
+    // Sonst: Prüfe alle anderen Sektionen
+    let activeFound = false;
+
+    for (const section of sections) {
+      if (section.isHero) continue; // Hero überspringen
+
+      const element = document.getElementById(section.id);
+      if (element) {
+        const offsetTop = element.offsetTop;
+        const offsetBottom = offsetTop + element.offsetHeight;
+
+        // Füge einen kleinen Puffer hinzu für besseres Verhalten
+        if (scrollPosition >= offsetTop - 100 && scrollPosition < offsetBottom - 50) {
+          // Entferne aktive Klasse von allen
+          document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+            link.classList.remove('active');
+          });
+
+          // Füge aktive Klasse zu den korrekten Links hinzu
+          document.querySelectorAll(section.navSelector).forEach(link => {
+            link.classList.add('active');
+          });
+          activeFound = true;
+          break;
         }
-    });
-    
-    // Initial ausführen
+      }
+    }
+
+    // Falls keine Sektion gefunden wurde (z.B. zwischen Sektionen oder ganz unten)
+    if (!activeFound && !isInHero) {
+      // Prüfe ob wir ganz unten auf der Seite sind (Contact-Bereich)
+      const contactElement = document.getElementById('contact-title');
+      if (contactElement) {
+        const contactTop = contactElement.offsetTop;
+        const scrollBottom = window.scrollY + windowHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        // Wenn wir fast am Ende der Seite sind, aktiviere Contact
+        if (scrollBottom >= pageHeight - 200) {
+          document.querySelectorAll('.desktop-nav a, .mobile-link').forEach(link => {
+            link.classList.remove('active');
+          });
+          document.querySelectorAll('.desktop-nav a[href="#contact-title"], .mobile-link[href="#contact-title"]').forEach(link => {
+            link.classList.add('active');
+          });
+        }
+      }
+    }
+  }
+
+  // Scroll-Event für aktive Navigation (mit throttle für Performance)
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActiveNavLink();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial ausführen (nach kurzer Verzögerung, damit DOM fertig ist)
+  setTimeout(() => {
     updateActiveNavLink();
-    
+  }, 100);
+
+  // Auch bei Resize aktualisieren
+  window.addEventListener('resize', () => {
+    updateActiveNavLink();
+  });
 })();
